@@ -1,6 +1,8 @@
 package us.wili.tools56.model.asyncResp.bankroll;
 
+import com.alibaba.fastjson.JSONObject;
 import us.wili.tools56.model.asyncResp.BaseAsyncResp;
+import us.wili.tools56.model.asyncResp.account.SetPasswordPAsyncResp;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +14,10 @@ public class BankRechargeAsyncResp extends BaseAsyncResp {
     private String amount;
     private String url;
     private String order_no;
+
+    public static BankRechargeAsyncResp fromJson(String content) {
+        return JSONObject.parseObject(content, BankRechargeAsyncResp.class);
+    }
 
     @Override
     public Map<String, Object> toMap() {

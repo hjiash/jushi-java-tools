@@ -1,8 +1,11 @@
 package us.wili.tools56.model.resp.account;
 
+import com.alibaba.fastjson.JSONObject;
 import us.wili.tools56.model.resp.BaseResp;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
@@ -14,6 +17,32 @@ public class AccountTransactionQueryResp extends BaseResp {
     private String end_flag;
 
     private List<WaterAccount> items;
+
+    public static AccountTransactionQueryResp fromJson(String content) {
+        return JSONObject.parseObject(content, AccountTransactionQueryResp.class);
+    }
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("service", getService());
+        map.put("code", getCode());
+        map.put("msg", getMsg());
+        map.put("version", getVersion());
+        map.put("sign_type", getSign_type());
+        map.put("timestamp", getTimestamp());
+        map.put("uuid", getUuid());
+        map.put("custom", getCustom());
+        map.put("client", getClient());
+        map.put("encode", getEncode());
+        map.put("sequence_id", getSequence_id());
+        map.put("total_result", getTotal_result());
+        map.put("current_result", getCurrent_result());
+        map.put("out_num", getOut_num());
+        map.put("end_flag", getEnd_flag());
+        map.put("items", getItems());
+        return map;
+    }
 
     public String getTotal_result() {
         return total_result;

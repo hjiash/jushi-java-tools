@@ -1,6 +1,7 @@
 package us.wili.tools56.model.asyncResp.batchProcessing;
 
 
+import com.alibaba.fastjson.JSONObject;
 import us.wili.tools56.model.asyncResp.BaseAsyncResp;
 
 import java.util.HashMap;
@@ -17,6 +18,10 @@ public class BatchRepaymentBAsyncResp extends BaseAsyncResp {
     private String batch_type;
     private String batch_date;
     private List<ItemsBean> items;
+
+    public static BatchRepaymentBAsyncResp fromJson(String content) {
+        return JSONObject.parseObject(content, BatchRepaymentBAsyncResp.class);
+    }
 
     @Override
     public Map<String, Object> toMap() {

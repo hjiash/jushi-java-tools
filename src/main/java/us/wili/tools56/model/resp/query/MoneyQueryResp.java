@@ -1,6 +1,11 @@
 package us.wili.tools56.model.resp.query;
 
+import com.alibaba.fastjson.JSONObject;
 import us.wili.tools56.model.resp.BaseResp;
+import us.wili.tools56.model.resp.transaction.AuthorizationPResp;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
@@ -14,6 +19,34 @@ public class MoneyQueryResp extends BaseResp {
     private String error_code;
     private String error_msg;
     private String remark;
+
+    public static MoneyQueryResp fromJson(String content) {
+        return JSONObject.parseObject(content, MoneyQueryResp.class);
+    }
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("service", getService());
+        map.put("code", getCode());
+        map.put("msg", getMsg());
+        map.put("version", getVersion());
+        map.put("sign_type", getSign_type());
+        map.put("timestamp", getTimestamp());
+        map.put("uuid", getUuid());
+        map.put("custom", getCustom());
+        map.put("client", getClient());
+        map.put("sequence_id", getSequence_id());
+        map.put("status", getStatus());
+        map.put("name", getName());
+        map.put("bind_card", getBind_card());
+        map.put("amount", getAmount());
+        map.put("order_time", getOrder_time());
+        map.put("error_code", getError_code());
+        map.put("error_msg", getError_msg());
+        map.put("remark", getRemark());
+        return map;
+    }
 
     public String getStatus() {
         return status;

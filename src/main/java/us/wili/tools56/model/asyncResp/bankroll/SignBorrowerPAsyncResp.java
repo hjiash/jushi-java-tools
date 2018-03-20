@@ -1,6 +1,7 @@
 package us.wili.tools56.model.asyncResp.bankroll;
 
 
+import com.alibaba.fastjson.JSONObject;
 import us.wili.tools56.model.asyncResp.BaseAsyncResp;
 
 import java.util.HashMap;
@@ -21,6 +22,10 @@ public class SignBorrowerPAsyncResp extends BaseAsyncResp {
     private String repayment_end_time;
     private String sign_date;
     private String sign_time;
+
+    public static SignBorrowerPAsyncResp fromJson(String content) {
+        return JSONObject.parseObject(content, SignBorrowerPAsyncResp.class);
+    }
 
 
     @Override

@@ -1,6 +1,10 @@
 package us.wili.tools56.model.resp.account;
 
+import com.alibaba.fastjson.JSONObject;
 import us.wili.tools56.model.resp.BaseResp;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
@@ -19,6 +23,40 @@ public class CreateAccountSrQueryResp extends BaseResp {
     private String status;
     private String rsp_code;
     private String account_type;
+
+    public static CreateAccountSrQueryResp fromJson(String content) {
+        return JSONObject.parseObject(content, CreateAccountSrQueryResp.class);
+    }
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("service", getService());
+        map.put("code", getCode());
+        map.put("msg", getMsg());
+        map.put("version", getVersion());
+        map.put("sign_type", getSign_type());
+        map.put("timestamp", getTimestamp());
+        map.put("uuid", getUuid());
+        map.put("custom", getCustom());
+        map.put("client", getClient());
+        map.put("encode", getEncode());
+        map.put("sequence_id", getSequence_id());
+        map.put("name", getName());
+        map.put("card_no", getCard_no());
+        map.put("cert_no", getCert_no());
+        map.put("order_id", getOrder_id());
+        map.put("cert_type", getCert_type());
+        map.put("customer_no", getCustomer_no());
+        map.put("bank_card_no", getBank_card_no());
+        map.put("mobile", getMobile());
+        map.put("bank_name", getBank_name());
+        map.put("status", getStatus());
+        map.put("rsp_code", getRsp_code());
+        map.put("account_type", getAccount_type());
+        return map;
+    }
+
 
     public String getName() {
         return name;

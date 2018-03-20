@@ -1,8 +1,11 @@
 package us.wili.tools56.model.resp.account;
 
+import com.alibaba.fastjson.JSONObject;
 import us.wili.tools56.model.resp.BaseResp;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
@@ -14,6 +17,34 @@ public class AccountCreditsResp extends BaseResp {
     private String page_flag;
 
     private List<Subject> items;
+
+    public static AccountCreditsResp fromJson(String content) {
+        return JSONObject.parseObject(content, AccountCreditsResp.class);
+    }
+
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("service", getService());
+        map.put("code", getCode());
+        map.put("msg", getMsg());
+        map.put("version", getVersion());
+        map.put("sign_type", getSign_type());
+        map.put("timestamp", getTimestamp());
+        map.put("uuid", getUuid());
+        map.put("custom", getCustom());
+        map.put("client", getClient());
+        map.put("sequence_id", getSequence_id());
+        map.put("encode", getEncode());
+        map.put("card_no", getCard_no());
+        map.put("name", getName());
+        map.put("count", getCount());
+        map.put("page_flag", getPage_flag());
+        map.put("items", getItems());
+        return map;
+    }
+
 
     public String getCard_no() {
         return card_no;

@@ -1,6 +1,10 @@
 package us.wili.tools56.model.resp.query;
 
+import com.alibaba.fastjson.JSONObject;
 import us.wili.tools56.model.resp.BaseResp;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
@@ -17,6 +21,36 @@ public class ApplyBidQueryResp extends BaseResp {
     private String buy_date;
     private String card_no;
     private String product;
+
+    public static ApplyBidQueryResp fromJson(String content) {
+        return JSONObject.parseObject(content, ApplyBidQueryResp.class);
+    }
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("service", getService());
+        map.put("code", getCode());
+        map.put("msg", getMsg());
+        map.put("version", getVersion());
+        map.put("sign_type", getSign_type());
+        map.put("timestamp", getTimestamp());
+        map.put("uuid", getUuid());
+        map.put("custom", getCustom());
+        map.put("client", getClient());
+        map.put("sequence_id", getSequence_id());
+        map.put("card_no", getCard_no());
+        map.put("state", getState());
+        map.put("name", getName());
+        map.put("forcast_income", getForcast_income());
+        map.put("bonus_amount", getBonus_amount());
+        map.put("auth_code", getAuth_code());
+        map.put("bid_amount", getBid_amount());
+        map.put("asset_no", getAsset_no());
+        map.put("buy_date", getBuy_date());
+        map.put("product", getProduct());
+        return map;
+    }
 
     public String getState() {
         return state;

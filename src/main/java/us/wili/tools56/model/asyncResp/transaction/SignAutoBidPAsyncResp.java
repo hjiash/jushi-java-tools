@@ -1,5 +1,6 @@
 package us.wili.tools56.model.asyncResp.transaction;
 
+import com.alibaba.fastjson.JSONObject;
 import us.wili.tools56.model.asyncResp.BaseAsyncResp;
 
 import java.util.HashMap;
@@ -18,6 +19,10 @@ public class SignAutoBidPAsyncResp extends BaseAsyncResp {
     private String unit_amount;
     private String sign_date;
     private String sign_time;
+
+    public static SignAutoBidPAsyncResp fromJson(String content) {
+        return JSONObject.parseObject(content, SignAutoBidPAsyncResp.class);
+    }
 
     @Override
     public Map<String, Object> toMap() {

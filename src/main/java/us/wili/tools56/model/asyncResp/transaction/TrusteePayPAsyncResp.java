@@ -1,5 +1,6 @@
 package us.wili.tools56.model.asyncResp.transaction;
 
+import com.alibaba.fastjson.JSONObject;
 import us.wili.tools56.model.asyncResp.BaseAsyncResp;
 
 import java.util.HashMap;
@@ -19,6 +20,10 @@ public class TrusteePayPAsyncResp extends BaseAsyncResp {
     private String confirm_date;
     private String confirm_time;
     private String third_custom;
+
+    public static TrusteePayPAsyncResp fromJson(String content) {
+        return JSONObject.parseObject(content, TrusteePayPAsyncResp.class);
+    }
 
     @Override
     public Map<String, Object> toMap() {

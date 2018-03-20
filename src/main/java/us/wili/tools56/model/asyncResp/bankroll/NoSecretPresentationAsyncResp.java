@@ -1,6 +1,7 @@
 package us.wili.tools56.model.asyncResp.bankroll;
 
 
+import com.alibaba.fastjson.JSONObject;
 import us.wili.tools56.model.asyncResp.BaseAsyncResp;
 
 import java.util.HashMap;
@@ -13,6 +14,11 @@ public class NoSecretPresentationAsyncResp extends BaseAsyncResp {
     private String order_no;
     private String card_no;
     private String amount;
+
+    public static NoSecretPresentationAsyncResp fromJson(String content) {
+        return JSONObject.parseObject(content, NoSecretPresentationAsyncResp.class);
+    }
+
 
     @Override
     public Map<String, Object> toMap() {

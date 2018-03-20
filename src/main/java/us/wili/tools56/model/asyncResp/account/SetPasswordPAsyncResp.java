@@ -1,6 +1,7 @@
 package us.wili.tools56.model.asyncResp.account;
 
 
+import com.alibaba.fastjson.JSONObject;
 import us.wili.tools56.model.asyncResp.BaseAsyncResp;
 
 import java.util.HashMap;
@@ -13,6 +14,10 @@ public class SetPasswordPAsyncResp extends BaseAsyncResp {
     private String out_serial_no;
     private String customer_no;
     private String card_no;
+
+    public static SetPasswordPAsyncResp fromJson(String content) {
+        return JSONObject.parseObject(content, SetPasswordPAsyncResp.class);
+    }
 
     @Override
     public Map<String, Object> toMap() {

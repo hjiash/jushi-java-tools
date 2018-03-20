@@ -31,6 +31,8 @@ public interface BatchService {
 
     BatchEndCreditBResp batchEndCreditB(BatchEndCreditBReq req);
 
+    BatchCouponBResp batchCouponB(BatchCouponBReq req);
+
     BatchCouponBAsyncResp asyncBatchCouponB(String content);
 
 }

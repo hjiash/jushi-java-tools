@@ -1,6 +1,7 @@
 package us.wili.tools56.model.asyncResp.transaction;
 
 
+import com.alibaba.fastjson.JSONObject;
 import us.wili.tools56.model.asyncResp.BaseAsyncResp;
 
 import java.util.HashMap;
@@ -20,6 +21,10 @@ public class BuyCreditPAsyncResp extends BaseAsyncResp {
     private String income;
     private String auth_code;
     private String third_custom;
+
+    public static BuyCreditPAsyncResp fromJson(String content) {
+        return JSONObject.parseObject(content, BuyCreditPAsyncResp.class);
+    }
 
     @Override
     public Map<String, Object> toMap() {

@@ -1,8 +1,11 @@
 package us.wili.tools56.model.resp.account;
 
+import com.alibaba.fastjson.JSONObject;
 import us.wili.tools56.model.resp.BaseResp;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
@@ -16,6 +19,35 @@ public class FindAccountByIdResp extends BaseResp{
     private String page_flag;
 
     private List<Account> subpacks;
+
+    public static FindAccountByIdResp fromJson(String content) {
+        return JSONObject.parseObject(content, FindAccountByIdResp.class);
+    }
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("service", getService());
+        map.put("code", getCode());
+        map.put("msg", getMsg());
+        map.put("version", getVersion());
+        map.put("sign_type", getSign_type());
+        map.put("timestamp", getTimestamp());
+        map.put("uuid", getUuid());
+        map.put("custom", getCustom());
+        map.put("client", getClient());
+        map.put("encode", getEncode());
+        map.put("sequence_id", getSequence_id());
+        map.put("name", getName());
+        map.put("cert_type", getCert_type());
+        map.put("cert_no", getCert_no());
+        map.put("name", getName());
+        map.put("customer_no", getCustomer_no());
+        map.put("count", getCount());
+        map.put("page_flag", getPage_flag());
+        map.put("subpacks", getSubpacks());
+        return map;
+    }
 
     public String getCert_type() {
         return cert_type;

@@ -1,6 +1,10 @@
 package us.wili.tools56.model.resp.bankroll;
 
+import com.alibaba.fastjson.JSONObject;
 import us.wili.tools56.model.resp.BaseResp;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
@@ -14,6 +18,35 @@ public class RevokeTransferResp extends BaseResp {
     private String end_time;
     private String sign_date;
     private String sign_time;
+
+    public static RevokeTransferResp fromJson(String content) {
+        return JSONObject.parseObject(content, RevokeTransferResp.class);
+    }
+
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("service", getService());
+        map.put("code", getCode());
+        map.put("msg", getMsg());
+        map.put("version", getVersion());
+        map.put("sign_type", getSign_type());
+        map.put("timestamp", getTimestamp());
+        map.put("uuid", getUuid());
+        map.put("custom", getCustom());
+        map.put("client", getClient());
+        map.put("encode", getEncode());
+        map.put("sequence_id", getSequence_id());
+        map.put("out_serial_no", getOut_serial_no());
+        map.put("card_no", getCard_no());
+        map.put("sign_flag", getSign_flag());
+        map.put("start_time", getStart_time());
+        map.put("end_time", getEnd_time());
+        map.put("sign_date", getSign_date());
+        map.put("sign_time", getSign_time());
+        return map;
+    }
 
     public String getOut_serial_no() {
         return out_serial_no;

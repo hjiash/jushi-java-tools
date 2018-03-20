@@ -1,6 +1,10 @@
 package us.wili.tools56.model.resp.assets;
 
+import com.alibaba.fastjson.JSONObject;
 import us.wili.tools56.model.resp.BaseResp;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
@@ -18,6 +22,40 @@ public class AssetsQueryResp extends BaseResp {
     private String warrant_name;
     private String borrow_card_no;
     private String third_custom;
+
+    public static AssetsQueryResp fromJson(String content) {
+        return JSONObject.parseObject(content, AssetsQueryResp.class);
+    }
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("service", getService());
+        map.put("code", getCode());
+        map.put("msg", getMsg());
+        map.put("version", getVersion());
+        map.put("sign_type", getSign_type());
+        map.put("timestamp", getTimestamp());
+        map.put("uuid", getUuid());
+        map.put("custom", getCustom());
+        map.put("client", getClient());
+        map.put("encode", getEncode());
+        map.put("sequence_id", getSequence_id());
+        map.put("card_no", getCard_no());
+        map.put("name", getName());
+        map.put("asset_no", getAsset_no());
+        map.put("asset_brief", getAsset_brief());
+        map.put("name", getName());
+        map.put("amount", getAmount());
+        map.put("loan_term", getLoan_term());
+        map.put("issue_date", getIssue_date());
+        map.put("state", getState());
+        map.put("warrant_card_no", getWarrant_card_no());
+        map.put("warrant_name", getWarrant_name());
+        map.put("borrow_card_no", getBorrow_card_no());
+        map.put("third_custom", getThird_custom());
+        return map;
+    }
 
     public String getAsset_no() {
         return asset_no;

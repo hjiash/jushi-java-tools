@@ -1,6 +1,8 @@
 package us.wili.tools56.model.asyncResp.account;
 
+import com.alibaba.fastjson.JSONObject;
 import us.wili.tools56.model.asyncResp.BaseAsyncResp;
+import us.wili.tools56.model.resp.account.UnBindBankCardResp;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,6 +23,10 @@ public class AccountCreatePAsyncResp extends BaseAsyncResp {
     private String rsp_code;
     private String account_type;
     private String out_serial_no;
+
+    public static AccountCreatePAsyncResp fromJson(String content) {
+        return JSONObject.parseObject(content, AccountCreatePAsyncResp.class);
+    }
 
     @Override
     public Map<String, Object> toMap() {
