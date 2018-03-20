@@ -3,14 +3,14 @@ package us.wili.tools56.model.req.transaction;
 import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
-import us.wili.dev.model.dto.req.BaseReqDto;
+import us.wili.tools56.model.req.BaseReq;
 
 import javax.validation.constraints.Pattern;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
-public class SignCreditTransferPReq extends BaseReqDto {
+public class SignCreditTransferPReq extends BaseReq {
     @ApiModelProperty(value = "电子账户,必填", required = true)
     private String card_no;
     @ApiModelProperty(value = "投标金额 ，必填,13位保留两位", required = true)

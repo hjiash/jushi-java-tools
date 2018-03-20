@@ -3,12 +3,12 @@ package us.wili.tools56.model.req.transaction;
 import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
-import us.wili.dev.model.dto.req.BaseReqDto;
+import us.wili.tools56.model.req.BaseReq;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
-public class RevokeAutoBidReq extends BaseReqDto {
+public class RevokeAutoBidReq extends BaseReq {
     @ApiModelProperty(value = "电子账户,必填", required = true)
     private String card_no;
     @ApiModelProperty(value = "申请流水号 ,必填，用于交易的唯一性标识,(32)位数", required = true)

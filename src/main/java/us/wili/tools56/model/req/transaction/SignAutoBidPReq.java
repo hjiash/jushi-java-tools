@@ -3,14 +3,14 @@ package us.wili.tools56.model.req.transaction;
 import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
-import us.wili.dev.model.dto.req.BaseReqDto;
+import us.wili.tools56.model.req.BaseReq;
 
 import javax.validation.constraints.Pattern;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
-public class SignAutoBidPReq extends BaseReqDto {
+public class SignAutoBidPReq extends BaseReq {
     @ApiModelProperty(value = "借款人电子账号，必填，限定19个字符", required = true)
     private String card_no;
     @ApiModelProperty(value = "借款金额，必填，两位小数，限定13个字符", required = true)

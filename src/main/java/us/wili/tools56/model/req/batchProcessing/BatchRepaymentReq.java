@@ -3,7 +3,7 @@ package us.wili.tools56.model.req.batchProcessing;
 import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
-import us.wili.dev.model.dto.req.BaseReqDto;
+import us.wili.tools56.model.req.BaseReq;
 
 import javax.validation.constraints.Pattern;
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by lhyue on 2018/3/17.
  */
-public class BatchRepaymentReq extends BaseReqDto {
+public class BatchRepaymentReq extends BaseReq {
 
     @ApiModelProperty(value = "批次号 ,必填,30", required = true)
     private String batch_no;

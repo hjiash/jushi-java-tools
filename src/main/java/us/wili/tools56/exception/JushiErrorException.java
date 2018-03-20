@@ -15,9 +15,19 @@ public class JushiErrorException extends Exception {
         this.errCode = errCode;
     }
 
+    public JushiErrorException(JushiErrorCode error) {
+        super(error.getMessage());
+        this.errCode = error.getCode();
+    }
+
     public JushiErrorException(String errCode, String message, Throwable cause) {
         super(message, cause);
         this.errCode = errCode;
+    }
+
+    public JushiErrorException(JushiErrorCode error, Throwable cause, String errCode) {
+        super(error.getMessage(), cause);
+        this.errCode = error.getCode();
     }
 
     public JushiErrorException(Throwable cause) {

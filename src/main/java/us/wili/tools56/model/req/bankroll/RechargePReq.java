@@ -5,14 +5,14 @@ import org.hibernate.validator.constraints.CreditCardNumber;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 import us.wili.dev.common.model.validator.Phone;
-import us.wili.dev.model.dto.req.BaseReqDto;
+import us.wili.tools56.model.req.BaseReq;
 
 import javax.validation.constraints.Pattern;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
-public class RechargePReq extends BaseReqDto {
+public class RechargePReq extends BaseReq {
     @ApiModelProperty(value = "订单编号 ,必填,(32)位数", required = true)
     private String order_no;
     @ApiModelProperty(value = "电子账号，必填，限定19个字符", required = true)

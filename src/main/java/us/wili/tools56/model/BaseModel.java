@@ -1,11 +1,7 @@
 package us.wili.tools56.model;
 
-import org.springframework.util.StringUtils;
-
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Map;
-import java.util.TreeSet;
 
 /**
  * Created by JasonY on 18/3/20.
@@ -23,9 +19,9 @@ public abstract class BaseModel implements Serializable {
      *
      * @return
      */
-    public String rawSignString() {
-        return serializeMap(toMap());
-    }
+//    public String rawSignString() {
+//        return serializeMap(toMap());
+//    }
 
 
 }

@@ -3,14 +3,14 @@ package us.wili.tools56.model.req.assets;
 import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
-import us.wili.dev.model.dto.req.BaseReqDto;
+import us.wili.tools56.model.req.BaseReq;
 
 import javax.validation.constraints.Pattern;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
-public class AssetsRevokeReq extends BaseReqDto {
+public class AssetsRevokeReq extends BaseReq {
     @ApiModelProperty(value = "标的编号，必填，由产品的发行方定义；需保证唯一性，限定40各字符", required = true)
     private String asset_no;
     @ApiModelProperty(value = "借款人电子账号，必填，限定19个字符", required = true)

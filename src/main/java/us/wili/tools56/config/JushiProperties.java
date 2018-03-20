@@ -14,4 +14,6 @@ public class JushiProperties {
     private String org;
     private String privateKey;
     private String publicKey;
+
+
 }

@@ -4,14 +4,14 @@ import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 import us.wili.dev.common.model.validator.Phone;
-import us.wili.dev.model.dto.req.BaseReqDto;
+import us.wili.tools56.model.req.BaseReq;
 
 import javax.validation.constraints.Pattern;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
-public class BuyCreditPReq extends BaseReqDto {
+public class BuyCreditPReq extends BaseReq {
     @ApiModelProperty(value = "承接方电子账号,必填,(19)位数", required = true)
     private String card_no_in;
     @ApiModelProperty(value = "申请流水号 ,必填，用于交易的唯一性标识,(32)位数", required = true)
