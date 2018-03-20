@@ -1,15 +1,22 @@
 package us.wili.tools56.model.req.account;
 
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/req/account/SetPasswordPReq.java
 import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
 import java.util.Map;
+=======
+import us.wili.tools56.model.req.BaseReq;
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/req/account/SetPasswordPReq.java
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class SetPasswordPReq extends BaseReq {
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/req/account/SetPasswordPReq.java
     @ApiModelProperty(value = "客户号，11(位数)", required = true)
+=======
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/req/account/SetPasswordPReq.java
     private String customer_no;
     @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;

@@ -1,17 +1,25 @@
 package us.wili.tools56.model.resp.assets;
 
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/resp/assets/AssetsEnrollResp.java
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
 import java.util.Map;
+=======
+import us.wili.tools56.model.resp.BaseResp;
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/resp/assets/AssetsEnrollResp.java
 
 /**
  * Created by lhyue on 2018/3/17.
  */
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/resp/assets/AssetsEnrollResp.java
 public class AssetsEnrollResp extends BaseResp {
     @ApiModelProperty(value = "标的编号，有条件必填，为空时查询所有的产品；不为空时按输入的产品发行方查询，6", required = true)
+=======
+public class AssetsEnrollResp extends BaseResp{
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/resp/assets/AssetsEnrollResp.java
     private String asset_no;
     private String asset_brief;
     @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)

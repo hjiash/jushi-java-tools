@@ -1,7 +1,10 @@
 package us.wili.tools56.model.resp.query;
 
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/resp/query/BatchQueryPaymentBResp.java
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.ApiModelProperty;
+=======
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/resp/query/BatchQueryPaymentBResp.java
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -12,10 +15,17 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class BatchQueryPaymentBResp extends BaseResp {
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/resp/query/BatchQueryPaymentBResp.java
     @ApiModelProperty(value = "批次号，必填，6", required = true)    private String batch_no;
     @ApiModelProperty(value = "总量 ,必填，数据总量，6", required = true)    private String batch_count;
     @ApiModelProperty(value = "日期 ,必填，YYYYMMDD，需与文件名中的日期一致,8", required = true)    private String batch_date;
     @ApiModelProperty(value = "业务类别 ,必填，001-放款 002-到期还款 003-平台逾期代偿/担保公司代偿,3", required = true)    private String batch_type;
+=======
+    private String batch_no;
+    private String batch_count;
+    private String batch_date;
+    private String batch_type;
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/resp/query/BatchQueryPaymentBResp.java
     private List<ItemsBean> items;
 
     public static BatchQueryPaymentBResp fromJson(String content) {

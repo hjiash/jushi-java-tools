@@ -1,6 +1,11 @@
 package us.wili.tools56.model.req.transaction;
 
 import io.swagger.annotations.ApiModelProperty;
+<<<<<<< HEAD
+=======
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
+>>>>>>> a5f4fed... 调整model类名称，新增service接口
 import us.wili.tools56.model.req.BaseReq;
 
 import java.util.HashMap;
@@ -10,7 +15,11 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class SignAutoBidPReq extends BaseReq {
+<<<<<<< HEAD
     @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
+=======
+    @ApiModelProperty(value = "借款人电子账号，必填，限定19个字符", required = true)
+>>>>>>> a5f4fed... 调整model类名称，新增service接口
     private String card_no;
     @ApiModelProperty(value = "金额，必填，两位小数，13", required = true)
     private String amount;

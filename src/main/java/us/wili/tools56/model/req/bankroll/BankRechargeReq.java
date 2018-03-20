@@ -1,5 +1,6 @@
 package us.wili.tools56.model.req.bankroll;
 
+<<<<<<< HEAD
 import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
@@ -53,6 +54,26 @@ public class BankRechargeReq extends BaseReq {
         return map;
     }
 
+=======
+import us.wili.tools56.model.req.BaseReq;
+
+/**
+ * Created by lhyue on 2018/3/20.
+ */
+public class BankRechargeReq extends BaseReq{
+    private String card_no;
+    private String bank_type;
+    private String callback_url;
+    private String customer_no;
+    private String redirect_url;
+    private String product_name;
+    private String product_detail;
+    private String order_no;
+    private String bank_name;
+    private String bank_id_no;
+    private String amount;
+
+>>>>>>> a5f4fed... 调整model类名称，新增service接口
     public String getCard_no() {
         return card_no;
     }

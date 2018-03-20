@@ -1,7 +1,10 @@
 package us.wili.tools56.model.resp.query;
 
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/resp/query/BatchQueryRepaymentBResp.java
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.ApiModelProperty;
+=======
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/resp/query/BatchQueryRepaymentBResp.java
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;

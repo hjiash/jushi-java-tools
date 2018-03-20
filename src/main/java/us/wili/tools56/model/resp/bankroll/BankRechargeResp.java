@@ -1,5 +1,6 @@
 package us.wili.tools56.model.resp.bankroll;
 
+<<<<<<< HEAD
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
@@ -7,10 +8,15 @@ import us.wili.tools56.model.resp.BaseResp;
 import java.util.HashMap;
 import java.util.Map;
 
+=======
+import us.wili.tools56.model.resp.BaseResp;
+
+>>>>>>> a5f4fed... 调整model类名称，新增service接口
 /**
  * Created by lhyue on 2018/3/20.
  */
 public class BankRechargeResp extends BaseResp {
+<<<<<<< HEAD
     @ApiModelProperty(value = "金额，必填，两位小数，13", required = true)
     private String amount;
     @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
@@ -41,6 +47,12 @@ public class BankRechargeResp extends BaseResp {
         return map;
     }
 
+=======
+    private String amount;
+    private String card_no;
+    private String order_no;
+
+>>>>>>> a5f4fed... 调整model类名称，新增service接口
     public String getAmount() {
         return amount;
     }

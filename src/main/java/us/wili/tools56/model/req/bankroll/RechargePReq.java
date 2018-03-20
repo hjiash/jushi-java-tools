@@ -1,6 +1,13 @@
 package us.wili.tools56.model.req.bankroll;
 
 import io.swagger.annotations.ApiModelProperty;
+<<<<<<< HEAD
+=======
+import org.hibernate.validator.constraints.CreditCardNumber;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
+import us.wili.dev.common.model.validator.Phone;
+>>>>>>> a5f4fed... 调整model类名称，新增service接口
 import us.wili.tools56.model.req.BaseReq;
 
 import java.util.Map;
@@ -9,6 +16,10 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class RechargePReq extends BaseReq {
+<<<<<<< HEAD
+=======
+    @ApiModelProperty(value = "订单编号 ,必填,(32)位数", required = true)
+>>>>>>> a5f4fed... 调整model类名称，新增service接口
     private String order_no;
     @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;

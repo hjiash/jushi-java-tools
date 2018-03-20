@@ -1,5 +1,6 @@
 package us.wili.tools56.util.http.apache;
 
+import com.sun.xml.internal.rngom.parse.host.Base;
 import org.apache.http.Consts;
 import org.apache.http.Header;
 import org.apache.http.HttpHost;
@@ -8,6 +9,12 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
+<<<<<<< HEAD
+=======
+import us.wili.tools56.exception.JushiErrorCode;
+import us.wili.tools56.exception.JushiErrorException;
+import us.wili.tools56.model.resp.BaseResp;
+>>>>>>> c9413ec... fix
 import us.wili.tools56.util.http.RequestHttp;
 import us.wili.tools56.util.http.SimplePostRequestExecutor;
 

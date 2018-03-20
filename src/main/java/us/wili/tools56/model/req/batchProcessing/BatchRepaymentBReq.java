@@ -1,6 +1,11 @@
 package us.wili.tools56.model.req.batchProcessing;
 
 import io.swagger.annotations.ApiModelProperty;
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/req/batchProcessing/BatchRepaymentBReq.java
+=======
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/req/batchProcessing/BatchRepaymentReq.java
 import us.wili.tools56.model.req.BaseReq;
 
 import java.util.ArrayList;
@@ -11,7 +16,11 @@ import java.util.Map;
 /**
  * Created by lhyue on 2018/3/17.
  */
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/req/batchProcessing/BatchRepaymentBReq.java
 public class BatchRepaymentBReq extends BaseReq {
+=======
+public class BatchRepaymentReq extends BaseReq {
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/req/batchProcessing/BatchRepaymentReq.java
 
     @ApiModelProperty(value = "批次号，必填，6", required = true)
     private String batch_no;

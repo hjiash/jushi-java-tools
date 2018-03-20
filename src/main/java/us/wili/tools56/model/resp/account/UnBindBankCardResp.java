@@ -1,17 +1,24 @@
 package us.wili.tools56.model.resp.account;
 
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/resp/account/UnBindBankCardResp.java
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
 import java.util.Map;
+=======
+import us.wili.tools56.model.resp.BaseResp;
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/resp/account/UnBindBankCardResp.java
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class UnBindBankCardResp extends BaseResp {
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/resp/account/UnBindBankCardResp.java
     @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
+=======
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/resp/account/UnBindBankCardResp.java
     private String card_no;
     private String name;
     private String sign_flag;

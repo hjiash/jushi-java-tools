@@ -1,34 +1,14 @@
 package us.wili.tools56.model.req.bankroll;
 
-import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
-
-import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class RevokeRepaymentReq extends BaseReq {
-    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
-    @ApiModelProperty(value = "申请流水号,32为位 必填", required = true)
     private String out_serial_no;
-    @ApiModelProperty(value = "原交易流水号", required = true)
     private String origin_serial_no;
-
-    public RevokeRepaymentReq() {
-        super();
-        this.service = "revoke_repayment";
-    }
-
-    @Override
-    public Map<String, Object> toMap() {
-        Map<String, Object> map = super.toMap();
-        map.put("card_no", getCard_no());
-        map.put("out_serial_no", getOut_serial_no());
-        map.put("origin_serial_no", getOrigin_serial_no());
-        return map;
-    }
 
     public String getCard_no() {
         return card_no;

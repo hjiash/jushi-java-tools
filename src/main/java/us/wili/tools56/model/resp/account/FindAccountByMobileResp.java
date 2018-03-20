@@ -11,9 +11,15 @@ import java.util.Map;
 /**
  * Created by lhyue on 2018/3/17.
  */
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/resp/account/FindAccountByMobileResp.java
 public class FindAccountByMobileResp extends BaseResp{
     @ApiModelProperty(value = "手机号，必填，手机号，11(位数)")    private String mobile;
     @ApiModelProperty(value = "客户号，11(位数)",required = true)    private String customer_no;
+=======
+public class FindAccountByMobileResp {
+    private String mobile;
+    private String customer_no;
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/resp/account/FindAccountByMobileResp.java
 
     List<Account> subpacks;
 

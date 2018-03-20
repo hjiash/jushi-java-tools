@@ -1,11 +1,15 @@
 package us.wili.tools56.model.resp.account;
 
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/resp/account/CreateAccountSrQueryResp.java
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
 import java.util.Map;
+=======
+import us.wili.tools56.model.resp.BaseResp;
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/resp/account/CreateAccountSrQueryResp.java
 
 /**
  * Created by lhyue on 2018/3/17.

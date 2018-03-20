@@ -1,6 +1,9 @@
 package us.wili.tools56.model.req.query;
 
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/req/query/BatchQueryBuyCreditBReq.java
 import io.swagger.annotations.ApiModelProperty;
+=======
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/req/query/BatchQueryBuyCreditBReq.java
 import us.wili.tools56.model.req.BaseReq;
 
 import java.util.HashMap;
@@ -11,7 +14,10 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class BatchQueryBuyCreditBReq extends BaseReq {
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/req/query/BatchQueryBuyCreditBReq.java
     @ApiModelProperty(value = "批次号，必填，6", required = true)
+=======
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/req/query/BatchQueryBuyCreditBReq.java
     private String batch_no;
     @ApiModelProperty(value = "总量 ,必填，数据总量，6", required = true)
     private String batch_count;

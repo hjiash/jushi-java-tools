@@ -1,7 +1,10 @@
 package us.wili.tools56.model.resp.account;
 
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/resp/account/FindAccountByIdResp.java
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.ApiModelProperty;
+=======
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/resp/account/FindAccountByIdResp.java
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -12,8 +15,13 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class FindAccountByIdResp extends BaseResp{
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/resp/account/FindAccountByIdResp.java
     @ApiModelProperty(value = "证件类型，必填，15:身份证18位，2(位数)", required = true)    private String cert_type;
     @ApiModelProperty(value = "证件号码，必填,19(位数)", required = true)    private String cert_no;
+=======
+    private String cert_type;
+    private String cert_no;
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/resp/account/FindAccountByIdResp.java
     private String name;
     @ApiModelProperty(value = "客户号，11(位数)",required = true)    private String customer_no;
     private String count;

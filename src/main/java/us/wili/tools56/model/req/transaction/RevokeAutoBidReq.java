@@ -1,16 +1,26 @@
 package us.wili.tools56.model.req.transaction;
 
 import io.swagger.annotations.ApiModelProperty;
+<<<<<<< HEAD
 import us.wili.tools56.model.req.BaseReq;
 
 import java.util.HashMap;
 import java.util.Map;
+=======
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
+import us.wili.tools56.model.req.BaseReq;
+>>>>>>> a5f4fed... 调整model类名称，新增service接口
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class RevokeAutoBidReq extends BaseReq {
+<<<<<<< HEAD
     @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
+=======
+    @ApiModelProperty(value = "电子账户,必填", required = true)
+>>>>>>> a5f4fed... 调整model类名称，新增service接口
     private String card_no;
     @ApiModelProperty(value = "申请流水号,32为位 必填", required = true)
     private String out_serial_no;

@@ -1,15 +1,22 @@
 package us.wili.tools56.model.req.account;
 
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/req/account/BindBankCardReq.java
 import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
 import java.util.Map;
+=======
+import us.wili.tools56.model.req.BaseReq;
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/req/account/BindBankCardReq.java
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class BindBankCardReq extends BaseReq {
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/req/account/BindBankCardReq.java
     @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
+=======
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/req/account/BindBankCardReq.java
     private String card_no;
     @ApiModelProperty(value = "绑定卡号，必填，19(位数)", required = true)
     private String bank_card_no;

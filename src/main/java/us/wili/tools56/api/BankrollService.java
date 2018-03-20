@@ -17,6 +17,7 @@ public interface BankrollService {
 
     FrozenQueryResp frozenQuery(FrozenQueryReq req);
 
+<<<<<<< HEAD
     OfflineRechargeAsyncResp asyncOfflineRecharge(String content);
 
     NoSecretPresentationAsyncResp asyncNoSecretPresentation(String content);
@@ -37,6 +38,18 @@ public interface BankrollService {
 
     SignBorrowerPAsyncResp asyncSignBorrowerP(String content);
 
+=======
+//    offlineRecharge
+
+    BankRechargeResp bankRecharge(BankRechargeReq req);
+
+    RechargePResp rechargeP(RechargePReq req);
+
+    WithdrawPResp withdrawP(WithdrawPReq req);
+
+    SignBorrowerPResp signBorrowerP(SignBorrowerPReq req);
+
+>>>>>>> a5f4fed... 调整model类名称，新增service接口
     SignPaymentQueryResp signPaymentQuery(SignPaymentQueryReq req);
 
     SignRepaymentQueryResp signRepaymentQuery(SignRepaymentQueryReq req);
@@ -47,8 +60,11 @@ public interface BankrollService {
 
     SignTransferPResp signTransferP(SignTransferPReq req);
 
+<<<<<<< HEAD
     SignTransferPAsyncResp asyncSignTransferP(String content);
 
+=======
+>>>>>>> a5f4fed... 调整model类名称，新增service接口
     SignTransferCheckResp signTransferCheck(SignTransferCheckReq req);
 
     RevokeTransferResp revokeTransfer(RevokeTransferReq req);

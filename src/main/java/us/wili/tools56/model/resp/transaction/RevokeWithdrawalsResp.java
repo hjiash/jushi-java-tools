@@ -1,17 +1,24 @@
 package us.wili.tools56.model.resp.transaction;
 
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/resp/transaction/RevokeWithdrawalsResp.java
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
 import java.util.Map;
+=======
+import us.wili.tools56.model.resp.BaseResp;
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/resp/transaction/RevokeWithdrawalsResp.java
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class RevokeWithdrawalsResp extends BaseResp {
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/resp/transaction/RevokeWithdrawalsResp.java
     @ApiModelProperty(value = "申请流水号,32为位 必填", required = true)
+=======
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/resp/transaction/RevokeWithdrawalsResp.java
     private String out_serial_no;
     private String name;
     private String revoke_sign_time;

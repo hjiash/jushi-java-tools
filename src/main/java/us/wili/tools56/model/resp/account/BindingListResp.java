@@ -1,7 +1,10 @@
 package us.wili.tools56.model.resp.account;
 
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/resp/account/BindingListResp.java
 import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.ApiModelProperty;
+=======
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/resp/account/BindingListResp.java
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -12,7 +15,11 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class BindingListResp extends BaseResp {
+<<<<<<< HEAD:src/main/java/us/wili/tools56/model/resp/account/BindingListResp.java
     @ApiModelProperty(value = "卡号，必填，电子账户，19",required = true)private String card_no;
+=======
+    private String card_no;
+>>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/resp/account/BindingListResp.java
     private String name;
 
     public static BindingListResp fromJson(String content) {

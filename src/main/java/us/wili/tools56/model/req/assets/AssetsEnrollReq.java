@@ -3,6 +3,11 @@ package us.wili.tools56.model.req.assets;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.Length;
+<<<<<<< HEAD
+=======
+import org.hibernate.validator.constraints.NotBlank;
+import us.wili.dev.model.dto.constant.InterestWay;
+>>>>>>> a5f4fed... 调整model类名称，新增service接口
 import us.wili.tools56.model.req.BaseReq;
 
 import java.util.Map;
@@ -12,7 +17,11 @@ import java.util.Map;
  */
 @ApiModel("标的信息")
 public class AssetsEnrollReq extends BaseReq {
+<<<<<<< HEAD
     @ApiModelProperty(value = "标的编号，有条件必填，为空时查询所有的产品；不为空时按输入的产品发行方查询，6", required = true)
+=======
+    @ApiModelProperty(value = "标的编号，必填，由产品的发行方定义；需保证唯一性，限定40各字符", required = true)
+>>>>>>> a5f4fed... 调整model类名称，新增service接口
     private String asset_no;
     @ApiModelProperty(value = "标的描述，必填，理财产品中文描述，60", required = true)
     private String asset_brief;
