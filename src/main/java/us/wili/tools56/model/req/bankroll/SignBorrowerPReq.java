@@ -2,6 +2,9 @@ package us.wili.tools56.model.req.bankroll;
 
 import us.wili.tools56.model.req.BaseReq;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by lhyue on 2018/3/17.
  */
@@ -17,6 +20,30 @@ public class SignBorrowerPReq extends BaseReq {
     private String callback_url;
     private String success_url;
     private String fail_url;
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("service", getService());
+        map.put("timestamp", getTimestamp());
+        map.put("uuid", getUuid());
+        map.put("sign_type", getSign_type());
+        map.put("encode", getEncode());
+        map.put("version", getVersion());
+        map.put("custom", getCustom());
+        map.put("client", getClient());
+        map.put("card_no", getCard_no());
+        map.put("payment_amount", getPayment_amount());
+        map.put("repayment_amount", getRepayment_amount());
+        map.put("out_serial_no", getOut_serial_no());
+        map.put("payment_start_time", getPayment_start_time());
+        map.put("payment_end_time", getPayment_end_time());
+        map.put("repayment_end_time", getRepayment_end_time());
+        map.put("callback_url", getCallback_url());
+        map.put("success_url", getSuccess_url());
+        map.put("fail_url", getFail_url());
+        return map;
+    }
 
     public String getCard_no() {
         return card_no;
