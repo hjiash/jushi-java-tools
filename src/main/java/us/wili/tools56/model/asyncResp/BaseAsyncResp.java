@@ -1,9 +1,13 @@
 package us.wili.tools56.model.asyncResp;
 
+import us.wili.tools56.model.BaseModel;
+
+import java.io.Serializable;
+
 /**
  * Created by lhyue on 2018/3/17.
  */
-public class BaseAsyncResp {
+public abstract class BaseAsyncResp extends BaseModel implements Serializable {
     private String code;
     private String msg;
     private String service;
