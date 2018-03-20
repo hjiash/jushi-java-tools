@@ -7,8 +7,7 @@ import java.util.List;
 /**
  * Created by lhyue on 2018/3/17.
  */
-public class BatchRevokeRepaymentResp extends BaseResp {
-
+public class BatchEndCreditBResp extends BaseResp {
     private String batch_no;
     private String batch_count;
     private String batch_type;
@@ -56,7 +55,6 @@ public class BatchRevokeRepaymentResp extends BaseResp {
     }
 
     public static class ItemsBean {
-
         private String result;
         private String message;
         private String out_card_no;
@@ -64,7 +62,6 @@ public class BatchRevokeRepaymentResp extends BaseResp {
         private String assets_no;
         private String serial_no;
         private String third_reserved;
-        private String reserved;
 
         public String getResult() {
             return result;
@@ -120,14 +117,6 @@ public class BatchRevokeRepaymentResp extends BaseResp {
 
         public void setThird_reserved(String third_reserved) {
             this.third_reserved = third_reserved;
-        }
-
-        public String getReserved() {
-            return reserved;
-        }
-
-        public void setReserved(String reserved) {
-            this.reserved = reserved;
         }
     }
 }

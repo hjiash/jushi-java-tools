@@ -1,11 +1,11 @@
 package us.wili.tools56.model.asynResp.bankroll;
 
-import us.wili.tools56.model.req.BaseReq;
+import us.wili.tools56.model.asynResp.BaseAsynResp;
 
 /**
  * Created by lhyue on 2018/3/20.
  */
-public class OfflineRechargeAsynResp extends BaseReq {
+public class OfflineRechargeAsynResp extends BaseAsynResp {
     private String amount;
     private String serial_no;
     private String name;

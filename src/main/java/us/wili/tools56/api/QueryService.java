@@ -1,11 +1,7 @@
 package us.wili.tools56.api;
 
-import us.wili.tools56.model.req.query.BatchQueryBuyCreditBReq;
-import us.wili.tools56.model.req.query.BatchQueryPaymentBReq;
-import us.wili.tools56.model.req.query.BatchQueryRepaymentBReq;
-import us.wili.tools56.model.resp.query.BatchQueryBuyCreditBResp;
-import us.wili.tools56.model.resp.query.BatchQueryPaymentBResp;
-import us.wili.tools56.model.resp.query.BatchQueryRepaymentBResp;
+import us.wili.tools56.model.req.query.*;
+import us.wili.tools56.model.resp.query.*;
 
 /**
  * Created by lhyue on 2018/3/20.
@@ -16,4 +12,11 @@ public interface QueryService {
     BatchQueryRepaymentBResp batchQueryRepaymentB(BatchQueryRepaymentBReq req);
 
     BatchQueryBuyCreditBResp batchQueryBuyCreditB(BatchQueryBuyCreditBReq req);
+
+    ApplyBidQueryResp applyBidQuery(ApplyBidQueryReq req);
+
+    BuyCreditQueryResp buyCreditQuery(BuyCreditQueryReq req);
+
+    MoneyQueryResp moneyQuery(MoneyQueryReq req);
+
 }

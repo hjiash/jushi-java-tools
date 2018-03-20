@@ -5,19 +5,34 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 import us.wili.tools56.model.req.BaseReq;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class RevokeCreditTransferReq extends BaseReq {
-    @ApiModelProperty(value = "电子账户,必填", required = true)
     private String card_no;
-    @ApiModelProperty(value = "申请流水号 ,必填，用于交易的唯一性标识,(32)位数", required = true)
     private String out_serial_no;
-    @ApiModelProperty(value = "原交易申请流水号 ,必填，原投标交易申请号,40", required = true)
     private String origin_serial_no;
 
-    @Length(min = 19, max = 19, message = "电子账号长度必须为19位")
-    @NotBlank(message = "电子账户不能为空")
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("service", getService());
+        map.put("timestamp", getTimestamp());
+        map.put("uuid", getUuid());
+        map.put("sign_type", getSign_type());
+        map.put("encode", getEncode());
+        map.put("version", getVersion());
+        map.put("custom", getCustom());
+        map.put("client", getClient());
+        map.put("card_no", getCard_no());
+        map.put("origin_serial_no", getOrigin_serial_no());
+        map.put("out_serial_no", getOut_serial_no());
+        return map;
+    }
+
     public String getCard_no() {
         return card_no;
     }
@@ -26,8 +41,6 @@ public class RevokeCreditTransferReq extends BaseReq {
         this.card_no = card_no;
     }
 
-    @Length(max = 32, message = "申请流水号长度最大为32位")
-    @NotBlank(message = "申请流水号不能为空")
     public String getOut_serial_no() {
         return out_serial_no;
     }
@@ -36,8 +49,6 @@ public class RevokeCreditTransferReq extends BaseReq {
         this.out_serial_no = out_serial_no;
     }
 
-    @Length(max = 40, message = "申请流水号长度最大为40位")
-    @NotBlank(message = "申请流水号不能为空")
     public String getOrigin_serial_no() {
         return origin_serial_no;
     }

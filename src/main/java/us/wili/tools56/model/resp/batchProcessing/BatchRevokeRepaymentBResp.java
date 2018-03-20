@@ -1,27 +1,19 @@
-package us.wili.tools56.model.req.batchProcessing;
+package us.wili.tools56.model.resp.batchProcessing;
 
-import us.wili.tools56.model.req.BaseReq;
+import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.List;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
-public class BatchRevokeBuyCreditReq extends BaseReq {
+public class BatchRevokeRepaymentBResp extends BaseResp {
 
-    private String notify_url;
     private String batch_no;
     private String batch_count;
+    private String batch_type;
     private String batch_date;
     private List<ItemsBean> items;
-
-    public String getNotify_url() {
-        return notify_url;
-    }
-
-    public void setNotify_url(String notify_url) {
-        this.notify_url = notify_url;
-    }
 
     public String getBatch_no() {
         return batch_no;
@@ -37,6 +29,14 @@ public class BatchRevokeBuyCreditReq extends BaseReq {
 
     public void setBatch_count(String batch_count) {
         this.batch_count = batch_count;
+    }
+
+    public String getBatch_type() {
+        return batch_type;
+    }
+
+    public void setBatch_type(String batch_type) {
+        this.batch_type = batch_type;
     }
 
     public String getBatch_date() {
@@ -56,29 +56,30 @@ public class BatchRevokeBuyCreditReq extends BaseReq {
     }
 
     public static class ItemsBean {
-        private String bank_no;
-        private String in_card_no;
+
+        private String result;
+        private String message;
         private String out_card_no;
-        private String transfer_amount;
+        private String in_card_no;
+        private String assets_no;
         private String serial_no;
-        private String origin_serial_no;
-        private String reserved;
         private String third_reserved;
+        private String reserved;
 
-        public String getBank_no() {
-            return bank_no;
+        public String getResult() {
+            return result;
         }
 
-        public void setBank_no(String bank_no) {
-            this.bank_no = bank_no;
+        public void setResult(String result) {
+            this.result = result;
         }
 
-        public String getIn_card_no() {
-            return in_card_no;
+        public String getMessage() {
+            return message;
         }
 
-        public void setIn_card_no(String in_card_no) {
-            this.in_card_no = in_card_no;
+        public void setMessage(String message) {
+            this.message = message;
         }
 
         public String getOut_card_no() {
@@ -89,12 +90,20 @@ public class BatchRevokeBuyCreditReq extends BaseReq {
             this.out_card_no = out_card_no;
         }
 
-        public String getTransfer_amount() {
-            return transfer_amount;
+        public String getIn_card_no() {
+            return in_card_no;
         }
 
-        public void setTransfer_amount(String transfer_amount) {
-            this.transfer_amount = transfer_amount;
+        public void setIn_card_no(String in_card_no) {
+            this.in_card_no = in_card_no;
+        }
+
+        public String getAssets_no() {
+            return assets_no;
+        }
+
+        public void setAssets_no(String assets_no) {
+            this.assets_no = assets_no;
         }
 
         public String getSerial_no() {
@@ -105,12 +114,12 @@ public class BatchRevokeBuyCreditReq extends BaseReq {
             this.serial_no = serial_no;
         }
 
-        public String getOrigin_serial_no() {
-            return origin_serial_no;
+        public String getThird_reserved() {
+            return third_reserved;
         }
 
-        public void setOrigin_serial_no(String origin_serial_no) {
-            this.origin_serial_no = origin_serial_no;
+        public void setThird_reserved(String third_reserved) {
+            this.third_reserved = third_reserved;
         }
 
         public String getReserved() {
@@ -119,14 +128,6 @@ public class BatchRevokeBuyCreditReq extends BaseReq {
 
         public void setReserved(String reserved) {
             this.reserved = reserved;
-        }
-
-        public String getThird_reserved() {
-            return third_reserved;
-        }
-
-        public void setThird_reserved(String third_reserved) {
-            this.third_reserved = third_reserved;
         }
     }
 }

@@ -3,6 +3,7 @@ package us.wili.tools56.model.req.bankroll;
 
 import us.wili.tools56.model.req.BaseReq;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -29,7 +30,37 @@ public class NoSecretPresentationReq extends BaseReq {
     private String bank_province;
     private String bank_city;
 
-
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("service", getService());
+        map.put("timestamp", getTimestamp());
+        map.put("uuid", getUuid());
+        map.put("sign_type", getSign_type());
+        map.put("encode", getEncode());
+        map.put("version", getVersion());
+        map.put("custom", getCustom());
+        map.put("client", getClient());
+        map.put("card_no", getCard_no());
+        map.put("order_no", getOrder_no());
+        map.put("amount", getAmount());
+        map.put("bank_name", getBank_name());
+        map.put("card_bind", getCard_bind());
+        map.put("name", getName());
+        map.put("cert_type", getCert_type());
+        map.put("phone", getPhone());
+        map.put("fee", getFee());
+        map.put("background_url", getBackground_url());
+        map.put("channel_flag", getChannel_flag());
+        map.put("channel_code", getChannel_code());
+        map.put("union_bank_code", getUnion_bank_code());
+        map.put("open_bank_code", getOpen_bank_code());
+        map.put("bank_name_en", getBank_name_en());
+        map.put("bank_name_cn", getBank_name_cn());
+        map.put("bank_province", getBank_province());
+        map.put("bank_city", getBank_city());
+        return map;
+    }
 
     public String getOrder_no() {
         return order_no;

@@ -7,10 +7,11 @@ import java.util.List;
 /**
  * Created by lhyue on 2018/3/17.
  */
-public class BatchRevokeBuyCreditResp extends BaseResp {
+public class BatchRevokePaymentBResp extends BaseResp {
 
     private String batch_no;
     private String batch_count;
+    private String batch_type;
     private String batch_date;
     private List<ItemsBean> items;
 
@@ -28,6 +29,14 @@ public class BatchRevokeBuyCreditResp extends BaseResp {
 
     public void setBatch_count(String batch_count) {
         this.batch_count = batch_count;
+    }
+
+    public String getBatch_type() {
+        return batch_type;
+    }
+
+    public void setBatch_type(String batch_type) {
+        this.batch_type = batch_type;
     }
 
     public String getBatch_date() {
@@ -48,37 +57,14 @@ public class BatchRevokeBuyCreditResp extends BaseResp {
 
     public static class ItemsBean {
 
-        private String in_card_no;
-        private String out_card_no;
-        private String serial_no;
         private String result;
         private String message;
-        private String reserved;
+        private String out_card_no;
+        private String in_card_no;
+        private String assets_no;
+        private String ori_seril_no;
+        private String serial_no;
         private String third_reserved;
-
-        public String getIn_card_no() {
-            return in_card_no;
-        }
-
-        public void setIn_card_no(String in_card_no) {
-            this.in_card_no = in_card_no;
-        }
-
-        public String getOut_card_no() {
-            return out_card_no;
-        }
-
-        public void setOut_card_no(String out_card_no) {
-            this.out_card_no = out_card_no;
-        }
-
-        public String getSerial_no() {
-            return serial_no;
-        }
-
-        public void setSerial_no(String serial_no) {
-            this.serial_no = serial_no;
-        }
 
         public String getResult() {
             return result;
@@ -96,12 +82,44 @@ public class BatchRevokeBuyCreditResp extends BaseResp {
             this.message = message;
         }
 
-        public String getReserved() {
-            return reserved;
+        public String getOut_card_no() {
+            return out_card_no;
         }
 
-        public void setReserved(String reserved) {
-            this.reserved = reserved;
+        public void setOut_card_no(String out_card_no) {
+            this.out_card_no = out_card_no;
+        }
+
+        public String getIn_card_no() {
+            return in_card_no;
+        }
+
+        public void setIn_card_no(String in_card_no) {
+            this.in_card_no = in_card_no;
+        }
+
+        public String getAssets_no() {
+            return assets_no;
+        }
+
+        public void setAssets_no(String assets_no) {
+            this.assets_no = assets_no;
+        }
+
+        public String getOri_seril_no() {
+            return ori_seril_no;
+        }
+
+        public void setOri_seril_no(String ori_seril_no) {
+            this.ori_seril_no = ori_seril_no;
+        }
+
+        public String getSerial_no() {
+            return serial_no;
+        }
+
+        public void setSerial_no(String serial_no) {
+            this.serial_no = serial_no;
         }
 
         public String getThird_reserved() {

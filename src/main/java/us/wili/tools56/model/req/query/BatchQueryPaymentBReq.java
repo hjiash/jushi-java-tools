@@ -2,7 +2,9 @@ package us.wili.tools56.model.req.query;
 
 import us.wili.tools56.model.req.BaseReq;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
@@ -15,6 +17,26 @@ public class BatchQueryPaymentBReq extends BaseReq{
     private String batch_date;
     private String batch_type;
     private List<ItemsBean> items;
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("service", getService());
+        map.put("timestamp", getTimestamp());
+        map.put("uuid", getUuid());
+        map.put("sign_type", getSign_type());
+        map.put("encode", getEncode());
+        map.put("version", getVersion());
+        map.put("custom", getCustom());
+        map.put("client", getClient());
+        map.put("notify_url", getNotify_url());
+        map.put("batch_no", getBatch_count());
+        map.put("batch_count", getBatch_count());
+        map.put("batch_date", getBatch_date());
+        map.put("batch_type", getBatch_type());
+        map.put("items", getItems());
+        return map;
+    }
 
     public String getNotify_url() {
         return notify_url;

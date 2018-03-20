@@ -1,4 +1,4 @@
-package us.wili.tools56.model.req.bankroll;
+package us.wili.tools56.model.asynResp.bankroll;
 
 import us.wili.tools56.model.asynResp.BaseAsynResp;
 

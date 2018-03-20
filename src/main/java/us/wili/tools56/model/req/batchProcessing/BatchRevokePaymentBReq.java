@@ -1,18 +1,49 @@
-package us.wili.tools56.model.resp.batchProcessing;
+package us.wili.tools56.model.req.batchProcessing;
 
-import us.wili.tools56.model.resp.BaseResp;
+import us.wili.tools56.model.req.BaseReq;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
-public class BatchEndCreditResp extends BaseResp {
+public class BatchRevokePaymentBReq extends BaseReq{
+    private String notify_url;
     private String batch_no;
     private String batch_count;
     private String batch_type;
     private String batch_date;
     private List<ItemsBean> items;
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("service", getService());
+        map.put("timestamp", getTimestamp());
+        map.put("uuid", getUuid());
+        map.put("sign_type", getSign_type());
+        map.put("encode", getEncode());
+        map.put("version", getVersion());
+        map.put("custom", getCustom());
+        map.put("client", getClient());
+        map.put("batch_no", getBatch_count());
+        map.put("batch_count", getBatch_count());
+        map.put("batch_type", getBatch_type());
+        map.put("batch_date", getBatch_date());
+        map.put("notify_url", getNotify_url());
+        map.put("items", getItems());
+        return map;
+    }
+
+    public String getNotify_url() {
+        return notify_url;
+    }
+
+    public void setNotify_url(String notify_url) {
+        this.notify_url = notify_url;
+    }
 
     public String getBatch_no() {
         return batch_no;
@@ -55,29 +86,13 @@ public class BatchEndCreditResp extends BaseResp {
     }
 
     public static class ItemsBean {
-        private String result;
-        private String message;
         private String out_card_no;
         private String in_card_no;
         private String assets_no;
+        private String auth_code;
+        private String ori_seril_no;
         private String serial_no;
         private String third_reserved;
-
-        public String getResult() {
-            return result;
-        }
-
-        public void setResult(String result) {
-            this.result = result;
-        }
-
-        public String getMessage() {
-            return message;
-        }
-
-        public void setMessage(String message) {
-            this.message = message;
-        }
 
         public String getOut_card_no() {
             return out_card_no;
@@ -101,6 +116,22 @@ public class BatchEndCreditResp extends BaseResp {
 
         public void setAssets_no(String assets_no) {
             this.assets_no = assets_no;
+        }
+
+        public String getAuth_code() {
+            return auth_code;
+        }
+
+        public void setAuth_code(String auth_code) {
+            this.auth_code = auth_code;
+        }
+
+        public String getOri_seril_no() {
+            return ori_seril_no;
+        }
+
+        public void setOri_seril_no(String ori_seril_no) {
+            this.ori_seril_no = ori_seril_no;
         }
 
         public String getSerial_no() {

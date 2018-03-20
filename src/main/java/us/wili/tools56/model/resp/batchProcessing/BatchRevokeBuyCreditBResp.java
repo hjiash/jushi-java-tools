@@ -1,16 +1,16 @@
-package us.wili.tools56.model.req.batchProcessing;
+package us.wili.tools56.model.resp.batchProcessing;
 
-import us.wili.tools56.model.req.BaseReq;
+import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.List;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
-public class BatchEndCreditReq extends BaseReq {
+public class BatchRevokeBuyCreditBResp extends BaseResp {
+
     private String batch_no;
     private String batch_count;
-    private String batch_type;
     private String batch_date;
     private List<ItemsBean> items;
 
@@ -28,14 +28,6 @@ public class BatchEndCreditReq extends BaseReq {
 
     public void setBatch_count(String batch_count) {
         this.batch_count = batch_count;
-    }
-
-    public String getBatch_type() {
-        return batch_type;
-    }
-
-    public void setBatch_type(String batch_type) {
-        this.batch_type = batch_type;
     }
 
     public String getBatch_date() {
@@ -56,21 +48,13 @@ public class BatchEndCreditReq extends BaseReq {
 
     public static class ItemsBean {
 
-        private String out_card_no;
         private String in_card_no;
-        private String assets_no;
-        private String auth_code;
-        private String end_flag;
+        private String out_card_no;
         private String serial_no;
+        private String result;
+        private String message;
+        private String reserved;
         private String third_reserved;
-
-        public String getOut_card_no() {
-            return out_card_no;
-        }
-
-        public void setOut_card_no(String out_card_no) {
-            this.out_card_no = out_card_no;
-        }
 
         public String getIn_card_no() {
             return in_card_no;
@@ -80,28 +64,12 @@ public class BatchEndCreditReq extends BaseReq {
             this.in_card_no = in_card_no;
         }
 
-        public String getAssets_no() {
-            return assets_no;
+        public String getOut_card_no() {
+            return out_card_no;
         }
 
-        public void setAssets_no(String assets_no) {
-            this.assets_no = assets_no;
-        }
-
-        public String getAuth_code() {
-            return auth_code;
-        }
-
-        public void setAuth_code(String auth_code) {
-            this.auth_code = auth_code;
-        }
-
-        public String getEnd_flag() {
-            return end_flag;
-        }
-
-        public void setEnd_flag(String end_flag) {
-            this.end_flag = end_flag;
+        public void setOut_card_no(String out_card_no) {
+            this.out_card_no = out_card_no;
         }
 
         public String getSerial_no() {
@@ -110,6 +78,30 @@ public class BatchEndCreditReq extends BaseReq {
 
         public void setSerial_no(String serial_no) {
             this.serial_no = serial_no;
+        }
+
+        public String getResult() {
+            return result;
+        }
+
+        public void setResult(String result) {
+            this.result = result;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
+
+        public String getReserved() {
+            return reserved;
+        }
+
+        public void setReserved(String reserved) {
+            this.reserved = reserved;
         }
 
         public String getThird_reserved() {

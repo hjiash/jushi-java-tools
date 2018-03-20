@@ -1,25 +1,35 @@
 package us.wili.tools56.model.req.assets;
 
-import io.swagger.annotations.ApiModelProperty;
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
 import us.wili.tools56.model.req.BaseReq;
 
-import javax.validation.constraints.Pattern;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class AssetsRevokeReq extends BaseReq {
-    @ApiModelProperty(value = "标的编号，必填，由产品的发行方定义；需保证唯一性，限定40各字符", required = true)
     private String asset_no;
-    @ApiModelProperty(value = "借款人电子账号，必填，限定19个字符", required = true)
     private String card_no;
-    @ApiModelProperty(value = "借款金额，必填，两位小数，限定13个字符", required = true)
     private String amount;
 
-    @Length(max = 40, message = "标的编号最多40个字符")
-    @NotBlank(message = "标的编号不能为空")
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("service", getService());
+        map.put("timestamp", getTimestamp());
+        map.put("uuid", getUuid());
+        map.put("sign_type", getSign_type());
+        map.put("encode", getEncode());
+        map.put("version", getVersion());
+        map.put("custom", getCustom());
+        map.put("client", getClient());
+        map.put("card_no", getCard_no());
+        map.put("asset_no", getAsset_no());
+        map.put("amount", getAmount());
+        return map;
+    }
+
     public String getAsset_no() {
         return asset_no;
     }
@@ -28,8 +38,6 @@ public class AssetsRevokeReq extends BaseReq {
         this.asset_no = asset_no;
     }
 
-    @Length(max = 19, min = 19, message = "借款人电子账号应等于19个字符")
-    @NotBlank(message = "借款人电子账号不能为空")
     public String getCard_no() {
         return card_no;
     }
@@ -38,8 +46,6 @@ public class AssetsRevokeReq extends BaseReq {
         this.card_no = card_no;
     }
 
-    @Pattern(regexp = "^[1-9]{1}\\d{0,9}.\\d{2}$", message = "借款金额最多13个字符，且要保留两位小数")
-    @NotBlank(message = "借款金额不能为空")
     public String getAmount() {
         return amount;
     }

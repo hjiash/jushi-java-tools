@@ -1,39 +1,46 @@
 package us.wili.tools56.model.req.enterprise;
 
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.hibernate.validator.constraints.CreditCardNumber;
-import org.hibernate.validator.constraints.NotBlank;
-import us.wili.dev.common.model.validator.Phone;
+import us.wili.tools56.model.req.BaseReq;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author zhumubo
  */
 @ApiModel(value = "线下企业账户信息")
-public class EnterpriseAddReq {
+public class EnterpriseAddReq extends BaseReq{
 
-    @ApiModelProperty(value = "营业执照编号,必填", required = true)
     private String cert_no;
-
-    @ApiModelProperty(value = "公司名称,必填", required = true)
     private String name;
-
-    @ApiModelProperty(value = "手机号,必填", required = true)
     private String mobile;
-
-    @ApiModelProperty(value = "银行卡号,必填", required = true)
     private String bind_card;
-
-    @ApiModelProperty(value = "电子账户,必填", required = true)
     private String card_no;
-
-    @ApiModelProperty(value = "客户号,必填", required = true)
     private String customer_no;
-
-    @ApiModelProperty(value = "三方绑定编号,必填", required = true)
     private String serial_no;
 
-    @NotBlank(message = "营业执照编号不能为空")
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("service", getService());
+        map.put("timestamp", getTimestamp());
+        map.put("uuid", getUuid());
+        map.put("sign_type", getSign_type());
+        map.put("encode", getEncode());
+        map.put("version", getVersion());
+        map.put("custom", getCustom());
+        map.put("client", getClient());
+        map.put("card_no", getCard_no());
+        map.put("cert_no", getCert_no());
+        map.put("name", getName());
+        map.put("mobile", getMobile());
+        map.put("bind_card", getBind_card());
+        map.put("customer_no", getCustomer_no());
+        map.put("serial_no", getSerial_no());
+        return map;
+    }
+
     public String getCert_no() {
         return cert_no;
     }
@@ -42,7 +49,6 @@ public class EnterpriseAddReq {
         this.cert_no = cert_no;
     }
 
-    @NotBlank(message = "公司名称不能为空")
     public String getName() {
         return name;
     }
@@ -51,8 +57,6 @@ public class EnterpriseAddReq {
         this.name = name;
     }
 
-    @Phone
-    @NotBlank(message = "手机号不能为空")
     public String getMobile() {
         return mobile;
     }
@@ -61,8 +65,6 @@ public class EnterpriseAddReq {
         this.mobile = mobile;
     }
 
-    @CreditCardNumber
-    @NotBlank(message = "银行卡号不能为空")
     public String getBind_card() {
         return bind_card;
     }
@@ -71,7 +73,6 @@ public class EnterpriseAddReq {
         this.bind_card = bind_card;
     }
 
-    @NotBlank(message = "电子账户不能为空")
     public String getCard_no() {
         return card_no;
     }
@@ -80,7 +81,6 @@ public class EnterpriseAddReq {
         this.card_no = card_no;
     }
 
-    @NotBlank(message = "客户号不能为空")
     public String getCustomer_no() {
         return customer_no;
     }
@@ -89,7 +89,6 @@ public class EnterpriseAddReq {
         this.customer_no = customer_no;
     }
 
-    @NotBlank(message = "三方绑定编号不能为空")
     public String getSerial_no() {
         return serial_no;
     }

@@ -6,24 +6,38 @@ import org.hibernate.validator.constraints.NotBlank;
 import us.wili.tools56.model.req.BaseReq;
 
 import javax.validation.constraints.Pattern;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class RevokeBidReq extends BaseReq {
-    @ApiModelProperty(value = "电子账户,必填", required = true)
     private String card_no;
-    @ApiModelProperty(value = "申请流水号 ,必填，用于交易的唯一性标识,(32)位数", required = true)
     private String out_serial_no;
-    @ApiModelProperty(value = "原交易申请流水号 ,必填，原投标交易申请号,40", required = true)
     private String origin_serial_no;
-    @ApiModelProperty(value = "投标金额 ，必填,13位保留两位", required = true)
     private String amount;
-    @ApiModelProperty(value = "标的编号 ,必填，标的信息录入时的标的编号,(40)位数", required = true)
     private String asset_no;
 
-    @Length(min = 19, max = 19, message = "电子账号长度必须为19位")
-    @NotBlank(message = "电子账户不能为空")
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("service", getService());
+        map.put("timestamp", getTimestamp());
+        map.put("uuid", getUuid());
+        map.put("sign_type", getSign_type());
+        map.put("encode", getEncode());
+        map.put("version", getVersion());
+        map.put("custom", getCustom());
+        map.put("client", getClient());
+        map.put("card_no", getCard_no());
+        map.put("origin_serial_no", getOrigin_serial_no());
+        map.put("out_serial_no", getOut_serial_no());
+        map.put("amount", getAmount());
+        map.put("asset_no", getAsset_no());
+        return map;
+    }
+
     public String getCard_no() {
         return card_no;
     }
@@ -32,8 +46,6 @@ public class RevokeBidReq extends BaseReq {
         this.card_no = card_no;
     }
 
-    @Length(max = 32, message = "申请流水号长度最大为32位")
-    @NotBlank(message = "申请流水号不能为空")
     public String getOut_serial_no() {
         return out_serial_no;
     }
@@ -42,8 +54,6 @@ public class RevokeBidReq extends BaseReq {
         this.out_serial_no = out_serial_no;
     }
 
-    @Length(max = 40, message = "申请流水号长度最大为40位")
-    @NotBlank(message = "申请流水号不能为空")
     public String getOrigin_serial_no() {
         return origin_serial_no;
     }
@@ -52,8 +62,6 @@ public class RevokeBidReq extends BaseReq {
         this.origin_serial_no = origin_serial_no;
     }
 
-    @Pattern(regexp = "^[1-9]{1}\\d{0,9}.\\d{2}$", message = "投标金额最多13个字符，且要保留两位小数")
-    @NotBlank(message = "投标金额不能为空")
     public String getAmount() {
         return amount;
     }
@@ -61,8 +69,7 @@ public class RevokeBidReq extends BaseReq {
     public void setAmount(String amount) {
         this.amount = amount;
     }
-    @Length(max = 40, message = "标的编号长度最大为40位")
-    @NotBlank(message = "标的编号不能为空")
+
     public String getAsset_no() {
         return asset_no;
     }

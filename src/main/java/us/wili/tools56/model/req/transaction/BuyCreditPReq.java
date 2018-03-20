@@ -1,45 +1,53 @@
 package us.wili.tools56.model.req.transaction;
 
-import io.swagger.annotations.ApiModelProperty;
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
-import us.wili.dev.common.model.validator.Phone;
 import us.wili.tools56.model.req.BaseReq;
 
-import javax.validation.constraints.Pattern;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class BuyCreditPReq extends BaseReq {
-    @ApiModelProperty(value = "承接方电子账号,必填,(19)位数", required = true)
     private String card_no_in;
-    @ApiModelProperty(value = "申请流水号 ,必填，用于交易的唯一性标识,(32)位数", required = true)
     private String out_serial_no;
-    @ApiModelProperty(value = "原交易申请流水号 ,必填，原投标交易申请号,40", required = true)
     private String origin_serial_no;
-    @ApiModelProperty(value = "转让方电子账号,必填,(19)位数", required = true)
     private String card_no_out;
-    @ApiModelProperty(value = "总共可转让金额，由转让人在不超过总原投标份额内进行控制,必填,13位保留两位", required = true)
     private String total_balance;
-    @ApiModelProperty(value = "投标金额 ，必填,13位保留两位", required = true)
     private String amount;
-    @ApiModelProperty(value = "转让价格，购买转让份额所需要的金额,必填,13位保留两位", required = true)
     private String transfer_price;
-    @ApiModelProperty(value = "起息日 ,必填，YYYYMMDD,(8)位数", required = true)
     private String interest_date;
-    @ApiModelProperty(value = "预期年化收益率 ,必填，是5位小数如年化收益率为10%，需上送10.00000,8位保留5位", required = true)
     private String interest_rate;
-    @ApiModelProperty(value = "手续费扣费方式。必填,0：指定金额,(1)位数", required = true)
     private String fee_way;
-    @ApiModelProperty(value = "转让手续费，手续费扣款方式为0时生效，可为0；手续费从转让方收取,必填,13位保留两位", required = true)
     private String fee;
-
-    @ApiModelProperty(value = "手机号,必填", required = true)
     private String mobile;
 
-    @Length(min = 19, max = 19, message = "承接人电子账号长度必须为19位")
-    @NotBlank(message = "承接人电子账户不能为空")
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("service", getService());
+        map.put("timestamp", getTimestamp());
+        map.put("uuid", getUuid());
+        map.put("sign_type", getSign_type());
+        map.put("encode", getEncode());
+        map.put("version", getVersion());
+        map.put("custom", getCustom());
+        map.put("client", getClient());
+        map.put("card_no_in", getCard_no_in());
+        map.put("origin_serial_no", getOrigin_serial_no());
+        map.put("card_no_out", getCard_no_out());
+        map.put("total_balance", getTotal_balance());
+        map.put("out_serial_no", getOut_serial_no());
+        map.put("amount", getAmount());
+        map.put("transfer_price", getTransfer_price());
+        map.put("fee_way", getFee_way());
+        map.put("fee", getFee());
+        map.put("interest_date", getInterest_date());
+        map.put("interest_rate", getInterest_rate());
+        map.put("mobile", getMobile());
+        return map;
+    }
+
     public String getCard_no_in() {
         return card_no_in;
     }
@@ -49,8 +57,6 @@ public class BuyCreditPReq extends BaseReq {
     }
 
 
-    @Length(max = 32, message = "申请流水号长度最大为32位")
-    @NotBlank(message = "申请流水号不能为空")
     public String getOut_serial_no() {
         return out_serial_no;
     }
@@ -59,8 +65,6 @@ public class BuyCreditPReq extends BaseReq {
         this.out_serial_no = out_serial_no;
     }
 
-    @Length(max = 40, message = "申请流水号长度最大为40位")
-    @NotBlank(message = "申请流水号不能为空")
     public String getOrigin_serial_no() {
         return origin_serial_no;
     }
@@ -69,8 +73,6 @@ public class BuyCreditPReq extends BaseReq {
         this.origin_serial_no = origin_serial_no;
     }
 
-    @Length(min = 19, max = 19, message = "转让人电子账号长度必须为19位")
-    @NotBlank(message = "转让人电子账户不能为空")
     public String getCard_no_out() {
         return card_no_out;
     }
@@ -79,8 +81,6 @@ public class BuyCreditPReq extends BaseReq {
         this.card_no_out = card_no_out;
     }
 
-    @Pattern(regexp = "^[1-9]{1}\\d{0,9}.\\d{2}$", message = "总共可转让金额最多13个字符，且要保留两位小数")
-    @NotBlank(message = "总共可转让金额不能为空")
     public String getTotal_balance() {
         return total_balance;
     }
@@ -89,8 +89,6 @@ public class BuyCreditPReq extends BaseReq {
         this.total_balance = total_balance;
     }
 
-    @Pattern(regexp = "^[1-9]{1}\\d{0,9}.\\d{2}$", message = "投标金额最多13个字符，且要保留两位小数")
-    @NotBlank(message = "投标金额不能为空")
     public String getAmount() {
         return amount;
     }
@@ -99,8 +97,6 @@ public class BuyCreditPReq extends BaseReq {
         this.amount = amount;
     }
 
-    @Pattern(regexp = "^[1-9]{1}\\d{0,9}.\\d{2}$", message = "转让价格最多13个字符，且要保留两位小数")
-    @NotBlank(message = "转让价格不能为空")
     public String getTransfer_price() {
         return transfer_price;
     }
@@ -109,7 +105,6 @@ public class BuyCreditPReq extends BaseReq {
         this.transfer_price = transfer_price;
     }
 
-    @NotBlank(message = "起息日不能为空")
     public String getInterest_date() {
         return interest_date;
     }
@@ -126,8 +121,6 @@ public class BuyCreditPReq extends BaseReq {
         this.fee_way = fee_way;
     }
 
-    @Pattern(regexp = "^[1-9]{1}\\d{0,9}.\\d{2}$", message = "转让手续费最多13个字符，且要保留两位小数")
-    @NotBlank(message = "转让手续费不能为空")
     public String getFee() {
         return fee;
     }
@@ -136,8 +129,6 @@ public class BuyCreditPReq extends BaseReq {
         this.fee = fee;
     }
 
-    @Phone
-    @NotBlank(message = "手机号不能为空")
     public String getMobile() {
         return mobile;
     }
@@ -146,8 +137,6 @@ public class BuyCreditPReq extends BaseReq {
         this.mobile = mobile;
     }
 
-    @Pattern(regexp = "^[1-9]{1}\\d{0,1}.\\d{5}$", message = "预计年化收益率格式错误")
-    @NotBlank(message = "预计年化收益率不能为空")
     public String getInterest_rate() {
         return interest_rate;
     }

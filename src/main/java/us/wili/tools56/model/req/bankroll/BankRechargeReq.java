@@ -2,6 +2,9 @@ package us.wili.tools56.model.req.bankroll;
 
 import us.wili.tools56.model.req.BaseReq;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by lhyue on 2018/3/20.
  */
@@ -17,6 +20,31 @@ public class BankRechargeReq extends BaseReq{
     private String bank_name;
     private String bank_id_no;
     private String amount;
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("service", getService());
+        map.put("timestamp", getTimestamp());
+        map.put("uuid", getUuid());
+        map.put("sign_type", getSign_type());
+        map.put("encode", getEncode());
+        map.put("version", getVersion());
+        map.put("custom", getCustom());
+        map.put("client", getClient());
+        map.put("card_no", getCard_no());
+        map.put("bank_type", getBank_type());
+        map.put("callback_url", getCallback_url());
+        map.put("customer_no", getCustomer_no());
+        map.put("redirect_url", getRedirect_url());
+        map.put("product_name", getProduct_name());
+        map.put("product_detail", getProduct_detail());
+        map.put("order_no", getOrder_no());
+        map.put("bank_name", getBank_name());
+        map.put("bank_id_no", getBank_id_no());
+        map.put("amount", getAmount());
+        return map;
+    }
 
     public String getCard_no() {
         return card_no;
