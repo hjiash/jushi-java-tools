@@ -26,7 +26,7 @@ public class ApachePostRequestExecutor extends SimplePostRequestExecutor<Closeab
     }
 
     @Override
-    public String execute(String uri, String data) throws JushiErrorException, IOException {
+    public String execute(String uri, String data) throws IOException {
         HttpPost httpPost = new HttpPost(uri);
         if (requestHttp.getRequestHttpProxy() != null) {
             RequestConfig config = RequestConfig.custom().setProxy(requestHttp.getRequestHttpProxy()).build();
@@ -39,17 +39,7 @@ public class ApachePostRequestExecutor extends SimplePostRequestExecutor<Closeab
         }
 
         try (CloseableHttpResponse response = requestHttp.getRequestHttpClient().execute(httpPost)) {
-            String responseContent = Utf8ResponseHandler.INSTANCE.handleResponse(response);
-            if (responseContent.isEmpty()) {
-                throw new JushiErrorException(JushiErrorCode.REQUEST_ERROR);
-            }
-
-            BaseResp baseResp = BaseResp.fromJson(responseContent);
-            if (baseResp.getCode() == null || !baseResp.getCode().equals(JushiErrorCode.SUCCESS.getCode())) {
-                throw new JushiErrorException(baseResp.getCode(), baseResp.getMsg());
-            }
-
-            return responseContent;
+            return Utf8ResponseHandler.INSTANCE.handleResponse(response);
         } finally {
             httpPost.releaseConnection();
         }

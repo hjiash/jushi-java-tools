@@ -33,6 +33,8 @@ public class CryptoUtil {
 
     private String publicKeyPath;
     private String privateKeyPath;
+
+    // 没有 set 方法
     private PublicKey publicKey;
     private PrivateKey privateKey;
 
