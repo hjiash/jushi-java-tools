@@ -1,14 +1,35 @@
 package us.wili.tools56.model.resp.account;
 
+import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class CreateAccountPResp extends BaseResp {
-    private String out_serial_no;
-    private String order_id;
+    @ApiModelProperty(value = "申请流水号,32为位 必填",required = true)    private String out_serial_no;
+    @ApiModelProperty(value = "订单id,40个字符", required = true)    private String order_id;
     private String url;
+
+    public static CreateAccountPResp fromJson(String content) {
+        return JSONObject.parseObject(content, CreateAccountPResp.class);
+    }
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = super.toMap();
+
+        map.put("out_serial_no", getOut_serial_no());
+        map.put("order_id", getOrder_id());
+        map.put("url", getUrl());
+
+        return map;
+    }
+
 
     public String getOut_serial_no() {
         return out_serial_no;

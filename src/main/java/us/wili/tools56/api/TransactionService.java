@@ -9,7 +9,6 @@ import us.wili.tools56.model.resp.transaction.*;
 public interface TransactionService {
     BidApplyPResp bidApplyP(BidApplyPReq req);
 
-<<<<<<< HEAD
     BidApplyPAsyncResp asyncBidApplyP(String content);
 
     BuyCreditPResp buyCreditP(BuyCreditPReq req);
@@ -36,20 +35,6 @@ public interface TransactionService {
 
     TrusteePayPAsyncResp asyncTrusteePayP(String content);
 
-=======
-    BuyCreditPResp buyCreditP(BuyCreditPReq req);
-
-    SignAutoBidPResp signAutoBidP(SignAutoBidPReq req);
-
-    AutomaticTightnessPResp automaticTightnessP(AutomaticTightnessPReq req);
-
-    SignCreditTransferPResp signCreditTransferP(SignCreditTransferPReq req);
-
-    AuthorizationPResp authorizationP(AuthorizationPReq req);
-
-    TrusteePayPResp trusteePayP(TrusteePayPReq req);
-
->>>>>>> a5f4fed... 调整model类名称，新增service接口
     RevokeBidResp revokeBid(RevokeBidReq req);
 
     RevokeAutoBidResp revokeAutoBid(RevokeAutoBidReq req);

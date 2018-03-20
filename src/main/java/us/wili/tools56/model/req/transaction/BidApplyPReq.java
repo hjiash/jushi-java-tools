@@ -2,14 +2,9 @@ package us.wili.tools56.model.req.transaction;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
-import us.wili.dev.common.model.validator.Phone;
-import us.wili.dev.model.dto.constant.InterestWay;
 import us.wili.tools56.model.req.BaseReq;
 
-import javax.validation.constraints.Pattern;
-import java.time.LocalDate;
+import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
@@ -17,37 +12,77 @@ import java.time.LocalDate;
 @ApiModel("投资人投标申请参数")
 public class BidApplyPReq extends BaseReq {
 
-    @ApiModelProperty(value = "电子账户,必填", required = true)
+    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
-    @ApiModelProperty(value = "申请流水号 ,必填，用于交易的唯一性标识,(32)位数", required = true)
+    @ApiModelProperty(value = "申请流水号,32为位 必填", required = true)
     private String out_serial_no;
-    @ApiModelProperty(value = "投标金额 ，必填,13位保留两位", required = true)
+    @ApiModelProperty(value = "金额，必填，两位小数，13", required = true)
     private String amount;
-    @ApiModelProperty(value = "标的编号 ,必填，标的信息录入时的标的编号,(40)位数", required = true)
+    @ApiModelProperty(value = "标的编号，有条件必填，为空时查询所有的产品；不为空时按输入的产品发行方查询，6", required = true)
     private String asset_no;
-    @ApiModelProperty(value = "起息日 ,必填，YYYYMMDD,(8)位数", required = true)
+    @ApiModelProperty(value = "起息日YYYYMMDD,必填,(8)位数", required = true)
     private String interest_date;
-    @ApiModelProperty(value = "付息方式 ,必填 1：等额本息； 2：每月付息，到期还本；,(1)位数", required = true)
+    @ApiModelProperty(value = "付息方式 ,必填 1：等额本息；2：每月付息，到期还本；3：等额本金；4：等比累进；5：等额累进；6：组合还款；7：其他，1", required = true)
     private String interest_type;
-    @ApiModelProperty(value = "利息每月支付日, 条件选填 ，DD ，付息方式为2时必填；,2", required = true)
+    @ApiModelProperty(value = "利息每月支付日, 条件选填 ，DD ，付息方式为2时必填；，2", required = true)
     private String interest_day;
-    @ApiModelProperty(value = "产品到期日 ,必填，YYYYMMDD,(8)位数", required = true)
+    @ApiModelProperty(value = "产品到期日，YYYYMMDD,必填,8", required = true)
     private String end_date;
-    @ApiModelProperty(value = "预期年化收益率 ,必填，是5位小数如年化收益率为10%，需上送10.00000,8位保留5位", required = true)
+    @ApiModelProperty(value = "预期年化收益率 ,必填,8", required = true)
     private String interest_rate;
-    @ApiModelProperty(value = "是否冻结金额 ,必填,0：不冻结； 1：冻结 ,(1)位数", required = true)
+    @ApiModelProperty(value = "是否冻结金额 ,必填，0：不冻结；1：冻结,1", required = true)
     private String frozen_flag;
     @ApiModelProperty(value = "是否使用红包 ,必填,0：不使用红包;1：使用红包,(1)位数", required = true)
     private String use_bonus;
     @ApiModelProperty(value = "抵扣红包金额 ,必填,两位小数,9位保留两位", required = true)
     private String bonus_amount;
-    @ApiModelProperty(value = "手机号（电子账户绑定手机号），必填,（11）位", required = true)
+    @ApiModelProperty(value = "手机号，必填，手机号，11(位数)")
     private String mobile;
     @ApiModelProperty(value = "交易时间 ,条件选填,(10)位数", required = true)
     private String transact_date;
+    @ApiModelProperty(value = "成功跳转地址，必填", required = true)
+    private String success_url;
+    @ApiModelProperty(value = "失败跳转地址，256，必填", required = true)
+    private String fail_url;
+    @ApiModelProperty(value = "回调地址，必填", required = true)
+    private String callback_url;
+    @ApiModelProperty(value = "忘记密码跳转链接，256", required = true)
+    private String forget_pwd_url;
 
-    @Length(min = 19, max = 19, message = "电子账号长度必须为19位")
-    @NotBlank(message = "电子账户不能为空")
+    public BidApplyPReq() {
+        super();
+        this.service = "bid_apply_p";
+    }
+
+    private String success_url;
+    private String fail_url;
+    private String callback_url;
+    private String forget_pwd_url;
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = super.toMap();
+        map.put("card_no", getCard_no());
+        map.put("out_serial_no", getOut_serial_no());
+        map.put("amount", getAmount());
+        map.put("use_bonus", getUse_bonus());
+        map.put("bonus_amount", getBonus_amount());
+        map.put("asset_no", getAsset_no());
+        map.put("interest_date", getInterest_date());
+        map.put("interest_type", getInterest_type());
+        map.put("interest_day", getInterest_day());
+        map.put("end_date", getEnd_date());
+        map.put("interest_rate", getInterest_rate());
+        map.put("frozen_flag", getFrozen_flag());
+        map.put("mobile", getMobile());
+
+        map.put("success_url", getSuccess_url());
+        map.put("fail_url", getFail_url());
+        map.put("callback_url", getCallback_url());
+        map.put("forget_pwd_url", getForget_pwd_url());
+        return map;
+    }
+
     public String getCard_no() {
         return card_no;
     }
@@ -56,8 +91,6 @@ public class BidApplyPReq extends BaseReq {
         this.card_no = card_no;
     }
 
-    @Length(max = 32, message = "申请流水号长度最大为32位")
-    @NotBlank(message = "申请流水号不能为空")
     public String getOut_serial_no() {
         return out_serial_no;
     }
@@ -66,8 +99,6 @@ public class BidApplyPReq extends BaseReq {
         this.out_serial_no = out_serial_no;
     }
 
-    @Pattern(regexp = "^[1-9]{1}\\d{0,9}.\\d{2}$", message = "投标金额最多13个字符，且要保留两位小数")
-    @NotBlank(message = "投标金额不能为空")
     public String getAmount() {
         return amount;
     }
@@ -76,8 +107,6 @@ public class BidApplyPReq extends BaseReq {
         this.amount = amount;
     }
 
-    @Length(max = 40, message = "标的编号长度最大为40位")
-    @NotBlank(message = "标的编号不能为空")
     public String getAsset_no() {
         return asset_no;
     }
@@ -86,7 +115,6 @@ public class BidApplyPReq extends BaseReq {
         this.asset_no = asset_no;
     }
 
-    @NotBlank(message = "起息日不能为空")
     public String getInterest_date() {
         return interest_date;
     }
@@ -95,8 +123,6 @@ public class BidApplyPReq extends BaseReq {
         this.interest_date = interest_date;
     }
 
-    @Pattern(regexp = "^[1-2]{1}$", message = "非法的付息方式代码")
-    @NotBlank(message = "付息方式不能为空")
     public String getInterest_type() {
         return interest_type;
     }
@@ -105,7 +131,6 @@ public class BidApplyPReq extends BaseReq {
         this.interest_type = interest_type;
     }
 
-    @Pattern(regexp = "^0[1-9]{1}$|^1\\d{1}$|^2[0-8]{1}$", message = "日期格式错误")
     public String getInterest_day() {
         return interest_day;
     }
@@ -114,7 +139,6 @@ public class BidApplyPReq extends BaseReq {
         this.interest_day = interest_day;
     }
 
-    @NotBlank(message = "产品到期日不能为空")
     public String getEnd_date() {
         return end_date;
     }
@@ -123,8 +147,6 @@ public class BidApplyPReq extends BaseReq {
         this.end_date = end_date;
     }
 
-    @Pattern(regexp = "^[1-9]{1}\\d{0,1}.\\d{5}$", message = "预计年化收益率格式错误")
-    @NotBlank(message = "预计年化收益率不能为空")
     public String getInterest_rate() {
         return interest_rate;
     }
@@ -133,8 +155,6 @@ public class BidApplyPReq extends BaseReq {
         this.interest_rate = interest_rate;
     }
 
-    @Pattern(regexp = "^[1-2]{1}$", message = "未知是否冻结金额")
-    @NotBlank(message = "未知冻结余额")
     public String getFrozen_flag() {
         return frozen_flag;
     }
@@ -143,8 +163,6 @@ public class BidApplyPReq extends BaseReq {
         this.frozen_flag = frozen_flag;
     }
 
-    @Pattern(regexp = "^[1-2]{1}$", message = "未知是否使用红包")
-    @NotBlank(message = "未知是否使用红包")
     public String getUse_bonus() {
         return use_bonus;
     }
@@ -153,8 +171,6 @@ public class BidApplyPReq extends BaseReq {
         this.use_bonus = use_bonus;
     }
 
-    @Pattern(regexp = "^[1-9]{1}\\d{0,5}.\\d{2}$", message = "投标金额最多9个字符，且要保留两位小数")
-    @NotBlank(message = "投标金额不能为空")
     public String getBonus_amount() {
         return bonus_amount;
     }
@@ -163,8 +179,6 @@ public class BidApplyPReq extends BaseReq {
         this.bonus_amount = bonus_amount;
     }
 
-    @Phone
-    @NotBlank(message = "手机号不能为空")
     public String getMobile() {
         return mobile;
     }
@@ -173,7 +187,6 @@ public class BidApplyPReq extends BaseReq {
         this.mobile = mobile;
     }
 
-    @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}", message = "未知日期格式")
     public String getTransact_date() {
         return transact_date;
     }
@@ -182,30 +195,35 @@ public class BidApplyPReq extends BaseReq {
         this.transact_date = transact_date;
     }
 
-    public void validate() {
-        LocalDate currentDate = LocalDate.now();
+    public String getSuccess_url() {
+        return success_url;
+    }
 
-        LocalDate startDate = LocalDate.parse(getInterest_date());
-        if (!startDate.isAfter(currentDate)) {
-            // TODO 抛出异常
-        }
+    public void setSuccess_url(String success_url) {
+        this.success_url = success_url;
+    }
 
-        LocalDate endDate = LocalDate.parse(getEnd_date());
-        if (!endDate.isAfter(currentDate)) {
-            // TODO 抛出异常
-        }
+    public String getFail_url() {
+        return fail_url;
+    }
 
-        LocalDate transactDate = LocalDate.parse(getTransact_date());
-        if (!transactDate.isAfter(currentDate)) {
-            // TODO 抛出异常
-        }
+    public void setFail_url(String fail_url) {
+        this.fail_url = fail_url;
+    }
 
-        if (InterestWay.MONTHLY_INTEREST_RATE_MATURITY_REPAYMENT.getCode().equals(getInterest_type())) {
-            if (getInterest_day() == null) {
-                // TODO 抛出异常
-            }
-        }
+    public String getCallback_url() {
+        return callback_url;
+    }
 
+    public void setCallback_url(String callback_url) {
+        this.callback_url = callback_url;
+    }
 
+    public String getForget_pwd_url() {
+        return forget_pwd_url;
+    }
+
+    public void setForget_pwd_url(String forget_pwd_url) {
+        this.forget_pwd_url = forget_pwd_url;
     }
 }

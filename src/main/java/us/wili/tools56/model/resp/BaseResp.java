@@ -1,6 +1,7 @@
 package us.wili.tools56.model.resp;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.BaseModel;
 
 import java.io.Serializable;

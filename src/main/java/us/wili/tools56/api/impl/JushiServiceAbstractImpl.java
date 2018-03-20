@@ -292,5 +292,4 @@ public abstract class JushiServiceAbstractImpl<H, P> implements JushiService, Re
     public void setBatchService(BatchService batchService) {
         this.batchService = batchService;
     }
-
 }

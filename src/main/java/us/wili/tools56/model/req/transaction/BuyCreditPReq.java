@@ -1,12 +1,6 @@
 package us.wili.tools56.model.req.transaction;
 
 import io.swagger.annotations.ApiModelProperty;
-<<<<<<< HEAD
-=======
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
-import us.wili.dev.common.model.validator.Phone;
->>>>>>> a5f4fed... 调整model类名称，新增service接口
 import us.wili.tools56.model.req.BaseReq;
 
 import java.util.Map;
@@ -15,10 +9,6 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class BuyCreditPReq extends BaseReq {
-<<<<<<< HEAD
-=======
-    @ApiModelProperty(value = "承接方电子账号,必填,(19)位数", required = true)
->>>>>>> a5f4fed... 调整model类名称，新增service接口
     private String card_no_in;
     @ApiModelProperty(value = "申请流水号,32为位 必填", required = true)
     private String out_serial_no;

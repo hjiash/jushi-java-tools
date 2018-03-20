@@ -1,25 +1,15 @@
 package us.wili.tools56.model.req.transaction;
 
 import io.swagger.annotations.ApiModelProperty;
-<<<<<<< HEAD
-=======
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
->>>>>>> a5f4fed... 调整model类名称，新增service接口
 import us.wili.tools56.model.req.BaseReq;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class SignCreditTransferPReq extends BaseReq {
-<<<<<<< HEAD
     @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
-=======
-    @ApiModelProperty(value = "电子账户,必填", required = true)
->>>>>>> a5f4fed... 调整model类名称，新增service接口
     private String card_no;
     @ApiModelProperty(value = "金额，必填，两位小数，13", required = true)
     private String amount;
@@ -38,6 +28,11 @@ public class SignCreditTransferPReq extends BaseReq {
     @ApiModelProperty(value = "回调地址，必填", required = true)
     private String callback_url;
 
+    public SignCreditTransferPReq() {
+        super();
+        setService("sign_credit_transfer_p");
+    }
+
     @Override
     public Map<String, Object> toMap() {
         Map<String, Object> map = super.toMap();
@@ -52,7 +47,6 @@ public class SignCreditTransferPReq extends BaseReq {
         map.put("callback_url", getCallback_url());
         return map;
     }
-
 
     public String getCard_no() {
         return card_no;

@@ -1,22 +1,15 @@
 package us.wili.tools56.model.req.bankroll;
 
-<<<<<<< HEAD:src/main/java/us/wili/tools56/model/req/bankroll/SignBorrowerPReq.java
 import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
 import java.util.Map;
-=======
-import us.wili.tools56.model.req.BaseReq;
->>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/req/bankroll/SignBorrowerPReq.java
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class SignBorrowerPReq extends BaseReq {
-<<<<<<< HEAD:src/main/java/us/wili/tools56/model/req/bankroll/SignBorrowerPReq.java
     @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
-=======
->>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/req/bankroll/SignBorrowerPReq.java
     private String card_no;
     @ApiModelProperty(value = "放款手续费签约金额 必填 13位 保留2位小数", required = true)
     private String payment_amount;

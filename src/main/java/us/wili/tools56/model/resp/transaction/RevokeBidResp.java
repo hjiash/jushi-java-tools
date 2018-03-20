@@ -1,20 +1,54 @@
 package us.wili.tools56.model.resp.transaction;
 
+import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class RevokeBidResp extends BaseResp {
-    private String card_no;
+    @ApiModelProperty(value = "卡号，必填，电子账户，19",required = true)private String card_no;
     private String name;
-    private String out_serial_no;
-    private String asset_no;
+    @ApiModelProperty(value = "申请流水号,32为位 必填",required = true)    private String out_serial_no;
+    @ApiModelProperty(value = "标的编号，有条件必填，为空时查询所有的产品；不为空时按输入的产品发行方查询，6",required = true)    private String asset_no;
     private String bid_amount;
     private String forcast_income;
     private String buy_date;
     private String state;
-    private String bonus_amount;
+    @ApiModelProperty(value = "抵扣红包金额 ,必填,两位小数,9位保留两位", required = true)    private String bonus_amount;
+
+    public static RevokeBidResp fromJson(String content) {
+        return JSONObject.parseObject(content, RevokeBidResp.class);
+    }
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("service", getService());
+        map.put("code", getCode());
+        map.put("msg", getMsg());
+        map.put("version", getVersion());
+        map.put("sign_type", getSign_type());
+        map.put("timestamp", getTimestamp());
+        map.put("uuid", getUuid());
+        map.put("custom", getCustom());
+        map.put("client", getClient());
+        map.put("sequence_id", getSequence_id());
+        map.put("out_serial_no", getOut_serial_no());
+        map.put("card_no", getCard_no());
+        map.put("name", getName());
+        map.put("asset_no", getAsset_no());
+        map.put("bid_amount", getBid_amount());
+        map.put("forcast_income", getForcast_income());
+        map.put("buy_date", getBuy_date());
+        map.put("state", getState());
+        map.put("bonus_amount", getBonus_amount());
+        return map;
+    }
 
     public String getCard_no() {
         return card_no;

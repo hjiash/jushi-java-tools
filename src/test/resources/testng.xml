@@ -5,7 +5,14 @@
         <classes>
             <class name="us.wili.tools56.api.impl.AccountServiceImplTest"/>
             <class name="us.wili.tools56.api.impl.AssetsServiceImplTest"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
             <!--<class name="u"-->
+=======
+>>>>>>> cb7ae10... 增加单元测试
+=======
+            <!--<class name="u"-->
+>>>>>>> e30d57b... 补充提交
         </classes>
     </test>
 </suite>

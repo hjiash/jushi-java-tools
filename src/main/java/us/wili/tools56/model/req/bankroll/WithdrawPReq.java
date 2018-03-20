@@ -1,13 +1,6 @@
 package us.wili.tools56.model.req.bankroll;
 
 import io.swagger.annotations.ApiModelProperty;
-<<<<<<< HEAD
-=======
-import org.hibernate.validator.constraints.CreditCardNumber;
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
-import us.wili.dev.common.model.validator.Phone;
->>>>>>> a5f4fed... 调整model类名称，新增service接口
 import us.wili.tools56.model.req.BaseReq;
 
 import java.util.Map;

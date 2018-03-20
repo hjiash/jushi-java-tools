@@ -1,22 +1,15 @@
 package us.wili.tools56.model.req.account;
 
-<<<<<<< HEAD:src/main/java/us/wili/tools56/model/req/account/AccountTransactionQueryReq.java
 import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
 import java.util.Map;
-=======
-import us.wili.tools56.model.req.BaseReq;
->>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/req/account/AccountTransactionQueryReq.java
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class AccountTransactionQueryReq extends BaseReq {
-<<<<<<< HEAD:src/main/java/us/wili/tools56/model/req/account/AccountTransactionQueryReq.java
     @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
-=======
->>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/req/account/AccountTransactionQueryReq.java
     private String card_no;
     @ApiModelProperty(value = "冲正标志位，条件选填，默认所有，Y是 N否", required = true)
     private String record_flag;

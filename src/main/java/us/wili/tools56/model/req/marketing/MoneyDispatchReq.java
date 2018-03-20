@@ -1,22 +1,15 @@
 package us.wili.tools56.model.req.marketing;
 
-<<<<<<< HEAD:src/main/java/us/wili/tools56/model/req/marketing/MoneyDispatchReq.java
 import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
 import java.util.Map;
-=======
-import us.wili.tools56.model.req.BaseReq;
->>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/req/marketing/MoneyDispatchReq.java
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class MoneyDispatchReq extends BaseReq {
-<<<<<<< HEAD:src/main/java/us/wili/tools56/model/req/marketing/MoneyDispatchReq.java
     @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
-=======
->>>>>>> a5f4fed... 调整model类名称，新增service接口:src/main/java/us/wili/tools56/model/req/marketing/MoneyDispatchReq.java
     private String card_no;
     @ApiModelProperty(value = "承接方电子账号,必填,(19)位数", required = true)
     private String card_no_in;
@@ -28,6 +21,11 @@ public class MoneyDispatchReq extends BaseReq {
     private String description_flag;
     @ApiModelProperty(value = "交易描述 , 条件选填，该字段禁止使用”/“，40", required = true)
     private String description;
+
+    public MoneyDispatchReq() {
+        super();
+        setService("money_dispatch");
+    }
 
     @Override
     public Map<String, Object> toMap() {

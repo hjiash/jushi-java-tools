@@ -1,16 +1,44 @@
 package us.wili.tools56.api.impl;
 
 
+<<<<<<< HEAD
+<<<<<<< HEAD
 import com.alibaba.fastjson.JSON;
+=======
+>>>>>>> 2ddada4... 增加MarketingServiceImplTest
+=======
+import com.alibaba.fastjson.JSON;
+>>>>>>> 2f7334c... test
 import com.google.inject.Inject;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
 import us.wili.tools56.api.JushiService;
 import us.wili.tools56.config.ApiTestConfig;
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 import us.wili.tools56.model.req.transaction.*;
+<<<<<<< HEAD
 import us.wili.tools56.model.resp.transaction.*;
 
 import java.util.UUID;
+=======
+import us.wili.tools56.model.req.transaction.BidApplyPReq;
+import us.wili.tools56.model.resp.transaction.BidApplyPResp;
+>>>>>>> 2ddada4... 增加MarketingServiceImplTest
+=======
+import us.wili.tools56.model.req.transaction.*;
+>>>>>>> 730f059... 补充测试类
+=======
+=======
+import us.wili.tools56.model.req.transaction.AutoBidApplyReq;
+import us.wili.tools56.model.req.transaction.BidApplyPReq;
+>>>>>>> 23939f4... 添加测试逻辑
+import us.wili.tools56.model.resp.transaction.AutoBidApplyResp;
+import us.wili.tools56.model.resp.transaction.BidApplyPResp;
+
+import java.util.UUID;
+>>>>>>> 2f7334c... test
 
 import static org.testng.AssertJUnit.assertNotNull;
 
@@ -21,6 +49,8 @@ public class TransactionServiceImplTest {
     @Inject
     JushiService jushiService;
 
+<<<<<<< HEAD
+<<<<<<< HEAD
     @Test
     public void testBidApplyP() throws Exception {
         BidApplyPReq req = new BidApplyPReq();
@@ -116,6 +146,10 @@ public class TransactionServiceImplTest {
     @Test
     public void testRevokeBid() throws Exception {
         RevokeBidReq req = new RevokeBidReq();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2f7334c... test
     }
 
     @Test
@@ -182,3 +216,78 @@ public class TransactionServiceImplTest {
 
 
 }
+=======
+
+    /**
+     * Method: bidApplyP(BidApplyPReq req)
+     */
+=======
+>>>>>>> 730f059... 补充测试类
+    @Test
+    public void testBidApplyP() throws Exception {
+    }
+
+    @Test
+    public void testBuyCreditP() throws Exception {
+    }
+
+    @Test
+    public void testSignAutoBidP() throws Exception {
+    }
+
+    @Test
+    public void testAutomaticTightnessP() throws Exception {
+    }
+
+    @Test
+    public void testSignCreditTransferP() throws Exception {
+    }
+
+    @Test
+    public void testAuthorizationP() throws Exception {
+    }
+
+
+    @Test
+    public void testTrusteePayP() throws Exception {
+    }
+
+    @Test
+    public void testRevokeBid() throws Exception {
+    }
+
+    @Test
+    public void testRevokeAutoBid() throws Exception {
+    }
+
+    @Test
+    public void testSignBidQuery() throws Exception {
+    }
+
+    @Test
+    public void testAutoBidApply() throws Exception {
+    }
+
+    @Test
+    public void testRevokeCreditTransfer() throws Exception {
+    }
+
+    @Test
+    public void testSignTransferQuery() throws Exception {
+    }
+
+    @Test
+    public void testRevokeWithdrawals() throws Exception {
+    }
+
+    @Test
+    public void testSignWithdrawalsQueryReq() throws Exception {
+    }
+
+
+<<<<<<< HEAD
+} 
+>>>>>>> 2ddada4... 增加MarketingServiceImplTest
+=======
+}
+>>>>>>> e30d57b... 补充提交

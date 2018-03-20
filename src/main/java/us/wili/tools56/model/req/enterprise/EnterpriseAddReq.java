@@ -4,7 +4,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -26,21 +25,14 @@ public class EnterpriseAddReq extends BaseReq {
     @ApiModelProperty(value = "交易流水号，32")
     private String serial_no;
 
+    public EnterpriseAddReq() {
+        super();
+        setService("enterprise_add");
+    }
+
     @Override
     public Map<String, Object> toMap() {
-<<<<<<< HEAD
-        Map<String, Object> map = new HashMap<>();
-        map.put("service", getService());
-        map.put("timestamp", getTimestamp());
-        map.put("uuid", getUuid());
-        map.put("sign_type", getSign_type());
-        map.put("encode", getEncode());
-        map.put("version", getVersion());
-        map.put("custom", getCustom());
-        map.put("client", getClient());
-=======
         Map<String, Object> map = super.toMap();
->>>>>>> c82db61... 调整model
         map.put("card_no", getCard_no());
         map.put("cert_no", getCert_no());
         map.put("name", getName());
