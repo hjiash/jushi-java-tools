@@ -1,12 +1,12 @@
-package us.wili.tools56.model.asynResp.transaction;
+package us.wili.tools56.model.asyncResp.transaction;
 
 
-import us.wili.tools56.model.asynResp.BaseAsynResp;
+import us.wili.tools56.model.asyncResp.BaseAsyncResp;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
-public class AutomaticTightnessPAsynResp extends BaseAsynResp {
+public class AutomaticTightnessPAsyncResp extends BaseAsyncResp {
     private String card_no;
     private String out_serial_no;
     private String sign_flag;

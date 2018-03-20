@@ -1,12 +1,11 @@
-package us.wili.tools56.model.asynResp.bankroll;
+package us.wili.tools56.model.asyncResp.bankroll;
 
-
-import us.wili.tools56.model.asynResp.BaseAsynResp;
+import us.wili.tools56.model.asyncResp.BaseAsyncResp;
 
 /**
- * Created by lhyue on 2018/3/17.
+ * Created by lhyue on 2018/3/20.
  */
-public class TwoGenerationNoticesAsynResp extends BaseAsynResp {
+public class OfflineRechargeAsyncResp extends BaseAsyncResp {
     private String amount;
     private String serial_no;
     private String name;

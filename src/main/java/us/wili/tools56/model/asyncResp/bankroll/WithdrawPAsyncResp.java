@@ -1,12 +1,12 @@
-package us.wili.tools56.model.asynResp.bankroll;
+package us.wili.tools56.model.asyncResp.bankroll;
 
 
-import us.wili.tools56.model.asynResp.BaseAsynResp;
+import us.wili.tools56.model.asyncResp.BaseAsyncResp;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
-public class RechargePAsynResp extends BaseAsynResp {
+public class WithdrawPAsyncResp extends BaseAsyncResp {
     private String order_no;
     private String card_no;
     private String amount;

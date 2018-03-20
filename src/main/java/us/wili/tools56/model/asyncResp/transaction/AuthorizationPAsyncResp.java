@@ -1,18 +1,19 @@
-package us.wili.tools56.model.asynResp.transaction;
+package us.wili.tools56.model.asyncResp.transaction;
 
-import us.wili.tools56.model.asynResp.BaseAsynResp;
+
+import us.wili.tools56.model.asyncResp.BaseAsyncResp;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
-public class SignAutoBidPAsynResp extends BaseAsynResp {
+public class AuthorizationPAsyncResp extends BaseAsyncResp {
     private String card_no;
     private String out_serial_no;
     private String sign_flag;
     private String start_time;
     private String end_time;
-    private String amount;
     private String unit_amount;
+    private String amount;
     private String sign_date;
     private String sign_time;
 
@@ -56,20 +57,20 @@ public class SignAutoBidPAsynResp extends BaseAsynResp {
         this.end_time = end_time;
     }
 
-    public String getAmount() {
-        return amount;
-    }
-
-    public void setAmount(String amount) {
-        this.amount = amount;
-    }
-
     public String getUnit_amount() {
         return unit_amount;
     }
 
     public void setUnit_amount(String unit_amount) {
         this.unit_amount = unit_amount;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
     }
 
     public String getSign_date() {

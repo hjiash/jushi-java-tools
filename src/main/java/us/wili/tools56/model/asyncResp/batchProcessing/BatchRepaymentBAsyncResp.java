@@ -1,14 +1,14 @@
-package us.wili.tools56.model.asynResp.batchProcessing;
+package us.wili.tools56.model.asyncResp.batchProcessing;
 
 
-import us.wili.tools56.model.asynResp.BaseAsynResp;
+import us.wili.tools56.model.asyncResp.BaseAsyncResp;
 
 import java.util.List;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
-public class BatchRepaymentAsynResp extends BaseAsynResp {
+public class BatchRepaymentBAsyncResp extends BaseAsyncResp {
 
     private String batch_no;
     private String batch_count;

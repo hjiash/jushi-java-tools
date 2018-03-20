@@ -1,11 +1,11 @@
-package us.wili.tools56.model.asynResp.account;
+package us.wili.tools56.model.asyncResp.account;
 
-import us.wili.tools56.model.asynResp.BaseAsynResp;
+import us.wili.tools56.model.asyncResp.BaseAsyncResp;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
-public class AccountCreatePAsynResp extends BaseAsynResp {
+public class AccountCreatePAsyncResp extends BaseAsyncResp {
     private String cert_type;
     private String cert_no;
     private String name;

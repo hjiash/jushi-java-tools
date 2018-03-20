@@ -1,9 +1,9 @@
-package us.wili.tools56.model.asynResp;
+package us.wili.tools56.model.asyncResp;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
-public class BaseAsynResp {
+public class BaseAsyncResp {
     private String code;
     private String msg;
     private String service;
