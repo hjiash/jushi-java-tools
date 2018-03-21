@@ -4,6 +4,8 @@ import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.BaseModel;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
@@ -27,6 +29,13 @@ public abstract class BaseReq extends BaseModel implements Serializable {
     private String custom;
     @ApiModelProperty(hidden = true)
     private String client;
+
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+
+
+        return map;
+    }
 
     public String getService() {
         return service;

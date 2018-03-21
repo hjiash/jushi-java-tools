@@ -1,6 +1,5 @@
 package us.wili.tools56.model.req.account;
 
-import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
 import java.util.HashMap;

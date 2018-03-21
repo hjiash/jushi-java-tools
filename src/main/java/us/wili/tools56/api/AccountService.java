@@ -1,7 +1,7 @@
 package us.wili.tools56.api;
 
-import us.wili.tools56.model.asyncResp.account.AccountCreatePAsyncResp;
-import us.wili.tools56.model.asyncResp.account.SetPasswordPAsyncResp;
+import us.wili.tools56.model.resp.account.CreateAccountPAsyncResp;
+import us.wili.tools56.model.resp.account.SetPasswordPAsyncResp;
 import us.wili.tools56.model.req.account.*;
 import us.wili.tools56.model.resp.account.*;
 
@@ -12,7 +12,7 @@ public interface AccountService {
 
     CreateAccountPResp createAccountP(CreateAccountPReq req);
 
-    AccountCreatePAsyncResp asyncCreateAccount(String content);
+    CreateAccountPAsyncResp asyncCreateAccount(String content);
 
     SetPasswordPResp setPasswordP(SetPasswordPReq req);
 

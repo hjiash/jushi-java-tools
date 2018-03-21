@@ -1,9 +1,9 @@
 package us.wili.tools56.api;
 
-import us.wili.tools56.model.asyncResp.batchProcessing.BatchBuyCreditBAsyncResp;
-import us.wili.tools56.model.asyncResp.batchProcessing.BatchCouponBAsyncResp;
-import us.wili.tools56.model.asyncResp.batchProcessing.BatchPaymentBAsyncResp;
-import us.wili.tools56.model.asyncResp.batchProcessing.BatchRepaymentBAsyncResp;
+import us.wili.tools56.model.resp.batchProcessing.BatchBuyCreditBAsyncResp;
+import us.wili.tools56.model.resp.batchProcessing.BatchCouponBAsyncResp;
+import us.wili.tools56.model.resp.batchProcessing.BatchPaymentBAsyncResp;
+import us.wili.tools56.model.resp.batchProcessing.BatchRepaymentBAsyncResp;
 import us.wili.tools56.model.req.batchProcessing.*;
 import us.wili.tools56.model.resp.batchProcessing.*;
 

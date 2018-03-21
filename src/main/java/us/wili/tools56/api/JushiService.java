@@ -4,6 +4,7 @@ import us.wili.tools56.config.JushiProperties;
 import us.wili.tools56.exception.JushiErrorException;
 import us.wili.tools56.model.BaseModel;
 import us.wili.tools56.model.req.BaseReq;
+import us.wili.tools56.model.resp.BaseResp;
 import us.wili.tools56.util.http.HttpType;
 import us.wili.tools56.util.http.RequestHttp;
 
@@ -15,22 +16,30 @@ public interface JushiService {
     /**
      * 当本Service没有实现某个API的时候，可以用这个，针对所有API中的GET请求
      */
-    <T> T getUseApi(BaseReq req) throws JushiErrorException;
+    <T extends BaseResp> T getUseApi(BaseReq req, Class<T> clazz) throws JushiErrorException;
 
     /**
      * 当本Service没有实现某个API的时候，可以用这个，针对所有API中的GET请求
      */
-    <T> T postUseApi(BaseReq req) throws JushiErrorException;
+    <T extends BaseResp> T postUseApi(BaseReq req, Class<T> clazz) throws JushiErrorException;
 
     /**
      * 当本Service没有实现某个页面API的时候，可以用这个，针对所有页面API中的GET请求
      */
-    <T> T getUsePage(BaseReq req) throws JushiErrorException;
+    <T extends BaseResp> T getUsePage(BaseReq req, Class<T> clazz) throws JushiErrorException;
 
     /**
      * 当本Service没有实现某个页面API的时候，可以用这个，针对所有页面API中的GET请求
      */
-    <T> T postUsePage(BaseReq req) throws JushiErrorException;
+    <T extends BaseResp> T postUsePage(BaseReq req, Class<T> clazz) throws JushiErrorException;
+
+    String sign(BaseResp resp);
+    String sign(BaseReq req);
+
+    String encrypt(String plain);
+    String decrypt(String cipher);
+
+    <T extends BaseResp> T decode(String body, Class<T> clazz);
 
     /**
      * 初始化http请求对象
@@ -62,4 +71,10 @@ public interface JushiService {
 
     TransactionService getTransactionService();
     void setTransactionService(TransactionService service);
+
+    EnterpriseService getEnterpriseService();
+    void setEnterpriseService(EnterpriseService service);
+
+    BatchService getBatchService();
+    void setBatchService(BatchService service);
 }

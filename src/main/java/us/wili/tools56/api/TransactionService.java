@@ -1,6 +1,5 @@
 package us.wili.tools56.api;
 
-import us.wili.tools56.model.asyncResp.transaction.*;
 import us.wili.tools56.model.req.transaction.*;
 import us.wili.tools56.model.resp.transaction.*;
 

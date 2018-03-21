@@ -1,10 +1,11 @@
 package us.wili.tools56.api.impl;
 
 import us.wili.tools56.api.BatchService;
-import us.wili.tools56.model.asyncResp.batchProcessing.BatchBuyCreditBAsyncResp;
-import us.wili.tools56.model.asyncResp.batchProcessing.BatchCouponBAsyncResp;
-import us.wili.tools56.model.asyncResp.batchProcessing.BatchPaymentBAsyncResp;
-import us.wili.tools56.model.asyncResp.batchProcessing.BatchRepaymentBAsyncResp;
+import us.wili.tools56.api.JushiService;
+import us.wili.tools56.model.resp.batchProcessing.BatchBuyCreditBAsyncResp;
+import us.wili.tools56.model.resp.batchProcessing.BatchCouponBAsyncResp;
+import us.wili.tools56.model.resp.batchProcessing.BatchPaymentBAsyncResp;
+import us.wili.tools56.model.resp.batchProcessing.BatchRepaymentBAsyncResp;
 import us.wili.tools56.model.req.batchProcessing.*;
 import us.wili.tools56.model.resp.batchProcessing.*;
 
@@ -12,63 +13,70 @@ import us.wili.tools56.model.resp.batchProcessing.*;
  * Created by lhyue on 2018/3/21.
  */
 public class BatchServiceImpl implements BatchService {
+
+    private JushiService jushiService;
+
+    public BatchServiceImpl(JushiService jushiService) {
+        this.jushiService = jushiService;
+    }
+
     @Override
     public BatchPaymentBResp batchPaymentB(BatchPaymentBReq req) {
-        return null;
+        return jushiService.postUseApi(req, BatchPaymentBResp.class);
     }
 
     @Override
     public BatchPaymentBAsyncResp asyncBatchPaymentB(String content) {
-        return null;
+        return jushiService.decode(content, BatchPaymentBAsyncResp.class);
     }
 
     @Override
     public BatchRepaymentBResp batchRepaymentB(BatchRepaymentBReq req) {
-        return null;
+        return jushiService.postUseApi(req, BatchRepaymentBResp.class);
     }
 
     @Override
     public BatchRepaymentBAsyncResp asyncBatchRepaymentB(String content) {
-        return null;
+        return jushiService.decode(content, BatchRepaymentBAsyncResp.class);
     }
 
     @Override
     public BatchBuyCreditBResp batchBuyCreditB(BatchBuyCreditBReq req) {
-        return null;
+        return jushiService.postUseApi(req, BatchBuyCreditBResp.class);
     }
 
     @Override
     public BatchBuyCreditBAsyncResp asyncBatchBuyCreditB(String content) {
-        return null;
+        return jushiService.decode(content, BatchBuyCreditBAsyncResp.class);
     }
 
     @Override
     public BatchRevokePaymentBResp batchRevokePaymentB(BatchRevokePaymentBReq req) {
-        return null;
+        return jushiService.postUseApi(req, BatchRevokePaymentBResp.class);
     }
 
     @Override
     public BatchRevokeRepaymentBResp batchRevokeRepaymentB(BatchRevokeRepaymentBReq req) {
-        return null;
+        return jushiService.postUseApi(req, BatchRevokeRepaymentBResp.class);
     }
 
     @Override
     public BatchRevokeBuyCreditBResp batchRevokeBuyCreditB(BatchRevokeBuyCreditBReq req) {
-        return null;
+        return jushiService.postUseApi(req, BatchRevokeBuyCreditBResp.class);
     }
 
     @Override
     public BatchEndCreditBResp batchEndCreditB(BatchEndCreditBReq req) {
-        return null;
+        return jushiService.postUseApi(req, BatchEndCreditBResp.class);
     }
 
     @Override
     public BatchCouponBResp batchCouponB(BatchCouponBReq req) {
-        return null;
+        return jushiService.postUseApi(req, BatchCouponBResp.class);
     }
 
     @Override
     public BatchCouponBAsyncResp asyncBatchCouponB(String content) {
-        return null;
+        return jushiService.decode(content, BatchCouponBAsyncResp.class);
     }
 }

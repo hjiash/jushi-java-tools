@@ -3,7 +3,7 @@ package us.wili.tools56.exception;
 /**
  * Created by JasonY on 18/3/20.
  */
-public class JushiErrorException extends Exception {
+public class JushiErrorException extends RuntimeException {
 
     private String errCode;
 

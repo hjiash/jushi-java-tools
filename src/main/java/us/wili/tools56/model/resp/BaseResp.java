@@ -4,23 +4,43 @@ import com.alibaba.fastjson.JSONObject;
 import us.wili.tools56.model.BaseModel;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public abstract class BaseResp extends BaseModel implements Serializable {
-    private String service;
     private String code;
     private String msg;
+    private String service;
     private String version;
-    private String sign;
-    private String sign_type;
-    private String timestamp;
     private String uuid;
-    private String custom;
-    private String client;
     private String sequence_id;
+    private String custom;
     private String encode;
+    private String sign_type;
+    private String sign;
+    private String timestamp;
+    private String client;
+
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        map.put("code", getCode());
+        map.put("msg", getMsg());
+        map.put("service", getService());
+        map.put("version", getVersion());
+        map.put("uuid", getUuid());
+        map.put("sequence_id", getSequence_id());
+        map.put("custom", getCustom());
+        map.put("encode", getEncode());
+        map.put("sign_type", getSign_type());
+        map.put("timestamp", getTimestamp());
+        map.put("client", getClient());
+
+        return map;
+    }
 
     public static BaseResp fromJson(String content) {
         return JSONObject.parseObject(content, BaseResp.class);

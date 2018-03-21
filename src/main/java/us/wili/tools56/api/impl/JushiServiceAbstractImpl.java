@@ -1,22 +1,21 @@
 package us.wili.tools56.api.impl;
 
 import com.alibaba.fastjson.JSON;
-import org.apache.http.HttpHost;
-import org.apache.http.impl.client.CloseableHttpClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import us.wili.tools56.api.*;
 import us.wili.tools56.config.JushiProperties;
+import us.wili.tools56.exception.JushiErrorCode;
 import us.wili.tools56.exception.JushiErrorException;
 import us.wili.tools56.model.req.BaseReq;
+import us.wili.tools56.model.resp.BaseResp;
 import us.wili.tools56.util.crypto.CryptoUtil;
 import us.wili.tools56.util.crypto.SignUtil;
-import us.wili.tools56.util.http.HttpType;
 import us.wili.tools56.util.http.RequestExecutor;
 import us.wili.tools56.util.http.RequestHttp;
 import us.wili.tools56.util.http.SimpleGetRequestExecutor;
+import us.wili.tools56.util.http.SimplePostRequestExecutor;
 import us.wili.tools56.util.http.apache.ApacheHttpClientBuilder;
-import us.wili.tools56.util.http.apache.DefaultApacheHttpClientBuilder;
 
 import java.io.IOException;
 
@@ -28,12 +27,14 @@ public abstract class JushiServiceAbstractImpl<H, P> implements JushiService, Re
     protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private JushiProperties properties;
-    private AccountService accountService;
-    private AssetsService assetsService;
-    private BankrollService bankrollService;
-    private MarketingService marketingService;
-    private QueryService queryService;
-    private TransactionService transactionService;
+    private AccountService accountService = new AccountServiceImpl(this);
+    private AssetsService assetsService = new AssetsServiceImpl(this);
+    private BankrollService bankrollService = new BankrollServiceImpl(this);
+    private MarketingService marketingService = new MarketingServiceImpl(this);
+    private QueryService queryService = new QueryServiceImpl(this);
+    private TransactionService transactionService = new TransactionServiceImpl(this);
+    private EnterpriseService enterpriseService = new EnterpriseServiceImpl(this);
+    private BatchService batchService = new BatchServiceImpl(this);
 
     /**
      * http client builder
@@ -58,23 +59,58 @@ public abstract class JushiServiceAbstractImpl<H, P> implements JushiService, Re
     }
 
     @Override
-    public String getUseApi(BaseReq req) throws JushiErrorException {
+    public <T extends BaseResp> T getUseApi(BaseReq req, Class<T> clazz) throws JushiErrorException {
         return null;
     }
 
     @Override
-    public String postUseApi(BaseReq req) throws JushiErrorException {
-        return execute(SimpleGetRequestExecutor.create(this), properties.getApiUrl(), signAndEncrypt(req));
-    }
-
-    @Override
-    public String getUsePage(BaseReq req) throws JushiErrorException {
+    public <T extends BaseResp> T getUsePage(BaseReq req, Class<T> clazz) throws JushiErrorException {
         return null;
     }
 
     @Override
-    public String postUsePage(BaseReq req) throws JushiErrorException {
-        return execute(SimpleGetRequestExecutor.create(this), properties.getPageUrl(), signAndEncrypt(req));
+    public <T extends BaseResp> T postUseApi(BaseReq req, Class<T> clazz) throws JushiErrorException {
+        String body = execute(SimplePostRequestExecutor.create(this), properties.getApiUrl(), signAndEncrypt(req));
+        return decode(body, clazz);
+    }
+
+    @Override
+    public <T extends BaseResp> T postUsePage(BaseReq req, Class<T> clazz) throws JushiErrorException {
+        String body = execute(SimplePostRequestExecutor.create(this), properties.getPageUrl(), signAndEncrypt(req));
+        return decode(body, clazz);
+    }
+
+    @Override
+    public String sign(BaseResp resp) {
+        return signUtil.sign(resp.toMap());
+    }
+
+    @Override
+    public String sign(BaseReq req) {
+        return signUtil.sign(req.toMap());
+    }
+
+    @Override
+    public String encrypt(String plain) {
+        return cryptoUtil.encode(plain);
+    }
+
+    @Override
+    public String decrypt(String cipher) {
+        return cryptoUtil.decode(cipher);
+    }
+
+    @Override
+    public <T extends BaseResp> T decode(String body, Class<T> clazz) {
+        String plain = cryptoUtil.decode(body);
+
+        T baseResp = JSON.parseObject(plain, clazz);
+        String sign = signUtil.sign(baseResp.toMap());
+        if (!sign.equals(baseResp.getSign())) {
+            throw new JushiErrorException(JushiErrorCode.REQUEST_ERROR);
+        }
+
+        return baseResp;
     }
 
     protected String signAndEncrypt(BaseReq req) {
@@ -86,6 +122,7 @@ public abstract class JushiServiceAbstractImpl<H, P> implements JushiService, Re
 
         return encryptJsonStr;
     }
+
 
     /**
      * 向微信端发送请求，在这里执行的策略是当发生access_token过期时才去刷新，然后重新执行请求，而不是全局定时请求
@@ -193,5 +230,25 @@ public abstract class JushiServiceAbstractImpl<H, P> implements JushiService, Re
     @Override
     public void setTransactionService(TransactionService service) {
         this.transactionService = service;
+    }
+
+    @Override
+    public EnterpriseService getEnterpriseService() {
+        return enterpriseService;
+    }
+
+    @Override
+    public void setEnterpriseService(EnterpriseService enterpriseService) {
+        this.enterpriseService = enterpriseService;
+    }
+
+    @Override
+    public BatchService getBatchService() {
+        return batchService;
+    }
+
+    @Override
+    public void setBatchService(BatchService batchService) {
+        this.batchService = batchService;
     }
 }

@@ -1,6 +1,5 @@
 package us.wili.tools56.api;
 
-import us.wili.tools56.model.asyncResp.bankroll.*;
 import us.wili.tools56.model.req.bankroll.*;
 import us.wili.tools56.model.resp.bankroll.*;
 
