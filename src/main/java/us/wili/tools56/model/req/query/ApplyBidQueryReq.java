@@ -1,16 +1,23 @@
 package us.wili.tools56.model.req.query;
 
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class ApplyBidQueryReq extends BaseReq {
+    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
+    @ApiModelProperty(value = "申请流水号,32为位 必填", required = true)
     private String out_serial_no;
+
+    public ApplyBidQueryReq() {
+        super();
+        setService("apply_bid_query");
+    }
 
     @Override
     public Map<String, Object> toMap() {

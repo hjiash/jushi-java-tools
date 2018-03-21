@@ -1,15 +1,17 @@
 package us.wili.tools56.model.req.bankroll;
 
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class FrozenQueryReq extends BaseReq {
+    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
+    @ApiModelProperty(value = "原交易流水号", required = true)
     private String origin_serial_no;
 
     public FrozenQueryReq() {

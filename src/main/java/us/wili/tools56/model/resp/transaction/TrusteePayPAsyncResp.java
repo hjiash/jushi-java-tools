@@ -1,6 +1,7 @@
 package us.wili.tools56.model.resp.transaction;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -10,16 +11,16 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class TrusteePayPAsyncResp extends BaseResp {
-    private String out_serial_no;
-    private String card_no;
-    private String cert_type;
-    private String cert_no;
-    private String in_card_no;
-    private String asset_no;
+    @ApiModelProperty(value = "申请流水号,32为位 必填",required = true)    private String out_serial_no;
+    @ApiModelProperty(value = "卡号，必填，电子账户，19",required = true)private String card_no;
+    @ApiModelProperty(value = "证件类型，必填，15:身份证18位，2(位数)", required = true)    private String cert_type;
+    @ApiModelProperty(value = "证件号码，必填,19(位数)", required = true)    private String cert_no;
+    @ApiModelProperty(value = "承接方电子账号，19", required = true)        private String in_card_no;
+    @ApiModelProperty(value = "标的编号，有条件必填，为空时查询所有的产品；不为空时按输入的产品发行方查询，6",required = true)    private String asset_no;
     private String state;
     private String confirm_date;
     private String confirm_time;
-    private String third_custom;
+    @ApiModelProperty(value = "第三方保留域，第三方机构使用，原样返回，100(位数)")    private String third_custom;
 
     public static TrusteePayPAsyncResp fromJson(String content) {
         return JSONObject.parseObject(content, TrusteePayPAsyncResp.class);

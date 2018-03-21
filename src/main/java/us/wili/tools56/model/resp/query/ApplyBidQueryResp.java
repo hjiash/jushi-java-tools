@@ -1,6 +1,7 @@
 package us.wili.tools56.model.resp.query;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -14,12 +15,12 @@ public class ApplyBidQueryResp extends BaseResp {
     private String state;
     private String name;
     private String forcast_income;
-    private String bonus_amount;
-    private String auth_code;
+    @ApiModelProperty(value = "抵扣红包金额 ,必填,两位小数,9位保留两位", required = true)    private String bonus_amount;
+    @ApiModelProperty(value = "投标申请授权码 ,必填,20", required = true)        private String auth_code;
     private String bid_amount;
-    private String asset_no;
+    @ApiModelProperty(value = "标的编号，有条件必填，为空时查询所有的产品；不为空时按输入的产品发行方查询，6",required = true)    private String asset_no;
     private String buy_date;
-    private String card_no;
+    @ApiModelProperty(value = "卡号，必填，电子账户，19",required = true)private String card_no;
     private String product;
 
     public static ApplyBidQueryResp fromJson(String content) {

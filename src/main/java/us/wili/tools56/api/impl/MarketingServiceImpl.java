@@ -20,11 +20,11 @@ public class MarketingServiceImpl implements MarketingService {
 
     @Override
     public MoneyDispatchResp moneyDispatch(MoneyDispatchReq req) {
-        return jushiService.postUseApi(req, MoneyDispatchResp.class);
+        return jushiService.post(req, MoneyDispatchResp.class);
     }
 
     @Override
     public MoneyRevokeResp moneyRevoke(MoneyRevokeReq req) {
-        return jushiService.postUseApi(req, MoneyRevokeResp.class);
+        return jushiService.post(req, MoneyRevokeResp.class);
     }
 }

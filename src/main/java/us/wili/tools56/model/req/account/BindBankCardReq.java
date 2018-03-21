@@ -1,23 +1,33 @@
 package us.wili.tools56.model.req.account;
 
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class BindBankCardReq extends BaseReq {
+    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
+    @ApiModelProperty(value = "绑定卡号，必填，19(位数)", required = true)
     private String bank_card_no;
+    @ApiModelProperty(value = "银行编码，必填，例如：BOC 中国银行 10(位数)", required = true)
     private String bank_id_no;
+    @ApiModelProperty(value = "姓名，必填，60(位数)", required = true)
     private String name;
+    @ApiModelProperty(value = "证件类型，必填，15:身份证18位，2(位数)", required = true)
     private String cert_type;
+    @ApiModelProperty(value = "客户号，11(位数)", required = true)
     private String customer_no;
+    @ApiModelProperty(value = "证件号码，必填,19(位数)", required = true)
     private String cert_no;
+    @ApiModelProperty(value = "主副卡类型 ,0,位主卡", required = true)
     private String card_type;
+    @ApiModelProperty(value = "绑定卡手机号码，必填,11(位数)", required = true)
     private String bank_mobile;
+    @ApiModelProperty(value = "客户IP，有条件必填，32(位数)", required = true)
     private String user_ip;
 
     public BindBankCardReq() {

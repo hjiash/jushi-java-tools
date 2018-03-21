@@ -63,12 +63,12 @@ public class SignUtil {
 		requestBody.remove("sign");
 		TreeSet<String> sortedKey = new TreeSet<String>(requestBody.keySet());
 
-		StringBuilder builer = new StringBuilder();
+		StringBuilder builder = new StringBuilder();
 		for(String key : sortedKey) {
-			builer.append(key).append("=").append(serializeObject(requestBody.get(key))).append("&");
+			builder.append(key).append("=").append(serializeObject(requestBody.get(key))).append("&");
 		}
 
-		String result = builer.toString();
+		String result = builder.toString();
 		return result.substring(0, result.length() - 1);
 	}
 

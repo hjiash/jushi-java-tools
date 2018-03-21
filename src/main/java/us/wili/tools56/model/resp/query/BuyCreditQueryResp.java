@@ -1,6 +1,7 @@
 package us.wili.tools56.model.resp.query;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -11,17 +12,17 @@ import java.util.Map;
  */
 public class BuyCreditQueryResp extends BaseResp {
 
-    private String in_card_no;
-    private String reserved;
+    @ApiModelProperty(value = "承接方电子账号，19", required = true)        private String in_card_no;
+    @ApiModelProperty(value = "保留域，条件选填,60", required = true)        private String reserved;
     private String transfer_balance;
-    private String out_card_no;
+    @ApiModelProperty(value = "转让方电子账号，19", required = true)        private String out_card_no;
     private String in_name;
-    private String auth_code;
-    private String amount;
+    @ApiModelProperty(value = "投标申请授权码 ,必填,20", required = true)        private String auth_code;
+    @ApiModelProperty(value = "金额，必填，两位小数，13", required = true)    private String amount;
     private String income;
     private String out_name;
     private String transfer_price;
-    private String fee;
+    @ApiModelProperty(value = "手续费，必填,(8,2)位数",required = true)    private String fee;
 
     public static BuyCreditQueryResp fromJson(String content) {
         return JSONObject.parseObject(content, BuyCreditQueryResp.class);

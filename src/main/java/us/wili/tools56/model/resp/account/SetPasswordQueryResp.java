@@ -1,6 +1,7 @@
 package us.wili.tools56.model.resp.account;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -10,7 +11,9 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class SetPasswordQueryResp extends BaseResp {
+    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
+    @ApiModelProperty(value = "订单id,40个字符", required = true)
     private String order_id;
     private String status;
 

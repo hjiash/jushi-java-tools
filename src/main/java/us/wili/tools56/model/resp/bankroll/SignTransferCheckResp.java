@@ -1,6 +1,7 @@
 package us.wili.tools56.model.resp.bankroll;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -10,13 +11,13 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class SignTransferCheckResp extends BaseResp {
-    private String out_serial_no;
-    private String card_no;
+    @ApiModelProperty(value = "申请流水号,32为位 必填",required = true)    private String out_serial_no;
+    @ApiModelProperty(value = "卡号，必填，电子账户，19",required = true)private String card_no;
     private String name;
     private String sign_flag;
-    private String start_time;
-    private String end_time;
-    private String amount;
+    @ApiModelProperty(value = "签约开始时间",required = true)    private String start_time;
+    @ApiModelProperty(value = "结束开始时间", required = true)    private String end_time;
+    @ApiModelProperty(value = "金额，必填，两位小数，13", required = true)    private String amount;
     private String sign_date;
     private String sign_time;
 

@@ -1,6 +1,7 @@
 package us.wili.tools56.model.resp.batchProcessing;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -12,10 +13,10 @@ import java.util.Map;
  */
 public class BatchRevokePaymentBResp extends BaseResp {
 
-    private String batch_no;
-    private String batch_count;
-    private String batch_type;
-    private String batch_date;
+    @ApiModelProperty(value = "批次号，必填，6", required = true)    private String batch_no;
+    @ApiModelProperty(value = "总量 ,必填，数据总量，6", required = true)    private String batch_count;
+    @ApiModelProperty(value = "业务类别 ,必填，001-放款 002-到期还款 003-平台逾期代偿/担保公司代偿,3", required = true)    private String batch_type;
+    @ApiModelProperty(value = "日期 ,必填，YYYYMMDD，需与文件名中的日期一致,8", required = true)    private String batch_date;
     private List<ItemsBean> items;
 
     public static BatchRevokePaymentBResp fromJson(String content) {
@@ -87,12 +88,12 @@ public class BatchRevokePaymentBResp extends BaseResp {
 
         private String result;
         private String message;
-        private String out_card_no;
-        private String in_card_no;
-        private String assets_no;
+        @ApiModelProperty(value = "转让方电子账号，19", required = true)        private String out_card_no;
+        @ApiModelProperty(value = "承接方电子账号，19", required = true)        private String in_card_no;
+        @ApiModelProperty(value = "标的编号 ,必填，投标时使用的标的编号一致,40",required = true)        private String assets_no;
         private String ori_seril_no;
-        private String serial_no;
-        private String third_reserved;
+        @ApiModelProperty(value = "交易流水号，32")    private String serial_no;
+        @ApiModelProperty(value = "第三方流水号 ,必填，p2p平台上送，用于区分每笔交易，必填，40", required = true)        private String third_reserved;
 
         public String getResult() {
             return result;

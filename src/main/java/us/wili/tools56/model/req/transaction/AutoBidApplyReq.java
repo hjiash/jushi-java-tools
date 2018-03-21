@@ -13,19 +13,19 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class AutoBidApplyReq extends BaseReq {
-    private String card_no;
-    private String out_serial_no;
-    private String amount;
-    private String use_bonus;
-    private String bonus_amount;
-    private String auth_code;
-    private String asset_no;
-    private String interest_date;
-    private String interest_type;
-    private String interest_day;
-    private String end_date;
-    private String interest_rate;
-    private String frozen_flag;
+    @ApiModelProperty(value = "卡号，必填，电子账户，19",required = true)private String card_no;
+    @ApiModelProperty(value = "申请流水号,32为位 必填",required = true)    private String out_serial_no;
+    @ApiModelProperty(value = "金额，必填，两位小数，13", required = true)    private String amount;
+    @ApiModelProperty(value = "是否使用红包 ,必填,0：不使用红包;1：使用红包,(1)位数", required = true)    private String use_bonus;
+    @ApiModelProperty(value = "抵扣红包金额 ,必填,两位小数,9位保留两位", required = true)    private String bonus_amount;
+    @ApiModelProperty(value = "投标申请授权码 ,必填,20", required = true)        private String auth_code;
+    @ApiModelProperty(value = "标的编号，有条件必填，为空时查询所有的产品；不为空时按输入的产品发行方查询，6",required = true)    private String asset_no;
+    @ApiModelProperty(value = "起息日YYYYMMDD,必填,(8)位数",required = true)    private String interest_date;
+    @ApiModelProperty(value = "付息方式 ,必填 1：等额本息；2：每月付息，到期还本；3：等额本金；4：等比累进；5：等额累进；6：组合还款；7：其他，1", required = true)    private String interest_type;
+    @ApiModelProperty(value = "利息每月支付日, 条件选填 ，DD ，付息方式为2时必填；，2", required = true)    private String interest_day;
+    @ApiModelProperty(value = "产品到期日，YYYYMMDD,必填,8",required = true)    private String end_date;
+    @ApiModelProperty(value = "预期年化收益率 ,必填,8", required = true)    private String interest_rate;
+    @ApiModelProperty(value = "是否冻结金额 ,必填，0：不冻结；1：冻结,1", required = true)    private String frozen_flag;
 
     public AutoBidApplyReq(){
         super();

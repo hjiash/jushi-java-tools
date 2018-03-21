@@ -1,6 +1,7 @@
 package us.wili.tools56.model.req.enterprise;
 
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
 import java.util.HashMap;
@@ -12,12 +13,17 @@ import java.util.Map;
 @ApiModel(value = "线下企业账户信息")
 public class EnterpriseAddReq extends BaseReq {
 
+    @ApiModelProperty(value = "证件号码，必填,19(位数)", required = true)
     private String cert_no;
     private String name;
+    @ApiModelProperty(value = "手机号，必填，手机号，11(位数)")
     private String mobile;
-    private String bind_card;
+    @ApiModelProperty(value = "绑定卡卡号 ，必填，esb校验，19", required = true)    private String bind_card;
+    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
+    @ApiModelProperty(value = "客户号，11(位数)", required = true)
     private String customer_no;
+    @ApiModelProperty(value = "交易流水号，32")
     private String serial_no;
 
     @Override

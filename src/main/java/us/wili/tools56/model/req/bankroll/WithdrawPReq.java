@@ -1,8 +1,8 @@
 package us.wili.tools56.model.req.bankroll;
 
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -11,23 +11,44 @@ import java.util.Map;
 public class WithdrawPReq extends BaseReq {
 
     private String order_no;
+    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
     private String bank_name;
+    @ApiModelProperty(value = "绑定卡卡号 ，必填，esb校验，19", required = true)
     private String bind_card;
     private String name;
+    @ApiModelProperty(value = "证件号码，必填,19(位数)", required = true)
     private String cert_no;
+    @ApiModelProperty(value = "证件类型，必填，15:身份证18位，2(位数)", required = true)
     private String cert_type;
+    @ApiModelProperty(value = "手机号，必填，手机号，11(位数)")
     private String mobile;
+    @ApiModelProperty(value = "金额，必填，两位小数，13", required = true)
     private String amount;
+    @ApiModelProperty(value = "手续费，必填,(8,2)位数", required = true)
     private String fee;
+    @ApiModelProperty(value = "是否指定通道 ,条件选填，Y-指定资金通道(默认人民银行)， N-不填资金通道(ESB选择),(1)位数", required = true)
     private String channel_flag;
+    @ApiModelProperty(value = "通道标识(如果channel_flag选Y就填G1) ,条件选填,(2)位数", required = true)
     private String channel_code;
+    @ApiModelProperty(value = "开户银行联行号 ,条件选填，(如果channel_code填了 G1就填写人民银行分配联行号,如果没填，就不用分配。),(20)位数", required = true)
     private String union_bank_code;
+    @ApiModelProperty(value = "开户银行代码 ,条件选填,(20)位数", required = true)
     private String open_bank_code;
+    @ApiModelProperty(value = "开户银行英文缩写,条件选填,(20)位数", required = true)
     private String bank_name_en;
+    @ApiModelProperty(value = "开户银行中文名称,条件选填,(50)位数", required = true)
     private String bank_name_cn;
+    @ApiModelProperty(value = "开户行省份,条件选填,(20)位数", required = true)
     private String bank_province;
+    @ApiModelProperty(value = "开户行城市,条件选填,(50)位数", required = true)
     private String bank_city;
+    @ApiModelProperty(value = "成功跳转地址，必填", required = true)
+    private String success_url;
+    @ApiModelProperty(value = "失败跳转地址，256，必填", required = true)
+    private String fail_url;
+    @ApiModelProperty(value = "回调地址，必填", required = true)
+    private String callback_url;
 
     public WithdrawPReq() {
         super();
@@ -55,6 +76,7 @@ public class WithdrawPReq extends BaseReq {
         map.put("bank_name_cn", getBank_name_cn());
         map.put("bank_province", getBank_province());
         map.put("bank_city", getBank_city());
+        map.put("callback_url", getCallback_url());
         return map;
     }
 
@@ -200,5 +222,29 @@ public class WithdrawPReq extends BaseReq {
 
     public void setBank_city(String bank_city) {
         this.bank_city = bank_city;
+    }
+
+    public String getSuccess_url() {
+        return success_url;
+    }
+
+    public void setSuccess_url(String success_url) {
+        this.success_url = success_url;
+    }
+
+    public String getFail_url() {
+        return fail_url;
+    }
+
+    public void setFail_url(String fail_url) {
+        this.fail_url = fail_url;
+    }
+
+    public String getCallback_url() {
+        return callback_url;
+    }
+
+    public void setCallback_url(String callback_url) {
+        this.callback_url = callback_url;
     }
 }

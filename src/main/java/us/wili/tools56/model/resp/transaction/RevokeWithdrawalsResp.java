@@ -1,6 +1,7 @@
 package us.wili.tools56.model.resp.transaction;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -10,12 +11,14 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class RevokeWithdrawalsResp extends BaseResp {
+    @ApiModelProperty(value = "申请流水号,32为位 必填", required = true)
     private String out_serial_no;
     private String name;
     private String revoke_sign_time;
     private String sign_flag;
     private String sign_date;
     private String sign_time;
+    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
 
     public static RevokeWithdrawalsResp fromJson(String content) {

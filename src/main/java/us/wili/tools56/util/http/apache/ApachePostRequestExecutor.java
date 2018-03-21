@@ -30,7 +30,7 @@ public class ApachePostRequestExecutor extends SimplePostRequestExecutor<Closeab
             httpPost.setConfig(config);
         }
 
-        if (headers.length > 0) {
+        if (headers != null && headers.length > 0) {
             httpPost.setHeaders(headers);
         }
 

@@ -1,17 +1,25 @@
 package us.wili.tools56.model.req.transaction;
 
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class RevokeWithdrawalsReq extends BaseReq {
+    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
+    @ApiModelProperty(value = "申请流水号,32为位 必填", required = true)
     private String out_serial_no;
+    @ApiModelProperty(value = "原交易流水号", required = true)
     private String origin_serial_no;
+
+    public RevokeWithdrawalsReq() {
+        super();
+        setService("revoke_withdrawals");
+    }
 
     @Override
     public Map<String, Object> toMap() {
@@ -22,7 +30,10 @@ public class RevokeWithdrawalsReq extends BaseReq {
         return map;
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4f1b840... 添加文档说明
     public String getCard_no() {
         return card_no;
     }

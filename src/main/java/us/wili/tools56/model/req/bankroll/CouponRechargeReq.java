@@ -1,15 +1,17 @@
 package us.wili.tools56.model.req.bankroll;
 
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class CouponRechargeReq extends BaseReq {
+    @ApiModelProperty(value = "金额，必填，两位小数，13", required = true)
     private String amount;
+    @ApiModelProperty(value = "交易流水号，32")
     private String serial_no;
 
     public CouponRechargeReq() {

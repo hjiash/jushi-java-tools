@@ -1,5 +1,6 @@
 package us.wili.tools56.model.req.transaction;
 
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
 import java.util.HashMap;
@@ -9,12 +10,29 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class SignAutoBidPReq extends BaseReq {
+    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
+    @ApiModelProperty(value = "金额，必填，两位小数，13", required = true)
     private String amount;
+    @ApiModelProperty(value = "单笔签约最高金额，(13)位数", required = true)
     private String unit_amount;
+    @ApiModelProperty(value = "申请流水号,32为位 必填", required = true)
     private String out_serial_no;
+    @ApiModelProperty(value = "签约开始时间", required = true)
     private String start_time;
+    @ApiModelProperty(value = "结束开始时间", required = true)
     private String end_time;
+    @ApiModelProperty(value = "成功跳转地址，必填", required = true)
+    private String success_url;
+    @ApiModelProperty(value = "失败跳转地址，256，必填", required = true)
+    private String fail_url;
+    @ApiModelProperty(value = "回调地址，必填", required = true)
+    private String callback_url;
+
+    public SignAutoBidPReq() {
+        super();
+        setService("sign_auto_bid_p");
+    }
 
     @Override
     public Map<String, Object> toMap() {
@@ -25,6 +43,9 @@ public class SignAutoBidPReq extends BaseReq {
         map.put("unit_amount", getUnit_amount());
         map.put("start_time", getStart_time());
         map.put("end_time", getEnd_time());
+        map.put("success_url", getSuccess_url());
+        map.put("fail_url", getFail_url());
+        map.put("callback_url", getCallback_url());
         return map;
     }
 
@@ -77,4 +98,27 @@ public class SignAutoBidPReq extends BaseReq {
         this.end_time = end_time;
     }
 
+    public String getSuccess_url() {
+        return success_url;
+    }
+
+    public void setSuccess_url(String success_url) {
+        this.success_url = success_url;
+    }
+
+    public String getFail_url() {
+        return fail_url;
+    }
+
+    public void setFail_url(String fail_url) {
+        this.fail_url = fail_url;
+    }
+
+    public String getCallback_url() {
+        return callback_url;
+    }
+
+    public void setCallback_url(String callback_url) {
+        this.callback_url = callback_url;
+    }
 }

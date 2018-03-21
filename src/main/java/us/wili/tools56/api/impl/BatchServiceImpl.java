@@ -22,7 +22,7 @@ public class BatchServiceImpl implements BatchService {
 
     @Override
     public BatchPaymentBResp batchPaymentB(BatchPaymentBReq req) {
-        return jushiService.postUseApi(req, BatchPaymentBResp.class);
+        return jushiService.post(req, BatchPaymentBResp.class);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class BatchServiceImpl implements BatchService {
 
     @Override
     public BatchRepaymentBResp batchRepaymentB(BatchRepaymentBReq req) {
-        return jushiService.postUseApi(req, BatchRepaymentBResp.class);
+        return jushiService.post(req, BatchRepaymentBResp.class);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class BatchServiceImpl implements BatchService {
 
     @Override
     public BatchBuyCreditBResp batchBuyCreditB(BatchBuyCreditBReq req) {
-        return jushiService.postUseApi(req, BatchBuyCreditBResp.class);
+        return jushiService.post(req, BatchBuyCreditBResp.class);
     }
 
     @Override
@@ -52,27 +52,27 @@ public class BatchServiceImpl implements BatchService {
 
     @Override
     public BatchRevokePaymentBResp batchRevokePaymentB(BatchRevokePaymentBReq req) {
-        return jushiService.postUseApi(req, BatchRevokePaymentBResp.class);
+        return jushiService.post(req, BatchRevokePaymentBResp.class);
     }
 
     @Override
     public BatchRevokeRepaymentBResp batchRevokeRepaymentB(BatchRevokeRepaymentBReq req) {
-        return jushiService.postUseApi(req, BatchRevokeRepaymentBResp.class);
+        return jushiService.post(req, BatchRevokeRepaymentBResp.class);
     }
 
     @Override
     public BatchRevokeBuyCreditBResp batchRevokeBuyCreditB(BatchRevokeBuyCreditBReq req) {
-        return jushiService.postUseApi(req, BatchRevokeBuyCreditBResp.class);
+        return jushiService.post(req, BatchRevokeBuyCreditBResp.class);
     }
 
     @Override
     public BatchEndCreditBResp batchEndCreditB(BatchEndCreditBReq req) {
-        return jushiService.postUseApi(req, BatchEndCreditBResp.class);
+        return jushiService.post(req, BatchEndCreditBResp.class);
     }
 
     @Override
     public BatchCouponBResp batchCouponB(BatchCouponBReq req) {
-        return jushiService.postUseApi(req, BatchCouponBResp.class);
+        return jushiService.post(req, BatchCouponBResp.class);
     }
 
     @Override

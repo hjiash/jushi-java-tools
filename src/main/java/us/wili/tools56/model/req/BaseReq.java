@@ -26,9 +26,9 @@ public abstract class BaseReq extends BaseModel implements Serializable {
     protected String encode = "";
     @ApiModelProperty(hidden = true)
     protected String version = "";
-    @ApiModelProperty(hidden = true)
+    @ApiModelProperty(value = "交易终端 ,必填，000001手机APP 000002网页 000003微信 000004柜面", required = false)
     protected String custom = "";
-    @ApiModelProperty(hidden = true)
+    @ApiModelProperty(value = "商户自定义数据——可选,用于传递商户自定义数据，商户上传的数据会直接返回给商户", required = false)
     protected String client = "";
 
     public BaseReq() {

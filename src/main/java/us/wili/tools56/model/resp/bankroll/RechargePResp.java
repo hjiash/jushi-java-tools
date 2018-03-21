@@ -1,6 +1,7 @@
 package us.wili.tools56.model.resp.bankroll;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -11,6 +12,7 @@ import java.util.Map;
  */
 public class RechargePResp extends BaseResp {
     private String order_no;
+    @ApiModelProperty(value = "订单id,40个字符", required = true)
     private String order_id;
     private String url;
 

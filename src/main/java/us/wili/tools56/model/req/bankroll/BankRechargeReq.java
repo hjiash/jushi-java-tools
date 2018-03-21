@@ -1,24 +1,34 @@
 package us.wili.tools56.model.req.bankroll;
 
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/20.
  */
-public class BankRechargeReq extends BaseReq{
+public class BankRechargeReq extends BaseReq {
+    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
     private String bank_type;
+    @ApiModelProperty(value = "回调地址，必填", required = true)
     private String callback_url;
+    @ApiModelProperty(value = "客户号，11(位数)", required = true)
     private String customer_no;
+    @ApiModelProperty(value = "支付成功跳转url，必填", required = true)
     private String redirect_url;
+    @ApiModelProperty(value = "产品名称，条件选填")
     private String product_name;
+    @ApiModelProperty(value = "产品详情，条件选填")
     private String product_detail;
+    @ApiModelProperty(value = "订单号，必填", required = true)
     private String order_no;
+    @ApiModelProperty(value = "银行名称，必填", required = true)
     private String bank_name;
+    @ApiModelProperty(value = "银行编码，必填，例如：BOC 中国银行 10(位数)", required = true)
     private String bank_id_no;
+    @ApiModelProperty(value = "金额，必填，两位小数，13", required = true)
     private String amount;
 
     public BankRechargeReq() {

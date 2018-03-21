@@ -1,6 +1,7 @@
 package us.wili.tools56.model.resp.account;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -10,17 +11,25 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class CreateAccountPAsyncResp extends BaseResp {
+    @ApiModelProperty(value = "证件类型，必填，15:身份证18位，2(位数)", required = true)
     private String cert_type;
+    @ApiModelProperty(value = "证件号码，必填,19(位数)", required = true)
     private String cert_no;
     private String name;
+    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
+    @ApiModelProperty(value = "客户号，11(位数)", required = true)
     private String customer_no;
+    @ApiModelProperty(value = "交易流水号，32")
     private String serial_no;
+    @ApiModelProperty(value = "绑定卡号，必填，19(位数)", required = true)
     private String bank_card_no;
+    @ApiModelProperty(value = "手机号，必填，手机号，11(位数)")
     private String mobile;
     private String bank_name;
     private String rsp_code;
     private String account_type;
+    @ApiModelProperty(value = "申请流水号,32为位 必填", required = true)
     private String out_serial_no;
 
     public static CreateAccountPAsyncResp fromJson(String content) {

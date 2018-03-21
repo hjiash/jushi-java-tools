@@ -2,6 +2,7 @@ package us.wili.tools56.model.resp.account;
 
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -11,9 +12,9 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class SetPasswordPAsyncResp extends BaseResp {
-    private String out_serial_no;
-    private String customer_no;
-    private String card_no;
+    @ApiModelProperty(value = "申请流水号,32为位 必填",required = true)    private String out_serial_no;
+    @ApiModelProperty(value = "客户号，11(位数)",required = true)    private String customer_no;
+    @ApiModelProperty(value = "卡号，必填，电子账户，19",required = true)private String card_no;
 
     public static SetPasswordPAsyncResp fromJson(String content) {
         return JSONObject.parseObject(content, SetPasswordPAsyncResp.class);

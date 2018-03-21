@@ -1,6 +1,7 @@
 package us.wili.tools56.model.resp.query;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 import us.wili.tools56.model.resp.transaction.AuthorizationPResp;
 
@@ -13,8 +14,8 @@ import java.util.Map;
 public class MoneyQueryResp extends BaseResp {
     private String status;
     private String name;
-    private String bind_card;
-    private String amount;
+    @ApiModelProperty(value = "绑定卡卡号 ，必填，esb校验，19", required = true)    private String bind_card;
+    @ApiModelProperty(value = "金额，必填，两位小数，13", required = true)    private String amount;
     private String order_time;
     private String error_code;
     private String error_msg;

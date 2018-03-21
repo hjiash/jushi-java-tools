@@ -1,22 +1,31 @@
 package us.wili.tools56.model.req.account;
 
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class AccountTransactionQueryReq extends BaseReq {
+    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
+    @ApiModelProperty(value = "冲正标志位，条件选填，默认所有，Y是 N否", required = true)
     private String record_flag;
+    @ApiModelProperty(value = "交易类型，条件选填，默认所有流水，B：金融流水，N：非金融流水", required = true)
     private String transact_type;
+    @ApiModelProperty(value = "起始记账日期，必填，格式：yyyyMMdd", required = true)
     private String begin_date;
+    @ApiModelProperty(value = "结束记账日期，必填，格式：yyyyMMdd", required = true)
     private String end_date;
+    @ApiModelProperty(value = "流水类型，条件选填，默认所有交易，0：所有交易；1：转入；2：转出", required = true)
     private String type;
+    @ApiModelProperty(value = "排序，条件选填，默认正序 1：正序 2：倒序", required = true)
     private String order_by;
+    @ApiModelProperty(value = "起始记录数，必填，大于等于1", required = true)
     private String current_result;
+    @ApiModelProperty(value = "查询记录条数，必填，不得超过99", required = true)
     private String total_result;
 
     public AccountTransactionQueryReq() {

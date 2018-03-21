@@ -1,6 +1,7 @@
 package us.wili.tools56.model.resp.marketing;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -10,10 +11,13 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class MoneyDispatchResp extends BaseResp {
+    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
+    @ApiModelProperty(value = "交易流水号，32")
     private String serial_no;
     private String card_no_in;
-    private String currency;
+    @ApiModelProperty(value = "币种 ，必填，156，3", required = true)    private String currency;
+    @ApiModelProperty(value = "金额，必填，两位小数，13", required = true)
     private String amount;
 
     public static MoneyDispatchResp fromJson(String content) {

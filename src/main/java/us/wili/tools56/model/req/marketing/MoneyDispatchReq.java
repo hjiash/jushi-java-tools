@@ -1,19 +1,25 @@
 package us.wili.tools56.model.req.marketing;
 
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class MoneyDispatchReq extends BaseReq {
+    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
+    @ApiModelProperty(value = "承接方电子账号,必填,(19)位数", required = true)
     private String card_no_in;
+    @ApiModelProperty(value = "币种 ，必填，156，3", required = true)
     private String currency;
+    @ApiModelProperty(value = "金额，必填，两位小数，13", required = true)
     private String amount;
+    @ApiModelProperty(value = "是否使用交易描述 ,必填，1使用，0不使用,1", required = true)
     private String description_flag;
+    @ApiModelProperty(value = "交易描述 , 条件选填，该字段禁止使用”/“，40", required = true)
     private String description;
 
     @Override

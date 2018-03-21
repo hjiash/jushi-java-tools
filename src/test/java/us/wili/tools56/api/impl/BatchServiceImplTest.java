@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.google.inject.Inject;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
-import sun.net.www.protocol.jar.URLJarFile;
 import us.wili.tools56.api.JushiService;
 import us.wili.tools56.config.ApiTestConfig;
 import us.wili.tools56.model.req.batchProcessing.BatchBuyCreditBReq;

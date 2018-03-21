@@ -1,5 +1,6 @@
 package us.wili.tools56.model.req.transaction;
 
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
 import java.util.HashMap;
@@ -9,7 +10,9 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class SignTransferQueryReq extends BaseReq {
+    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
+    @ApiModelProperty(value = "第三方保留域，第三方机构使用，原样返回，100(位数)")
     private String third_custom;
 
     @Override

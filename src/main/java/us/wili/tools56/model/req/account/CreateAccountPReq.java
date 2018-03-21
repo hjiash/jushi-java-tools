@@ -1,8 +1,8 @@
 package us.wili.tools56.model.req.account;
 
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -10,11 +10,17 @@ import java.util.Map;
  */
 public class CreateAccountPReq extends BaseReq {
 
+    @ApiModelProperty(hidden = true)
     private String account_type;
+    @ApiModelProperty(value = "用户角色，1：出借角色，2：借款角色，3：代偿角色", required = true)
     private String role_type;
+    @ApiModelProperty(value = "申请流水号,32为位 必填", required = true)
     private String out_serial_no;
+    @ApiModelProperty(value = "成功跳转地址，必填", required = true)
     private String success_url;
+    @ApiModelProperty(value = "失败跳转地址，256，必填", required = true)
     private String fail_url;
+    @ApiModelProperty(value = "回调地址，必填", required = true)
     private String callback_url;
 
     public CreateAccountPReq() {

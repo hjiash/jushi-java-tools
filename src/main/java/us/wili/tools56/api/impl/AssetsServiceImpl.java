@@ -22,16 +22,16 @@ public class AssetsServiceImpl implements AssetsService {
 
     @Override
     public AssetsEnrollResp assetsEnroll(AssetsEnrollReq req) {
-        return jushiService.postUseApi(req, AssetsEnrollResp.class);
+        return jushiService.post(req, AssetsEnrollResp.class);
     }
 
     @Override
     public AssetsRevokeResp assetsRevoke(AssetsRevokeReq req) {
-        return jushiService.postUseApi(req, AssetsRevokeResp.class);
+        return jushiService.post(req, AssetsRevokeResp.class);
     }
 
     @Override
     public AssetsQueryResp assetsQuery(AssetsQueryReq req) {
-        return jushiService.postUseApi(req, AssetsQueryResp.class);
+        return jushiService.post(req, AssetsQueryResp.class);
     }
 }

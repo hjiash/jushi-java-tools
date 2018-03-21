@@ -1,6 +1,7 @@
 package us.wili.tools56.model.resp.account;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -10,9 +11,9 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class BindBankCardResp extends BaseResp {
-    private String card_no;
+    @ApiModelProperty(value = "卡号，必填，电子账户，19",required = true)private String card_no;
     private String name;
-    private String serial_no;
+    @ApiModelProperty(value = "交易流水号，32")    private String serial_no;
     private String sign_flag;
     private String sign_date;
     private String sign_time;

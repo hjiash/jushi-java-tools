@@ -1,6 +1,7 @@
 package us.wili.tools56.model.resp.account;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -14,7 +15,7 @@ public class AccountTransactionQueryResp extends BaseResp {
     private String total_result;
     private String current_result;
     private String out_num;
-    private String end_flag;
+   @ApiModelProperty(value = "结束标识位，1：结束；0：未结束", required = true)        private String end_flag;
 
     private List<WaterAccount> items;
 
@@ -92,11 +93,11 @@ public class AccountTransactionQueryResp extends BaseResp {
         private String description;
         private String record_flag;
         private String remark;
-        private String card_no;
+        @ApiModelProperty(value = "卡号，必填，电子账户，19",required = true)private String card_no;
         private String sign;
         private String transact_amount;
         private String account_balance;
-        private String interest_date;
+        @ApiModelProperty(value = "起息日YYYYMMDD,必填,(8)位数",required = true)    private String interest_date;
         private String opponent_card_no;
 
         public String getTransact_date() {

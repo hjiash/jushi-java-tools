@@ -2,6 +2,7 @@ package us.wili.tools56.model.resp.transaction;
 
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -11,15 +12,18 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class BuyCreditPAsyncResp extends BaseResp {
+    @ApiModelProperty(value = "申请流水号,32为位 必填", required = true)
     private String out_serial_no;
     private String card_no_in;
-    private String card_no_out;
+    @ApiModelProperty(value = "转让方电子账号,必填,(19)位数", required = true)    private String card_no_out;
+    @ApiModelProperty(value = "金额，必填，两位小数，13", required = true)
     private String amount;
     private String transfer_price;
     private String left_balance;
-    private String fee;
+    @ApiModelProperty(value = "手续费，必填,(8,2)位数",required = true)    private String fee;
     private String income;
-    private String auth_code;
+    @ApiModelProperty(value = "投标申请授权码 ,必填,20", required = true)        private String auth_code;
+    @ApiModelProperty(value = "第三方保留域，第三方机构使用，原样返回，100(位数)")
     private String third_custom;
 
     public static BuyCreditPAsyncResp fromJson(String content) {

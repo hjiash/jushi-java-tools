@@ -1,8 +1,8 @@
 package us.wili.tools56.model.req.bankroll;
 
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -10,22 +10,46 @@ import java.util.Map;
  */
 public class RechargePReq extends BaseReq {
     private String order_no;
+    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
+    @ApiModelProperty(value = "绑定卡卡号 ，必填，esb校验，19", required = true)
     private String bind_card;
+    @ApiModelProperty(value = "币种 ，必填，156，3", required = true)
     private String currency;
+    @ApiModelProperty(value = "金额，必填，两位小数，13", required = true)
     private String amount;
+    @ApiModelProperty(value = "手续费，必填,(8,2)位数", required = true)
     private String fee;
+    @ApiModelProperty(value = "证件类型，必填，15:身份证18位，2(位数)", required = true)
     private String cert_type;
+    @ApiModelProperty(value = "证件号码，必填,19(位数)", required = true)
     private String cert_no;
+    @ApiModelProperty(value = "姓名 ，必填，60", required = true)
     private String name;
+    @ApiModelProperty(value = "手机号，必填，手机号，11(位数)")
     private String mobile;
+    @ApiModelProperty(value = "ESB代发实名认证标志 ，必填，首次充值上送Y，之后充值上送N，1")
     private String auth_flag;
+    @ApiModelProperty(value = "实名认证流水号 ，条件可选，6")
     private String auth_seq_id;
+    @ApiModelProperty(value = "开户银行代码，条件可选 ，20")
     private String user_bank_code;
+    @ApiModelProperty(value = "开户银行英文缩写，条件可选 ，20")
     private String user_bank_name_en;
+    @ApiModelProperty(value = "开户银行中文名称，条件可选 ，50")
     private String user_bank_name_cn;
+    @ApiModelProperty(value = "开户行省份，条件可选，20")
     private String bank_province;
+    @ApiModelProperty(value = "开户行城市，条件可选，50")
     private String bank_city;
+    @ApiModelProperty(value = "回调地址，必填", required = true)
+    private String callback_url;
+    @ApiModelProperty(value = "成功跳转地址，必填", required = true)
+    private String success_url;
+    @ApiModelProperty(value = "失败跳转地址，256，必填", required = true)
+    private String fail_url;
+    @ApiModelProperty(value = "客户IP，有条件必填，32(位数)", required = true)
+    private String user_ip;
 
     public RechargePReq() {
         super();
@@ -51,6 +75,10 @@ public class RechargePReq extends BaseReq {
         map.put("user_bank_name_cn", getUser_bank_name_cn());
         map.put("bank_province", getBank_province());
         map.put("bank_city", getBank_city());
+        map.put("callback_url", getCallback_url());
+        map.put("success_url", getSuccess_url());
+        map.put("fail_url", getFail_url());
+        map.put("user_ip", getUser_ip());
         return map;
     }
 
@@ -188,5 +216,37 @@ public class RechargePReq extends BaseReq {
 
     public void setBank_city(String bank_city) {
         this.bank_city = bank_city;
+    }
+
+    public String getCallback_url() {
+        return callback_url;
+    }
+
+    public void setCallback_url(String callback_url) {
+        this.callback_url = callback_url;
+    }
+
+    public String getSuccess_url() {
+        return success_url;
+    }
+
+    public void setSuccess_url(String success_url) {
+        this.success_url = success_url;
+    }
+
+    public String getFail_url() {
+        return fail_url;
+    }
+
+    public void setFail_url(String fail_url) {
+        this.fail_url = fail_url;
+    }
+
+    public String getUser_ip() {
+        return user_ip;
+    }
+
+    public void setUser_ip(String user_ip) {
+        this.user_ip = user_ip;
     }
 }

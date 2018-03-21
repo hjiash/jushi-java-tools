@@ -1,5 +1,6 @@
 package us.wili.tools56.api;
 
+import org.apache.http.Header;
 import us.wili.tools56.config.JushiProperties;
 import us.wili.tools56.exception.JushiErrorException;
 import us.wili.tools56.model.BaseModel;
@@ -19,24 +20,24 @@ public interface JushiService {
     /**
      * 当本Service没有实现某个API的时候，可以用这个，针对所有API中的GET请求
      */
-    <T extends BaseResp> T getUseApi(BaseReq req, Class<T> clazz) throws JushiErrorException;
+    <T extends BaseResp> T get(BaseReq req, Class<T> clazz) throws JushiErrorException;
 
     /**
-     * 当本Service没有实现某个API的时候，可以用这个，针对所有API中的GET请求
+     * 当本Service没有实现某个API的时候，可以用这个，针对所有API中的POST请求
      */
-    <T extends BaseResp> T postUseApi(BaseReq req, Class<T> clazz) throws JushiErrorException;
+    <T extends BaseResp> T post(BaseReq req, Class<T> clazz) throws JushiErrorException;
 
     /**
-     * 当本Service没有实现某个页面API的时候，可以用这个，针对所有页面API中的GET请求
+     * 辅助发送网络请求，Get方法
      */
-    <T extends BaseResp> T getUsePage(BaseReq req, Class<T> clazz) throws JushiErrorException;
+    String get(String uri, Header[] headers);
 
     /**
-     * 当本Service没有实现某个页面API的时候，可以用这个，针对所有页面API中的GET请求
+     * 辅助发送网络请求，Post方法
      */
-    <T extends BaseResp> T postUsePage(BaseReq req, Class<T> clazz) throws JushiErrorException;
+    String post(String uri, Header[] headers, String data);
 
-    <T, E> T execute(RequestExecutor<T, E> executor, String uri, E data);
+    <T, E> T execute(RequestExecutor<T, E> executor, String uri, Header[] headers, E data);
 
     SignUtil getSignUtil();
     CryptoUtil getCryptoUtil();

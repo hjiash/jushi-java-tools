@@ -30,15 +30,15 @@ public abstract class BaseResp extends BaseModel implements Serializable {
 
         map.put("code", getCode());
         map.put("msg", getMsg());
-        map.put("service", getService());
-        map.put("timestamp", getTimestamp());
-        map.put("uuid", getUuid());
-        map.put("sign_type", getSign_type());
-        map.put("encode", getEncode());
         map.put("version", getVersion());
-        map.put("client", getClient());
+        map.put("sign_type", getSign_type());
+        map.put("uuid", getUuid());
+        map.put("timestamp", getTimestamp());
         map.put("custom", getCustom());
+        map.put("service", getService());
         map.put("sequence_id", getSequence_id());
+        map.put("encode", getEncode());
+        map.put("client", getClient());
 
         return map;
     }

@@ -1,9 +1,7 @@
 package us.wili.tools56.model.req.batchProcessing;
 
-import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
-import us.wili.tools56.model.resp.batchProcessing.BatchBuyCreditBResp;
-import us.wili.tools56.util.crypto.SignUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,10 +12,13 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class BatchBuyCreditBReq extends BaseReq {
-
+    @ApiModelProperty(value = "回调地址，必填,256", required = true)
     private String notify_url;
+    @ApiModelProperty(value = "批次号，必填，6", required = true)
     private String batch_no;
+    @ApiModelProperty(value = "总量 ,必填，数据总量，6", required = true)
     private String batch_count;
+
     private List<ItemsBean> items;
 
     public BatchBuyCreditBReq() {
@@ -30,11 +31,11 @@ public class BatchBuyCreditBReq extends BaseReq {
     public Map<String, Object> toMap() {
         Map<String, Object> map = super.toMap();
         map.put("notify_url", getNotify_url());
-        map.put("batch_no", getBatch_count());
+        map.put("batch_no", getBatch_no());
         map.put("batch_count", getBatch_count());
 
         List<Map<String, Object>> items = new ArrayList<>();
-        for (ItemsBean itemsBean : getItems()){
+        for (ItemsBean itemsBean : getItems()) {
             Map<String, Object> childMap = itemsBean.toMap();
             items.add(childMap);
         }
@@ -77,19 +78,31 @@ public class BatchBuyCreditBReq extends BaseReq {
     }
 
     public static class ItemsBean {
-
+        @ApiModelProperty(value = "银行代号,10", required = true)
         private String bank_no;
+        @ApiModelProperty(value = "承接方电子账号，19", required = true)
         private String in_card_no;
+        @ApiModelProperty(value = "转让方电子账号，19", required = true)
         private String out_card_no;
+        @ApiModelProperty(value = "交易流水号，32", required = true)
         private String serial_no;
+        @ApiModelProperty(value = "原交易流水号", required = true)
         private String origin_serial_no;
+        @ApiModelProperty(value = "总共可转让份额,必填，两位小数 由转让人在不超过总原投标份额内进行控制，13", required = true)
         private String total_amount;
+        @ApiModelProperty(value = "转让份额，必填，两位小数本次转让份额+累计已转让份额不能大于总共可转让份额,13", required = true)
         private String transfer_amount;
+        @ApiModelProperty(value = "转让价格 ,必填，两位小数购买转让份额所需要的金额,13", required = true)
         private String transfer_prise;
+        @ApiModelProperty(value = "转让手续费 ，必填，手续费从转让方收取，13", required = true)
         private String transfer_fee;
+        @ApiModelProperty(value = "起息日YYYYMMDD,必填,(8)位数", required = true)
         private String interest_date;
+        @ApiModelProperty(value = "转让后预期年化收益率 ，必填，5位小数 ，如年化收益率为10%，需上送10.00000,8", required = true)
         private String interest_rate;
+        @ApiModelProperty(value = "保留域，条件选填,60", required = true)
         private String reserved;
+        @ApiModelProperty(value = "第三方流水号 ,必填，p2p平台上送，用于区分每笔交易，必填，40", required = true)
         private String third_reserved;
 
         public Map<String, Object> toMap() {

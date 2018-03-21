@@ -20,7 +20,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public CreateAccountPResp createAccountP(CreateAccountPReq req) {
-        return jushiService.postUsePage(req, CreateAccountPResp.class);
+        return jushiService.post(req, CreateAccountPResp.class);
     }
 
     @Override
@@ -30,12 +30,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public SetPasswordPResp setPasswordP(SetPasswordPReq req) {
-<<<<<<< HEAD
-
-        return null;
-=======
-        return jushiService.postUsePage(req, SetPasswordPResp.class);
->>>>>>> 60ed685... 删除无用包，填充serviceImpl逻辑
+        return jushiService.post(req, SetPasswordPResp.class);
     }
 
     @Override
@@ -45,71 +40,71 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public BindBankCardResp bindBankCard(BindBankCardReq req) {
-        return jushiService.postUseApi(req, BindBankCardResp.class);
+        return jushiService.post(req, BindBankCardResp.class);
     }
 
     @Override
     public UnBindBankCardResp unBindBankCard(UnBindBankCardReq req) {
-        return jushiService.postUseApi(req, UnBindBankCardResp.class);
+        return jushiService.post(req, UnBindBankCardResp.class);
     }
 
     @Override
     public ChangeMobileResp changeMobile(ChangeMobileReq req) {
-        return jushiService.postUseApi(req, ChangeMobileResp.class);
+        return jushiService.post(req, ChangeMobileResp.class);
     }
 
     @Override
     public AccountMobileResp accountMobile(AccountMobileReq req) {
-        return jushiService.postUseApi(req, AccountMobileResp.class);
+        return jushiService.post(req, AccountMobileResp.class);
     }
 
     @Override
     public BindingListResp bindingList(BindingListReq req) {
-        return jushiService.postUseApi(req, BindingListResp.class);
+        return jushiService.post(req, BindingListResp.class);
     }
 
     @Override
     public AccountBalanceResp accountBalance(AccountBalanceReq req) {
-        return jushiService.postUseApi(req, AccountBalanceResp.class);
+        return jushiService.post(req, AccountBalanceResp.class);
     }
 
     @Override
     public MarketingQueryResp marketingQuery(MarketingQueryReq req) {
-        return jushiService.postUseApi(req, MarketingQueryResp.class);
+        return jushiService.post(req, MarketingQueryResp.class);
     }
 
     @Override
     public FindAccountByIdResp findAccountById(FindAccountByIdReq req) {
-        return jushiService.postUseApi(req, FindAccountByIdResp.class);
+        return jushiService.post(req, FindAccountByIdResp.class);
     }
 
     @Override
     public FindAccountByMobileResp findAccountByMobile(FindAccountByMobileReq req) {
-        return jushiService.postUseApi(req, FindAccountByMobileResp.class);
+        return jushiService.post(req, FindAccountByMobileResp.class);
     }
 
     @Override
     public AccountCreditsResp accountCredits(AccountCreditsReq req) {
-        return jushiService.postUseApi(req, AccountCreditsResp.class);
+        return jushiService.post(req, AccountCreditsResp.class);
     }
 
     @Override
     public AccountTransactionQueryResp accountTransactionQuery(AccountTransactionQueryReq req) {
-        return jushiService.postUseApi(req, AccountTransactionQueryResp.class);
+        return jushiService.post(req, AccountTransactionQueryResp.class);
     }
 
     @Override
     public CreateAccountSrQueryResp createAccountSrQuery(CreateAccountSrQueryReq req) {
-        return jushiService.postUseApi(req, CreateAccountSrQueryResp.class);
+        return jushiService.post(req, CreateAccountSrQueryResp.class);
     }
 
     @Override
     public GatewayQueryResp gatewayQuery(GatewayQueryReq req) {
-        return jushiService.postUseApi(req, GatewayQueryResp.class);
+        return jushiService.post(req, GatewayQueryResp.class);
     }
 
     @Override
     public SetPasswordQueryResp setPasswordQuery(SetPasswordQueryReq req) {
-        return jushiService.postUseApi(req, SetPasswordQueryResp.class);
+        return jushiService.post(req, SetPasswordQueryResp.class);
     }
 }

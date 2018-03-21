@@ -18,6 +18,6 @@ public class EnterpriseServiceImpl implements EnterpriseService {
 
     @Override
     public EnterpriseAddResp enterpriseAdd(EnterpriseAddReq req) {
-        return jushiService.postUseApi(req, EnterpriseAddResp.class);
+        return jushiService.post(req, EnterpriseAddResp.class);
     }
 }

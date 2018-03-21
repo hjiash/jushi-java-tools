@@ -18,27 +18,27 @@ public class BankrollServiceImpl implements BankrollService{
 
     @Override
     public CouponRechargeResp couponRecharge(CouponRechargeReq req) {
-        return jushiService.postUseApi(req, CouponRechargeResp.class);
+        return jushiService.post(req, CouponRechargeResp.class);
     }
 
     @Override
     public CouponWithdrawResp couponWithdraw(CouponWithdrawReq req) {
-        return jushiService.postUseApi(req, CouponWithdrawResp.class);
+        return jushiService.post(req, CouponWithdrawResp.class);
     }
 
     @Override
     public FrozenResp frozen(FrozenReq req) {
-        return jushiService.postUseApi(req, FrozenResp.class);
+        return jushiService.post(req, FrozenResp.class);
     }
 
     @Override
     public UnfrozenResp unFrozen(UnfrozenReq req) {
-        return jushiService.postUseApi(req, UnfrozenResp.class);
+        return jushiService.post(req, UnfrozenResp.class);
     }
 
     @Override
     public FrozenQueryResp frozenQuery(FrozenQueryReq req) {
-        return jushiService.postUseApi(req, FrozenQueryResp.class);
+        return jushiService.post(req, FrozenQueryResp.class);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class BankrollServiceImpl implements BankrollService{
 
     @Override
     public BankRechargeResp bankRecharge(BankRechargeReq req) {
-        return jushiService.postUseApi(req, BankRechargeResp.class);
+        return jushiService.post(req, BankRechargeResp.class);
     }
 
     @Override
@@ -63,7 +63,7 @@ public class BankrollServiceImpl implements BankrollService{
 
     @Override
     public RechargePResp rechargeP(RechargePReq req) {
-        return jushiService.postUsePage(req, RechargePResp.class);
+        return jushiService.post(req, RechargePResp.class);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class BankrollServiceImpl implements BankrollService{
 
     @Override
     public WithdrawPResp withdrawP(WithdrawPReq req) {
-        return jushiService.postUsePage(req, WithdrawPResp.class);
+        return jushiService.post(req, WithdrawPResp.class);
     }
 
     @Override
@@ -83,7 +83,7 @@ public class BankrollServiceImpl implements BankrollService{
 
     @Override
     public SignBorrowerPResp signBorrowerP(SignBorrowerPReq req) {
-        return jushiService.postUsePage(req, SignBorrowerPResp.class);
+        return jushiService.post(req, SignBorrowerPResp.class);
     }
 
     @Override
@@ -93,27 +93,27 @@ public class BankrollServiceImpl implements BankrollService{
 
     @Override
     public SignPaymentQueryResp signPaymentQuery(SignPaymentQueryReq req) {
-        return jushiService.postUseApi(req, SignPaymentQueryResp.class);
+        return jushiService.post(req, SignPaymentQueryResp.class);
     }
 
     @Override
     public SignRepaymentQueryResp signRepaymentQuery(SignRepaymentQueryReq req) {
-        return jushiService.postUseApi(req, SignRepaymentQueryResp.class);
+        return jushiService.post(req, SignRepaymentQueryResp.class);
     }
 
     @Override
     public RevokeRepaymentResp revokeRepayment(RevokeRepaymentReq req) {
-        return jushiService.postUseApi(req, RevokeRepaymentResp.class);
+        return jushiService.post(req, RevokeRepaymentResp.class);
     }
 
     @Override
     public RevokePaymentResp revokePayment(RevokePaymentReq req) {
-        return jushiService.postUseApi(req, RevokePaymentResp.class);
+        return jushiService.post(req, RevokePaymentResp.class);
     }
 
     @Override
     public SignTransferPResp signTransferP(SignTransferPReq req) {
-        return jushiService.postUsePage(req, SignTransferPResp.class);
+        return jushiService.post(req, SignTransferPResp.class);
     }
 
     @Override
@@ -123,11 +123,11 @@ public class BankrollServiceImpl implements BankrollService{
 
     @Override
     public SignTransferCheckResp signTransferCheck(SignTransferCheckReq req) {
-        return jushiService.postUseApi(req, SignTransferCheckResp.class);
+        return jushiService.post(req, SignTransferCheckResp.class);
     }
 
     @Override
     public RevokeTransferResp revokeTransfer(RevokeTransferReq req) {
-        return jushiService.postUseApi(req, RevokeTransferResp.class);
+        return jushiService.post(req, RevokeTransferResp.class);
     }
 }

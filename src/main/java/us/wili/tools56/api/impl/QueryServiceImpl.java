@@ -18,31 +18,31 @@ public class QueryServiceImpl implements QueryService {
 
     @Override
     public BatchQueryPaymentBResp batchQueryPaymentB(BatchQueryPaymentBReq req) {
-        return jushiService.postUseApi(req, BatchQueryPaymentBResp.class);
+        return jushiService.post(req, BatchQueryPaymentBResp.class);
     }
 
     @Override
     public BatchQueryRepaymentBResp batchQueryRepaymentB(BatchQueryRepaymentBReq req) {
-        return jushiService.postUseApi(req, BatchQueryRepaymentBResp.class);
+        return jushiService.post(req, BatchQueryRepaymentBResp.class);
     }
 
     @Override
     public BatchQueryBuyCreditBResp batchQueryBuyCreditB(BatchQueryBuyCreditBReq req) {
-        return jushiService.postUseApi(req, BatchQueryBuyCreditBResp.class);
+        return jushiService.post(req, BatchQueryBuyCreditBResp.class);
     }
 
     @Override
     public ApplyBidQueryResp applyBidQuery(ApplyBidQueryReq req) {
-        return jushiService.postUseApi(req, ApplyBidQueryResp.class);
+        return jushiService.post(req, ApplyBidQueryResp.class);
     }
 
     @Override
     public BuyCreditQueryResp buyCreditQuery(BuyCreditQueryReq req) {
-        return jushiService.postUseApi(req, BuyCreditQueryResp.class);
+        return jushiService.post(req, BuyCreditQueryResp.class);
     }
 
     @Override
     public MoneyQueryResp moneyQuery(MoneyQueryReq req) {
-        return jushiService.postUseApi(req, MoneyQueryResp.class);
+        return jushiService.post(req, MoneyQueryResp.class);
     }
 }

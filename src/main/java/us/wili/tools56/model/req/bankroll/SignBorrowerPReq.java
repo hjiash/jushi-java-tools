@@ -1,24 +1,35 @@
 package us.wili.tools56.model.req.bankroll;
 
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class SignBorrowerPReq extends BaseReq {
+    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
+    @ApiModelProperty(value = "放款手续费签约金额 必填 13位 保留2位小数", required = true)
     private String payment_amount;
+    @ApiModelProperty(value = "还款签约金额, 手续费+ 利息 + 还款金额 必填,13位 保留2位小数", required = true)
     private String repayment_amount;
+    @ApiModelProperty(value = "申请流水号,32为位 必填", required = true)
     private String out_serial_no;
+    @ApiModelProperty(value = "payment_start_time\t放款手续费签约开始时间 , 必填", required = true)
     private String payment_start_time;
+    @ApiModelProperty(value = "还款签约开始时间 必填", required = true)
     private String repayment_start_time;
+    @ApiModelProperty(value = "放款手续费签约结束时间，必填", required = true)
     private String payment_end_time;
+    @ApiModelProperty(value = "还款签约结束时间,必填", required = true)
     private String repayment_end_time;
+    @ApiModelProperty(value = "回调地址，必填", required = true)
     private String callback_url;
+    @ApiModelProperty(value = "成功跳转地址，必填", required = true)
     private String success_url;
+    @ApiModelProperty(value = "失败跳转地址，256，必填", required = true)
     private String fail_url;
 
     public SignBorrowerPReq() {

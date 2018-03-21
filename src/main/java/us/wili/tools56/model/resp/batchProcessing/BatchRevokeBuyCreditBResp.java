@@ -1,8 +1,10 @@
 package us.wili.tools56.model.resp.batchProcessing;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,8 +14,11 @@ import java.util.Map;
  */
 public class BatchRevokeBuyCreditBResp extends BaseResp {
 
+    @ApiModelProperty(value = "批次号，必填，6", required = true)
     private String batch_no;
+    @ApiModelProperty(value = "总量 ,必填，数据总量，6", required = true)
     private String batch_count;
+    @ApiModelProperty(value = "日期 ,必填，YYYYMMDD，需与文件名中的日期一致,8", required = true)
     private String batch_date;
     private List<ItemsBean> items;
 
@@ -23,21 +28,20 @@ public class BatchRevokeBuyCreditBResp extends BaseResp {
 
     @Override
     public Map<String, Object> toMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("service", getService());
-        map.put("code", getCode());
-        map.put("msg", getMsg());
-        map.put("version", getVersion());
-        map.put("sign_type", getSign_type());
-        map.put("timestamp", getTimestamp());
-        map.put("uuid", getUuid());
-        map.put("custom", getCustom());
-        map.put("client", getClient());
-        map.put("sequence_id", getSequence_id());
+        Map<String, Object> map = super.toMap();
         map.put("batch_no", getBatch_no());
         map.put("batch_count", getBatch_count());
         map.put("batch_date", getBatch_date());
-        map.put("items", getItems());
+
+        if (this.items != null) {
+            List<Map<String, Object>> items = new ArrayList<>();
+            for (BatchRevokeBuyCreditBResp.ItemsBean itemsBean : getItems()) {
+                Map<String, Object> childMap = itemsBean.toMap();
+                items.add(childMap);
+            }
+            map.put("items", items);
+        }
+
         return map;
     }
 
@@ -75,13 +79,30 @@ public class BatchRevokeBuyCreditBResp extends BaseResp {
 
     public static class ItemsBean {
 
+        @ApiModelProperty(value = "承接方电子账号，19", required = true)
         private String in_card_no;
+        @ApiModelProperty(value = "转让方电子账号，19", required = true)
         private String out_card_no;
+        @ApiModelProperty(value = "交易流水号，32")
         private String serial_no;
         private String result;
         private String message;
+        @ApiModelProperty(value = "保留域，条件选填,60", required = true)
         private String reserved;
+        @ApiModelProperty(value = "第三方流水号 ,必填，p2p平台上送，用于区分每笔交易，必填，40", required = true)
         private String third_reserved;
+
+        public Map<String, Object> toMap() {
+            Map<String, Object> map = new HashMap<String, Object>();
+            if (getResult() != null) map.put("result", getResult());
+            if (getMessage() != null) map.put("message", getMessage());
+            if (getIn_card_no() != null) map.put("in_card_no", getIn_card_no());
+            if (getOut_card_no() != null) map.put("out_card_no", getOut_card_no());
+            if (getSerial_no() != null) map.put("serial_no", getSerial_no());
+            if (getReserved() != null) map.put("reserved", getReserved());
+            if (getThird_reserved() != null) map.put("third_reserved", getThird_reserved());
+            return map;
+        }
 
         public String getIn_card_no() {
             return in_card_no;

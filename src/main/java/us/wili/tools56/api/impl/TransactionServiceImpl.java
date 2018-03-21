@@ -18,7 +18,7 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public BidApplyPResp bidApplyP(BidApplyPReq req) {
-        return jushiService.postUsePage(req, BidApplyPResp.class);
+        return jushiService.post(req, BidApplyPResp.class);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public BuyCreditPResp buyCreditP(BuyCreditPReq req) {
-        return jushiService.postUsePage(req, BuyCreditPResp.class);
+        return jushiService.post(req, BuyCreditPResp.class);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public SignAutoBidPResp signAutoBidP(SignAutoBidPReq req) {
-        return jushiService.postUseApi(req, SignAutoBidPResp.class);
+        return jushiService.post(req, SignAutoBidPResp.class);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public AutomaticTightnessPResp automaticTightnessP(AutomaticTightnessPReq req) {
-        return jushiService.postUseApi(req, AutomaticTightnessPResp.class);
+        return jushiService.post(req, AutomaticTightnessPResp.class);
     }
 
     @Override
@@ -58,7 +58,7 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public SignCreditTransferPResp signCreditTransferP(SignCreditTransferPReq req) {
-        return jushiService.postUseApi(req, SignCreditTransferPResp.class);
+        return jushiService.post(req, SignCreditTransferPResp.class);
     }
 
     @Override
@@ -68,7 +68,7 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public AuthorizationPResp authorizationP(AuthorizationPReq req) {
-        return jushiService.postUseApi(req, AuthorizationPResp.class);
+        return jushiService.post(req, AuthorizationPResp.class);
     }
 
     @Override
@@ -78,7 +78,7 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public TrusteePayPResp trusteePayP(TrusteePayPReq req) {
-        return jushiService.postUseApi(req, TrusteePayPResp.class);
+        return jushiService.post(req, TrusteePayPResp.class);
     }
 
     @Override
@@ -88,41 +88,41 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public RevokeBidResp revokeBid(RevokeBidReq req) {
-        return jushiService.postUseApi(req, RevokeBidResp.class);
+        return jushiService.post(req, RevokeBidResp.class);
     }
 
     @Override
     public RevokeAutoBidResp revokeAutoBid(RevokeAutoBidReq req) {
-        return jushiService.postUseApi(req, RevokeAutoBidResp.class);
+        return jushiService.post(req, RevokeAutoBidResp.class);
     }
 
     @Override
     public SignBidQueryResp signBidQuery(SignBidQueryReq req) {
-        return jushiService.postUseApi(req, SignBidQueryResp.class);
+        return jushiService.post(req, SignBidQueryResp.class);
     }
 
     @Override
     public AutoBidApplyResp autoBidApply(AutoBidApplyReq req) {
-        return jushiService.postUseApi(req, AutoBidApplyResp.class);
+        return jushiService.post(req, AutoBidApplyResp.class);
     }
 
     @Override
     public RevokeCreditTransferResp revokeCreditTransfer(RevokeCreditTransferReq req) {
-        return jushiService.postUseApi(req, RevokeCreditTransferResp.class);
+        return jushiService.post(req, RevokeCreditTransferResp.class);
     }
 
     @Override
     public SignTransferQueryResp signTransferQuery(SignTransferQueryReq req) {
-        return jushiService.postUseApi(req, SignTransferQueryResp.class);
+        return jushiService.post(req, SignTransferQueryResp.class);
     }
 
     @Override
     public RevokeWithdrawalsResp revokeWithdrawals(RevokeWithdrawalsReq req) {
-        return jushiService.postUseApi(req, RevokeWithdrawalsResp.class);
+        return jushiService.post(req, RevokeWithdrawalsResp.class);
     }
 
     @Override
     public SignWithdrawalsQueryResp signWithdrawalsQuery(SignWithdrawalsQueryReq req) {
-        return jushiService.postUseApi(req, SignWithdrawalsQueryResp.class);
+        return jushiService.post(req, SignWithdrawalsQueryResp.class);
     }
 }

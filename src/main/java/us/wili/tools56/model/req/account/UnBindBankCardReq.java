@@ -1,18 +1,23 @@
 package us.wili.tools56.model.req.account;
 
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class UnBindBankCardReq extends BaseReq {
+    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
+    @ApiModelProperty(value = "绑定卡号，必填，19(位数)", required = true)
     private String bank_card_no;
+    @ApiModelProperty(value = "客户号，11(位数)", required = true)
     private String customer_no;
+    @ApiModelProperty(value = "交易流水号，32")
     private String serial_no;
+    @ApiModelProperty(value = "主副卡类型 ,0,位主卡", required = true)
     private String card_type;
 
     public UnBindBankCardReq() {

@@ -2,6 +2,7 @@ package us.wili.tools56.model.resp.bankroll;
 
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -11,8 +12,8 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class SignBorrowerPAsyncResp extends BaseResp {
-    private String card_no;
-    private String out_serial_no;
+    @ApiModelProperty(value = "卡号，必填，电子账户，19",required = true)private String card_no;
+    @ApiModelProperty(value = "申请流水号,32为位 必填",required = true)    private String out_serial_no;
     private String sign_flag;
     private String payment_amount;
     private String repayment_amount;

@@ -2,6 +2,7 @@ package us.wili.tools56.model.resp.batchProcessing;
 
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -12,9 +13,9 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class BatchCouponBAsyncResp extends BaseResp {
-    private String batch_no;
-    private String batch_count;
-    private String batch_date;
+    @ApiModelProperty(value = "批次号，必填，6", required = true)    private String batch_no;
+    @ApiModelProperty(value = "总量 ,必填，数据总量，6", required = true)    private String batch_count;
+    @ApiModelProperty(value = "日期 ,必填，YYYYMMDD，需与文件名中的日期一致,8", required = true)    private String batch_date;
     private List<ItemsBean> items;
 
     public static BatchCouponBAsyncResp fromJson(String content) {
@@ -75,12 +76,14 @@ public class BatchCouponBAsyncResp extends BaseResp {
     }
 
     public static class ItemsBean {
-        private String in_card_no;
+        @ApiModelProperty(value = "承接方电子账号，19", required = true)        private String in_card_no;
+        @ApiModelProperty(value = "金额，必填，两位小数，13", required = true)
         private String amount;
         private String name;
+        @ApiModelProperty(value = "交易流水号，32")
         private String serial_no;
         private String result;
-        private String third_reserved;
+        @ApiModelProperty(value = "第三方流水号 ,必填，p2p平台上送，用于区分每笔交易，必填，40", required = true)        private String third_reserved;
         private String message;
 
         public String getIn_card_no() {

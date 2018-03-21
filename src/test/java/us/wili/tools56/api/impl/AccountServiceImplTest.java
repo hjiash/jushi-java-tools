@@ -93,6 +93,7 @@ public class AccountServiceImplTest {
         String uuid = UUID.randomUUID().toString();
         req.setCustomer_no(uuid.substring(1, 10));
         req.setCard_no(uuid.substring(1, 20));
+        req.setThird_custom("第三方预留");
 
         AccountBalanceResp resp = jushiService.getAccountService().accountBalance(req);
         assertNotNull(req);

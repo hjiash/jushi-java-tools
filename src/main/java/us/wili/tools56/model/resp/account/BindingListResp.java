@@ -1,6 +1,7 @@
 package us.wili.tools56.model.resp.account;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -11,7 +12,7 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class BindingListResp extends BaseResp {
-    private String card_no;
+    @ApiModelProperty(value = "卡号，必填，电子账户，19",required = true)private String card_no;
     private String name;
 
     public static BindingListResp fromJson(String content) {
@@ -64,12 +65,12 @@ public class BindingListResp extends BaseResp {
     }
 
     class BankCard {
-        private String bank_card_no;
-        private String card_type;
+        @ApiModelProperty(value = "绑定卡号，必填，19(位数)", required = true)    private String bank_card_no;
+        @ApiModelProperty(value = "主副卡类型 ,0,位主卡", required = true)    private String card_type;
         private String sign_date;
         private String sign_time;
-        private String serial_no;
-        private String mobile;
+        @ApiModelProperty(value = "交易流水号，32")    private String serial_no;
+        @ApiModelProperty(value = "手机号，必填，手机号，11(位数)")    private String mobile;
         private String state;
         private String revoke_sign_date;
         private String revoke_sign_time;

@@ -1,6 +1,7 @@
 package us.wili.tools56.model.resp.assets;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -10,17 +11,24 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class AssetsQueryResp extends BaseResp {
+    @ApiModelProperty(value = "标的编号，有条件必填，为空时查询所有的产品；不为空时按输入的产品发行方查询，6", required = true)
     private String asset_no;
     private String asset_brief;
+    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
     private String name;
+    @ApiModelProperty(value = "金额，必填，两位小数，13", required = true)
     private String amount;
+    @ApiModelProperty(value = "项目期限，必填，单位为天，4", required = true)
     private String loan_term;
     private String issue_date;
     private String state;
+    @ApiModelProperty(value = "担保人电子账号，条件选填，19", required = true)
     private String warrant_card_no;
     private String warrant_name;
+    @ApiModelProperty(value = "名义借款人电子账户，条件选填，名义借款人电子账号，19", required = true)
     private String borrow_card_no;
+    @ApiModelProperty(value = "第三方保留域，第三方机构使用，原样返回，100(位数)")
     private String third_custom;
 
     public static AssetsQueryResp fromJson(String content) {

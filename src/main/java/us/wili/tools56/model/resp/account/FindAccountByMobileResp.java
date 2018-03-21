@@ -1,6 +1,7 @@
 package us.wili.tools56.model.resp.account;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -11,8 +12,8 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class FindAccountByMobileResp extends BaseResp{
-    private String mobile;
-    private String customer_no;
+    @ApiModelProperty(value = "手机号，必填，手机号，11(位数)")    private String mobile;
+    @ApiModelProperty(value = "客户号，11(位数)",required = true)    private String customer_no;
 
     List<Account> subpacks;
 
@@ -68,10 +69,10 @@ public class FindAccountByMobileResp extends BaseResp{
     class Account{
         private String issue_date;
         private String name;
-        private String card_no;
-        private String cert_no;
+        @ApiModelProperty(value = "卡号，必填，电子账户，19",required = true)private String card_no;
+        @ApiModelProperty(value = "证件号码，必填,19(位数)", required = true)    private String cert_no;
         private String product;
-        private String cert_type;
+        @ApiModelProperty(value = "证件类型，必填，15:身份证18位，2(位数)", required = true)    private String cert_type;
 
         public String getIssue_date() {
             return issue_date;

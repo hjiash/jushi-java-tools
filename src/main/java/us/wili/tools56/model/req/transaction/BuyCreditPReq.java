@@ -1,8 +1,8 @@
 package us.wili.tools56.model.req.transaction;
 
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -10,24 +10,38 @@ import java.util.Map;
  */
 public class BuyCreditPReq extends BaseReq {
     private String card_no_in;
+    @ApiModelProperty(value = "申请流水号,32为位 必填", required = true)
     private String out_serial_no;
+    @ApiModelProperty(value = "原交易流水号", required = true)
     private String origin_serial_no;
+    @ApiModelProperty(value = "转让方电子账号,必填,(19)位数", required = true)
     private String card_no_out;
+    @ApiModelProperty(value = "总共可转让金额，由转让人在不超过总原投标份额内进行控制,必填,13位保留两位", required = true)
     private String total_balance;
+    @ApiModelProperty(value = "金额，必填，两位小数，13", required = true)
     private String amount;
     private String transfer_price;
+    @ApiModelProperty(value = "起息日YYYYMMDD,必填,(8)位数", required = true)
     private String interest_date;
+    @ApiModelProperty(value = "预期年化收益率 ,必填,8", required = true)
     private String interest_rate;
     private String fee_way;
+    @ApiModelProperty(value = "手续费，必填,(8,2)位数", required = true)
     private String fee;
+    @ApiModelProperty(value = "手机号，必填，手机号，11(位数)")
     private String mobile;
+    @ApiModelProperty(value = "第三方保留域，第三方机构使用，原样返回，100(位数)")
     private String third_custom;
+    @ApiModelProperty(value = "成功跳转地址，必填", required = true)
     private String success_url;
+    @ApiModelProperty(value = "失败跳转地址，256，必填", required = true)
     private String fail_url;
+    @ApiModelProperty(value = "忘记密码跳转链接，256", required = true)
     private String forget_pwd_url;
+    @ApiModelProperty(value = "回调地址，必填", required = true)
     private String callback_url;
 
-    public BuyCreditPReq(){
+    public BuyCreditPReq() {
         super();
         this.service = "buy_credit_p";
     }

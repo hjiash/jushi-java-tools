@@ -2,6 +2,7 @@ package us.wili.tools56.model.resp.bankroll;
 
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -12,7 +13,9 @@ import java.util.Map;
  */
 public class NoSecretPresentationAsyncResp extends BaseResp {
     private String order_no;
+    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
+    @ApiModelProperty(value = "金额，必填，两位小数，13", required = true)
     private String amount;
 
     public static NoSecretPresentationAsyncResp fromJson(String content) {

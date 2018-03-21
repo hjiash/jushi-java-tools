@@ -1,25 +1,33 @@
 package us.wili.tools56.model.req.transaction;
 
 
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.req.BaseReq;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public class AutomaticTightnessPReq extends BaseReq {
+    @ApiModelProperty(value = "卡号，必填，电子账户，19", required = true)
     private String card_no;
+    @ApiModelProperty(value = "申请流水号,32为位 必填", required = true)
     private String out_serial_no;
+    @ApiModelProperty(value = "金额，必填，两位小数，13", required = true)
     private String amount;
+    @ApiModelProperty(value = "签约开始时间", required = true)
     private String start_time;
+    @ApiModelProperty(value = "结束开始时间", required = true)
     private String end_time;
+    @ApiModelProperty(value = "成功跳转地址，必填", required = true)
     private String success_url;
+    @ApiModelProperty(value = "失败跳转地址，256，必填", required = true)
     private String fail_url;
+    @ApiModelProperty(value = "回调地址，必填", required = true)
     private String callback_url;
 
-    public AutomaticTightnessPReq(){
+    public AutomaticTightnessPReq() {
         super();
         this.service = "automatic_Tightness_p";
     }

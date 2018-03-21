@@ -2,6 +2,7 @@ package us.wili.tools56.model.resp.batchProcessing;
 
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import us.wili.tools56.model.resp.BaseResp;
 
 import java.util.HashMap;
@@ -12,9 +13,9 @@ import java.util.Map;
  * Created by lhyue on 2018/3/17.
  */
 public class BatchBuyCreditBAsyncResp extends BaseResp {
-    private String batch_no;
-    private String batch_count;
-    private String batch_date;
+    @ApiModelProperty(value = "批次号，必填，6", required = true)    private String batch_no;
+    @ApiModelProperty(value = "总量 ,必填，数据总量，6", required = true)    private String batch_count;
+    @ApiModelProperty(value = "日期 ,必填，YYYYMMDD，需与文件名中的日期一致,8", required = true)    private String batch_date;
     private List<ItemsBean> items;
 
     public static BatchBuyCreditBAsyncResp fromJson(String content) {
@@ -76,19 +77,19 @@ public class BatchBuyCreditBAsyncResp extends BaseResp {
 
     public static class ItemsBean {
 
-        private String in_card_no;
-        private String out_card_no;
-        private String serial_no;
-        private String auth_code;
+        @ApiModelProperty(value = "承接方电子账号，19", required = true)        private String in_card_no;
+        @ApiModelProperty(value = "转让方电子账号，19", required = true)        private String out_card_no;
+        @ApiModelProperty(value = "交易流水号，32")    private String serial_no;
+        @ApiModelProperty(value = "投标申请授权码 ,必填,20", required = true)        private String auth_code;
         private String total_amount;
         private String transfer_amount;
         private String transfer_prise;
         private String transfer_fee;
         private String result;
         private String message;
-        private String reserved;
-        private String origin_serial_no;
-        private String third_reserved;
+        @ApiModelProperty(value = "保留域，条件选填,60", required = true)        private String reserved;
+       @ApiModelProperty(value = "原交易流水号",required = true)    private String origin_serial_no;
+        @ApiModelProperty(value = "第三方流水号 ,必填，p2p平台上送，用于区分每笔交易，必填，40", required = true)        private String third_reserved;
 
         public String getIn_card_no() {
             return in_card_no;
