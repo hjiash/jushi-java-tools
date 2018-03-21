@@ -86,7 +86,10 @@ public enum JushiErrorCode {
     THE_SERVICE_HAS_BEEN_DISABLED("该服务已经禁用","410"),
     LIMIT_OF_REQUEST_TIMES("超过请求次数限制","429"),
     SERVER_INTERNAL_ERROR("服务器内部错误","500"),
-    THE_SERVER_IS_CURRENTLY_UNAVAILABLE("服务器当前不可用","503");
+    THE_SERVER_IS_CURRENTLY_UNAVAILABLE("服务器当前不可用","503"),
+
+    // 自定义异常
+    CUSTOM_SING_INVALID("返回结果签名不一致", "C100");
 
     private String message;
     private String code;

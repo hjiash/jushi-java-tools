@@ -1,0 +1,7 @@
+apiUrl=https://apiuat.rockfintech.com/2.0.0/deposit
+pageUrl=https://apiuat.rockfintech.com/2.0.0/deposit
+key=6615210820854674
+secret=f3fb620e9d92eb77bb46764cbd957ae0
+org=1001
+publicKey=/Users/JasonY/Program/56/config/test-pub.key
+privateKey=/Users/JasonY/Program/56/config/test-pri.key

@@ -29,17 +29,14 @@ public class WithdrawPReq extends BaseReq {
     private String bank_province;
     private String bank_city;
 
+    public WithdrawPReq() {
+        super();
+        this.service = "withdraw_p";
+    }
+
     @Override
     public Map<String, Object> toMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("service", getService());
-        map.put("timestamp", getTimestamp());
-        map.put("uuid", getUuid());
-        map.put("sign_type", getSign_type());
-        map.put("encode", getEncode());
-        map.put("version", getVersion());
-        map.put("custom", getCustom());
-        map.put("client", getClient());
+        Map<String, Object> map = super.toMap();
         map.put("order_no", getOrder_no());
         map.put("card_no", getCard_no());
         map.put("bank_name", getBank_name());

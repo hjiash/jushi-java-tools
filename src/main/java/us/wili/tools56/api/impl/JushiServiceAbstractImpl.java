@@ -1,6 +1,8 @@
 package us.wili.tools56.api.impl;
 
 import com.alibaba.fastjson.JSON;
+import org.apache.http.Header;
+import org.apache.http.message.BasicHeader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import us.wili.tools56.api.*;
@@ -18,6 +20,8 @@ import us.wili.tools56.util.http.SimplePostRequestExecutor;
 import us.wili.tools56.util.http.apache.ApacheHttpClientBuilder;
 
 import java.io.IOException;
+import java.util.Map;
+import java.util.HashMap;
 
 /**
  * Created by JasonY on 18/3/20.
@@ -56,6 +60,8 @@ public abstract class JushiServiceAbstractImpl<H, P> implements JushiService, Re
     protected void init() {
         this.signUtil = new SignUtil(properties.getKey(), properties.getSecret());
         this.cryptoUtil = new CryptoUtil(properties.getPublicKey(), properties.getPrivateKey());
+
+        initHttp();
     }
 
     @Override
@@ -103,21 +109,43 @@ public abstract class JushiServiceAbstractImpl<H, P> implements JushiService, Re
     @Override
     public <T extends BaseResp> T decode(String body, Class<T> clazz) {
         String plain = cryptoUtil.decode(body);
+        if (logger.isDebugEnabled()) {
+            logger.debug("[返回明文]：{}", plain);
+        }
 
         T baseResp = JSON.parseObject(plain, clazz);
-        String sign = signUtil.sign(baseResp.toMap());
+
+        /**
+         * 返回结果中，有些可选值可能为空字符串或者为null
+         * 为null的值需要从校验map中去除，避免被当作空字符串处理
+         * 导致和钜石返回的签名不一致
+         */
+        Map<String, Object> respMap = baseResp.toMap();
+        Map<String, Object> formatRespMap = new HashMap<>();
+        for (String key : respMap.keySet()) {
+            if (respMap.get(key) != null) {
+                formatRespMap.put(key, respMap.get(key));
+            }
+        }
+        String sign = signUtil.sign(formatRespMap);
+
         if (!sign.equals(baseResp.getSign())) {
-            throw new JushiErrorException(JushiErrorCode.REQUEST_ERROR);
+            throw new JushiErrorException(JushiErrorCode.CUSTOM_SING_INVALID);
+        }
+
+        if (!JushiErrorCode.SUCCESS.getCode().equals(baseResp.getCode())) {
+            throw new JushiErrorException(baseResp.getCode(), baseResp.getMsg());
         }
 
         return baseResp;
     }
 
     protected String signAndEncrypt(BaseReq req) {
+        Map<String, Object> reqMap = req.toMap();
         String sign = signUtil.sign(req.toMap());
-        req.setSign(sign);
+        reqMap.put("sign", sign);
 
-        String jsonStr = JSON.toJSONString(req);
+        String jsonStr = JSON.toJSONString(reqMap);
         String encryptJsonStr = cryptoUtil.encode(jsonStr);
 
         return encryptJsonStr;
@@ -125,14 +153,22 @@ public abstract class JushiServiceAbstractImpl<H, P> implements JushiService, Re
 
 
     /**
-     * 向微信端发送请求，在这里执行的策略是当发生access_token过期时才去刷新，然后重新执行请求，而不是全局定时请求
+     * 发送请求
      */
+    @Override
     public <T, E> T execute(RequestExecutor<T, E> executor, String uri, E data) throws JushiErrorException {
         try {
-            T result = executor.execute(uri, data);
+            // 设置头部和请求报文主体，发送请求
+            Header[] headers = new Header[4];
+            headers[0] = new BasicHeader("rft-key", properties.getKey());
+            headers[1] = new BasicHeader("rft-org", properties.getOrg());
+            headers[2] = new BasicHeader("Content-Encoding", "UTF-8");
+            headers[3] = new BasicHeader("Content-Type", "application/json");
+
+            T result = executor.execute(uri, headers, data);
 
             if (logger.isDebugEnabled()) {
-                logger.debug("\n【请求地址】: {}\n【请求参数】：{}\n【响应数据】：{}", uri, data, result);
+                logger.debug("\n[请求地址]: {}\n[请求参数]：{}\n[响应数据]：{}", uri, data, result);
             }
 
             return result;

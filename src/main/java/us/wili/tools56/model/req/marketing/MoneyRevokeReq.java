@@ -20,15 +20,7 @@ public class MoneyRevokeReq extends BaseReq {
 
     @Override
     public Map<String, Object> toMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("service", getService());
-        map.put("timestamp", getTimestamp());
-        map.put("uuid", getUuid());
-        map.put("sign_type", getSign_type());
-        map.put("encode", getEncode());
-        map.put("version", getVersion());
-        map.put("custom", getCustom());
-        map.put("client", getClient());
+        Map<String, Object> map = super.toMap();
         map.put("origin_timestamp", getOrigin_timestamp());
         map.put("origin_serial_no", getOrigin_serial_no());
         map.put("card_no", getCard_no());

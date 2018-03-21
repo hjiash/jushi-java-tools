@@ -20,21 +20,12 @@ public class CreateAccountPResp extends BaseResp {
 
     @Override
     public Map<String, Object> toMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("service", getService());
-        map.put("code", getCode());
-        map.put("msg", getMsg());
-        map.put("version", getVersion());
-        map.put("sign_type", getSign_type());
-        map.put("timestamp", getTimestamp());
-        map.put("uuid", getUuid());
-        map.put("custom", getCustom());
-        map.put("client", getClient());
-        map.put("encode", getEncode());
-        map.put("sequence_id", getSequence_id());
+        Map<String, Object> map = super.toMap();
+
         map.put("out_serial_no", getOut_serial_no());
         map.put("order_id", getOrder_id());
         map.put("url", getUrl());
+
         return map;
     }
 

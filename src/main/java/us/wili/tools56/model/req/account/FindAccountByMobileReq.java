@@ -11,17 +11,14 @@ import java.util.Map;
 public class FindAccountByMobileReq extends BaseReq {
     private String mobile;
 
+    public FindAccountByMobileReq() {
+        super();
+        this.service = "find_account_by_mobile";
+    }
+
     @Override
     public Map<String, Object> toMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("service", getService());
-        map.put("timestamp", getTimestamp());
-        map.put("uuid", getUuid());
-        map.put("sign_type", getSign_type());
-        map.put("encode", getEncode());
-        map.put("version", getVersion());
-        map.put("custom", getCustom());
-        map.put("client", getClient());
+        Map<String, Object> map = super.toMap();
         map.put("mobile", getMobile());
 
         return map;

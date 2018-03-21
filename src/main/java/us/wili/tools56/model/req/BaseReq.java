@@ -6,33 +6,48 @@ import us.wili.tools56.model.BaseModel;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * Created by lhyue on 2018/3/17.
  */
 public abstract class BaseReq extends BaseModel implements Serializable {
     @ApiModelProperty(hidden = true)
-    private String service;
+    protected String service;
     @ApiModelProperty(hidden = true)
-    private String timestamp;
+    protected String timestamp;
     @ApiModelProperty(hidden = true)
-    private String uuid;
+    protected String uuid;
     @ApiModelProperty(hidden = true)
-    private String sign;
+    protected String sign;
     @ApiModelProperty(hidden = true)
-    private String sign_type;
+    protected String sign_type = "";
     @ApiModelProperty(hidden = true)
-    private String encode;
+    protected String encode = "";
     @ApiModelProperty(hidden = true)
-    private String version;
+    protected String version = "";
     @ApiModelProperty(hidden = true)
-    private String custom;
+    protected String custom = "";
     @ApiModelProperty(hidden = true)
-    private String client;
+    protected String client = "";
 
+    public BaseReq() {
+        this.timestamp = String.valueOf(System.currentTimeMillis() / 1000);
+        this.uuid = UUID.randomUUID().toString().replace("-", "");
+    }
+
+    @Override
     public Map<String, Object> toMap() {
         Map<String, Object> map = new HashMap<String, Object>();
 
+        map.put("service", getService());
+        map.put("timestamp", getTimestamp());
+        map.put("uuid", getUuid());
+        map.put("sign_type", getSign_type());
+        map.put("encode", getEncode());
+        map.put("version", getVersion());
+        map.put("custom", getCustom());
+        map.put("client", getClient());
 
         return map;
     }

@@ -1,5 +1,6 @@
 package us.wili.tools56.util.http.apache;
 
+import org.apache.http.Header;
 import org.apache.http.HttpHost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import us.wili.tools56.exception.JushiErrorException;
@@ -18,7 +19,7 @@ public class ApacheGetRequestExecutor extends SimpleGetRequestExecutor<Closeable
     }
 
     @Override
-    public String execute(String uri, String data) throws JushiErrorException, IOException {
+    public String execute(String uri, Header[] headers, String data) throws JushiErrorException, IOException {
         return null;
     }
 }

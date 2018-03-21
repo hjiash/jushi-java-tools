@@ -21,18 +21,20 @@ public class BuyCreditPReq extends BaseReq {
     private String fee_way;
     private String fee;
     private String mobile;
+    private String third_custom;
+    private String success_url;
+    private String fail_url;
+    private String forget_pwd_url;
+    private String callback_url;
+
+    public BuyCreditPReq(){
+        super();
+        this.service = "buy_credit_p";
+    }
 
     @Override
     public Map<String, Object> toMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("service", getService());
-        map.put("timestamp", getTimestamp());
-        map.put("uuid", getUuid());
-        map.put("sign_type", getSign_type());
-        map.put("encode", getEncode());
-        map.put("version", getVersion());
-        map.put("custom", getCustom());
-        map.put("client", getClient());
+        Map<String, Object> map = super.toMap();
         map.put("card_no_in", getCard_no_in());
         map.put("origin_serial_no", getOrigin_serial_no());
         map.put("card_no_out", getCard_no_out());
@@ -45,6 +47,11 @@ public class BuyCreditPReq extends BaseReq {
         map.put("interest_date", getInterest_date());
         map.put("interest_rate", getInterest_rate());
         map.put("mobile", getMobile());
+        map.put("third_custom", getThird_custom());
+        map.put("success_url", getSuccess_url());
+        map.put("fail_url", getFail_url());
+        map.put("forget_pwd_url", getForget_pwd_url());
+        map.put("callback_url", getCallback_url());
         return map;
     }
 
@@ -143,5 +150,45 @@ public class BuyCreditPReq extends BaseReq {
 
     public void setInterest_rate(String interest_rate) {
         this.interest_rate = interest_rate;
+    }
+
+    public String getThird_custom() {
+        return third_custom;
+    }
+
+    public void setThird_custom(String third_custom) {
+        this.third_custom = third_custom;
+    }
+
+    public String getSuccess_url() {
+        return success_url;
+    }
+
+    public void setSuccess_url(String success_url) {
+        this.success_url = success_url;
+    }
+
+    public String getFail_url() {
+        return fail_url;
+    }
+
+    public void setFail_url(String fail_url) {
+        this.fail_url = fail_url;
+    }
+
+    public String getForget_pwd_url() {
+        return forget_pwd_url;
+    }
+
+    public void setForget_pwd_url(String forget_pwd_url) {
+        this.forget_pwd_url = forget_pwd_url;
+    }
+
+    public String getCallback_url() {
+        return callback_url;
+    }
+
+    public void setCallback_url(String callback_url) {
+        this.callback_url = callback_url;
     }
 }

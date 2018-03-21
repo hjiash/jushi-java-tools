@@ -1,6 +1,7 @@
 package us.wili.tools56.util.http.apache;
 
 import org.apache.http.Consts;
+import org.apache.http.Header;
 import org.apache.http.HttpHost;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -22,11 +23,15 @@ public class ApachePostRequestExecutor extends SimplePostRequestExecutor<Closeab
     }
 
     @Override
-    public String execute(String uri, String data) throws IOException {
+    public String execute(String uri, Header[] headers, String data) throws IOException {
         HttpPost httpPost = new HttpPost(uri);
         if (requestHttp.getRequestHttpProxy() != null) {
             RequestConfig config = RequestConfig.custom().setProxy(requestHttp.getRequestHttpProxy()).build();
             httpPost.setConfig(config);
+        }
+
+        if (headers.length > 0) {
+            httpPost.setHeaders(headers);
         }
 
         if (data != null) {
@@ -34,7 +39,8 @@ public class ApachePostRequestExecutor extends SimplePostRequestExecutor<Closeab
             httpPost.setEntity(entity);
         }
 
-        try (CloseableHttpResponse response = requestHttp.getRequestHttpClient().execute(httpPost)) {
+        CloseableHttpResponse response = requestHttp.getRequestHttpClient().execute(httpPost);
+        try {
             return Utf8ResponseHandler.INSTANCE.handleResponse(response);
         } finally {
             httpPost.releaseConnection();

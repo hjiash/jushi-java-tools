@@ -2,7 +2,6 @@ package us.wili.tools56.model.req.account;
 
 import us.wili.tools56.model.req.BaseReq;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -16,17 +15,15 @@ public class SetPasswordPReq extends BaseReq {
     private String fail_url;
     private String callback_url;
 
+    public SetPasswordPReq() {
+        super();
+        this.service = "set_password_p";
+        setClient("000002");
+    }
+
     @Override
     public Map<String, Object> toMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("service", getService());
-        map.put("timestamp", getTimestamp());
-        map.put("uuid", getUuid());
-        map.put("sign_type", getSign_type());
-        map.put("encode", getEncode());
-        map.put("version", getVersion());
-        map.put("custom", getCustom());
-        map.put("client", getClient());
+        Map<String, Object> map = super.toMap();
         map.put("customer_no", getCustomer_no());
         map.put("card_no", getCard_no());
         map.put("out_serial_no", getOut_serial_no());

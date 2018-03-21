@@ -1,7 +1,11 @@
 package us.wili.tools56.model.req.batchProcessing;
 
+import com.alibaba.fastjson.JSONObject;
 import us.wili.tools56.model.req.BaseReq;
+import us.wili.tools56.model.resp.batchProcessing.BatchBuyCreditBResp;
+import us.wili.tools56.util.crypto.SignUtil;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,21 +20,26 @@ public class BatchBuyCreditBReq extends BaseReq {
     private String batch_count;
     private List<ItemsBean> items;
 
+    public BatchBuyCreditBReq() {
+        super();
+        this.client = "000002";
+        this.service = "batch_buy_credit_b";
+    }
+
     @Override
     public Map<String, Object> toMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("service", getService());
-        map.put("timestamp", getTimestamp());
-        map.put("uuid", getUuid());
-        map.put("sign_type", getSign_type());
-        map.put("encode", getEncode());
-        map.put("version", getVersion());
-        map.put("custom", getCustom());
-        map.put("client", getClient());
+        Map<String, Object> map = super.toMap();
         map.put("notify_url", getNotify_url());
         map.put("batch_no", getBatch_count());
         map.put("batch_count", getBatch_count());
-        map.put("items", getItems());
+
+        List<Map<String, Object>> items = new ArrayList<>();
+        for (ItemsBean itemsBean : getItems()){
+            Map<String, Object> childMap = itemsBean.toMap();
+            items.add(childMap);
+        }
+        map.put("items", items);
+
         return map;
     }
 
@@ -82,6 +91,24 @@ public class BatchBuyCreditBReq extends BaseReq {
         private String interest_rate;
         private String reserved;
         private String third_reserved;
+
+        public Map<String, Object> toMap() {
+            Map<String, Object> childMap = new HashMap<>();
+            childMap.put("bank_no", getBank_no());
+            childMap.put("in_card_no", getIn_card_no());
+            childMap.put("out_card_no", getOut_card_no());
+            childMap.put("serial_no", getSerial_no());
+            childMap.put("origin_serial_no", getOrigin_serial_no());
+            childMap.put("total_amount", getTotal_amount());
+            childMap.put("transfer_amount", getTransfer_amount());
+            childMap.put("transfer_prise", getTransfer_prise());
+            childMap.put("transfer_fee", getTransfer_fee());
+            childMap.put("interest_date", getInterest_date());
+            childMap.put("interest_rate", getInterest_rate());
+            childMap.put("reserved", getReserved());
+            childMap.put("third_reserved", getThird_reserved());
+            return childMap;
+        }
 
         public String getBank_no() {
             return bank_no;

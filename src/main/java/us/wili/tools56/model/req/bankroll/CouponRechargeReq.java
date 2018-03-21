@@ -12,17 +12,14 @@ public class CouponRechargeReq extends BaseReq {
     private String amount;
     private String serial_no;
 
+    public CouponRechargeReq() {
+        super();
+        this.service = "coupon_recharge";
+    }
+
     @Override
     public Map<String, Object> toMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("service", getService());
-        map.put("timestamp", getTimestamp());
-        map.put("uuid", getUuid());
-        map.put("sign_type", getSign_type());
-        map.put("encode", getEncode());
-        map.put("version", getVersion());
-        map.put("custom", getCustom());
-        map.put("client", getClient());
+        Map<String, Object> map = super.toMap();
         map.put("serial_no", getSerial_no());
         map.put("amount", getAmount());
         return map;

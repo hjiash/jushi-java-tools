@@ -25,17 +25,16 @@ public class AssetsEnrollReq extends BaseReq {
     private String debtor_card_no;
     private String trustee_pay_flag;
 
+
+    public AssetsEnrollReq() {
+        super();
+        this.service = "assets_enroll";
+    }
+
+
     @Override
     public Map<String, Object> toMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("service", getService());
-        map.put("timestamp", getTimestamp());
-        map.put("uuid", getUuid());
-        map.put("sign_type", getSign_type());
-        map.put("encode", getEncode());
-        map.put("version", getVersion());
-        map.put("custom", getCustom());
-        map.put("client", getClient());
+        Map<String, Object> map = super.toMap();
         map.put("card_no", getCard_no());
         map.put("asset_no", getAsset_no());
         map.put("asset_brief", getAsset_brief());

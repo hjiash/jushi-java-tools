@@ -17,3 +17,4 @@ application-prod.yml
 application-local.yml
 application-test.yml
 application-dev.yml
+test-config.properties

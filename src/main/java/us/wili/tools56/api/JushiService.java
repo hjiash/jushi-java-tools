@@ -5,7 +5,10 @@ import us.wili.tools56.exception.JushiErrorException;
 import us.wili.tools56.model.BaseModel;
 import us.wili.tools56.model.req.BaseReq;
 import us.wili.tools56.model.resp.BaseResp;
+import us.wili.tools56.util.crypto.CryptoUtil;
+import us.wili.tools56.util.crypto.SignUtil;
 import us.wili.tools56.util.http.HttpType;
+import us.wili.tools56.util.http.RequestExecutor;
 import us.wili.tools56.util.http.RequestHttp;
 
 /**
@@ -32,6 +35,11 @@ public interface JushiService {
      * 当本Service没有实现某个页面API的时候，可以用这个，针对所有页面API中的GET请求
      */
     <T extends BaseResp> T postUsePage(BaseReq req, Class<T> clazz) throws JushiErrorException;
+
+    <T, E> T execute(RequestExecutor<T, E> executor, String uri, E data);
+
+    SignUtil getSignUtil();
+    CryptoUtil getCryptoUtil();
 
     String sign(BaseResp resp);
     String sign(BaseReq req);

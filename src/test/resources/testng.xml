@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="jushi-java-tools-suite" verbose="1">
+    <test name="API_Test">
+        <classes>
+            <class name="us.wili.tools56.api.impl.AccountServiceImplTest"/>
+            <class name="us.wili.tools56.api.impl.AssetsServiceImplTest"/>
+            <!--<class name="u"-->
+        </classes>
+    </test>
+</suite>

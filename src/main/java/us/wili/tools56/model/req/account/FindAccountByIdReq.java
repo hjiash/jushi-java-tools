@@ -12,17 +12,14 @@ public class FindAccountByIdReq extends BaseReq {
     private String cert_type;
     private String cert_no;
 
+    public FindAccountByIdReq() {
+        super();
+        this.service = "find_account_by_id";
+    }
+
     @Override
     public Map<String, Object> toMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("service", getService());
-        map.put("timestamp", getTimestamp());
-        map.put("uuid", getUuid());
-        map.put("sign_type", getSign_type());
-        map.put("encode", getEncode());
-        map.put("version", getVersion());
-        map.put("custom", getCustom());
-        map.put("client", getClient());
+        Map<String, Object> map = super.toMap();
         map.put("cert_type", getCert_type());
         map.put("cert_no", getCert_no());
 

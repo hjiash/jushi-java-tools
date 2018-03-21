@@ -1,5 +1,6 @@
 package us.wili.tools56.util.crypto;
 
+import org.apache.commons.codec.binary.Base64;
 import org.omg.SendingContext.RunTime;
 import org.springframework.util.Base64Utils;
 import org.springframework.util.StreamUtils;
@@ -92,10 +93,10 @@ public class CryptoUtil {
         }
 
         String publicKeyContent = getKeyContent(this.publicKeyPath);
-        byte[] publicKeyBytes = Base64Utils.decodeFromString(publicKeyContent);
-        X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(publicKeyBytes);
+        X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(Base64.decodeBase64(publicKeyContent));
 
         try {
+
             KeyFactory factory = KeyFactory.getInstance(KEY_ALGORITHM);
             PublicKey publicKey = factory.generatePublic(x509EncodedKeySpec);
             this.publicKey = publicKey;
@@ -118,10 +119,9 @@ public class CryptoUtil {
         }
 
         String privateKeyContent = getKeyContent(this.privateKeyPath);
-        byte[] privateKeyBytes = Base64Utils.decodeFromString(privateKeyContent);
+        PKCS8EncodedKeySpec pkcs8EncodedKeySpec = new PKCS8EncodedKeySpec(Base64.decodeBase64(privateKeyContent));
 
         try {
-            PKCS8EncodedKeySpec pkcs8EncodedKeySpec = new PKCS8EncodedKeySpec(privateKeyBytes);
             KeyFactory factory = KeyFactory.getInstance(KEY_ALGORITHM);
             PrivateKey privateKey = factory.generatePrivate(pkcs8EncodedKeySpec);
             this.privateKey = privateKey;

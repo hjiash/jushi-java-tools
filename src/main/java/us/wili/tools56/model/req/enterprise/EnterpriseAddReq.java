@@ -10,7 +10,7 @@ import java.util.Map;
  * @author zhumubo
  */
 @ApiModel(value = "线下企业账户信息")
-public class EnterpriseAddReq extends BaseReq{
+public class EnterpriseAddReq extends BaseReq {
 
     private String cert_no;
     private String name;
@@ -22,7 +22,8 @@ public class EnterpriseAddReq extends BaseReq{
 
     @Override
     public Map<String, Object> toMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
+<<<<<<< HEAD
+        Map<String, Object> map = new HashMap<>();
         map.put("service", getService());
         map.put("timestamp", getTimestamp());
         map.put("uuid", getUuid());
@@ -31,6 +32,9 @@ public class EnterpriseAddReq extends BaseReq{
         map.put("version", getVersion());
         map.put("custom", getCustom());
         map.put("client", getClient());
+=======
+        Map<String, Object> map = super.toMap();
+>>>>>>> c82db61... 调整model
         map.put("card_no", getCard_no());
         map.put("cert_no", getCert_no());
         map.put("name", getName());

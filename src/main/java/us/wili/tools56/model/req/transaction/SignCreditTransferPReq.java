@@ -15,24 +15,22 @@ public class SignCreditTransferPReq extends BaseReq {
     private String out_serial_no;
     private String start_time;
     private String end_time;
+    private String success_url;
+    private String fail_url;
+    private String callback_url;
 
     @Override
     public Map<String, Object> toMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("service", getService());
-        map.put("timestamp", getTimestamp());
-        map.put("uuid", getUuid());
-        map.put("sign_type", getSign_type());
-        map.put("encode", getEncode());
-        map.put("version", getVersion());
-        map.put("custom", getCustom());
-        map.put("client", getClient());
+        Map<String, Object> map = super.toMap();
         map.put("card_no", getCard_no());
         map.put("amount", getAmount());
         map.put("out_serial_no", getOut_serial_no());
         map.put("unit_amount", getUnit_amount());
         map.put("start_time", getStart_time());
         map.put("end_time", getEnd_time());
+        map.put("success_url", getSuccess_url());
+        map.put("fail_url", getFail_url());
+        map.put("callback_url", getCallback_url());
         return map;
     }
 
@@ -85,4 +83,27 @@ public class SignCreditTransferPReq extends BaseReq {
         this.end_time = end_time;
     }
 
+    public String getSuccess_url() {
+        return success_url;
+    }
+
+    public void setSuccess_url(String success_url) {
+        this.success_url = success_url;
+    }
+
+    public String getFail_url() {
+        return fail_url;
+    }
+
+    public void setFail_url(String fail_url) {
+        this.fail_url = fail_url;
+    }
+
+    public String getCallback_url() {
+        return callback_url;
+    }
+
+    public void setCallback_url(String callback_url) {
+        this.callback_url = callback_url;
+    }
 }

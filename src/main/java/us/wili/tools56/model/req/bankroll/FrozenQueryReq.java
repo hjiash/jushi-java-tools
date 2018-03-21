@@ -12,17 +12,14 @@ public class FrozenQueryReq extends BaseReq {
     private String card_no;
     private String origin_serial_no;
 
+    public FrozenQueryReq() {
+        super();
+        this.service = "frozen_query";
+    }
+
     @Override
     public Map<String, Object> toMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("service", getService());
-        map.put("timestamp", getTimestamp());
-        map.put("uuid", getUuid());
-        map.put("sign_type", getSign_type());
-        map.put("encode", getEncode());
-        map.put("version", getVersion());
-        map.put("custom", getCustom());
-        map.put("client", getClient());
+        Map<String, Object> map = super.toMap();
         map.put("card_no", getCard_no());
         map.put("origin_serial_no", getOrigin_serial_no());
         return map;

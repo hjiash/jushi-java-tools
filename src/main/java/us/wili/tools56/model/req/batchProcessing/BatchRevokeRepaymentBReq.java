@@ -18,17 +18,14 @@ public class BatchRevokeRepaymentBReq extends BaseReq {
     private String batch_date;
     private List<ItemsBean> items;
 
+    public BatchRevokeRepaymentBReq() {
+        super();
+        this.service = "batch_revoke_repayment_b";
+    }
+
     @Override
     public Map<String, Object> toMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("service", getService());
-        map.put("timestamp", getTimestamp());
-        map.put("uuid", getUuid());
-        map.put("sign_type", getSign_type());
-        map.put("encode", getEncode());
-        map.put("version", getVersion());
-        map.put("custom", getCustom());
-        map.put("client", getClient());
+        Map<String, Object> map = super.toMap();
         map.put("batch_no", getBatch_count());
         map.put("batch_count", getBatch_count());
         map.put("batch_type", getBatch_type());

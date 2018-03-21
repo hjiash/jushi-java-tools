@@ -20,17 +20,14 @@ public class BindBankCardReq extends BaseReq {
     private String bank_mobile;
     private String user_ip;
 
+    public BindBankCardReq() {
+        super();
+        this.service = "bind_bank_card";
+    }
+
     @Override
     public Map<String, Object> toMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("service", getService());
-        map.put("timestamp", getTimestamp());
-        map.put("uuid", getUuid());
-        map.put("sign_type", getSign_type());
-        map.put("encode", getEncode());
-        map.put("version", getVersion());
-        map.put("custom", getCustom());
-        map.put("client", getClient());
+        Map<String, Object> map = super.toMap();
         map.put("card_no", getCard_no());
         map.put("bank_card_no", getBank_card_no());
         map.put("bank_id_no", getBank_id_no());

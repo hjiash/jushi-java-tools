@@ -1,5 +1,6 @@
 package us.wili.tools56.util.http;
 
+import org.apache.http.Header;
 import us.wili.tools56.exception.JushiErrorException;
 
 import java.io.IOException;
@@ -15,6 +16,6 @@ public interface RequestExecutor<T, E> {
      * @throws JushiErrorException
      * @throws IOException
      */
-    T execute(String uri, E data) throws JushiErrorException, IOException;
+    T execute(String uri, Header[] headers, E data) throws JushiErrorException, IOException;
 
 }
