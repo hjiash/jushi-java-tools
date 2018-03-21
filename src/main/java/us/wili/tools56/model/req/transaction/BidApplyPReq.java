@@ -54,11 +54,6 @@ public class BidApplyPReq extends BaseReq {
         this.service = "bid_apply_p";
     }
 
-    private String success_url;
-    private String fail_url;
-    private String callback_url;
-    private String forget_pwd_url;
-
     @Override
     public Map<String, Object> toMap() {
         Map<String, Object> map = super.toMap();

@@ -1,6 +1,5 @@
 package us.wili.tools56.api.impl;
 
-<<<<<<< HEAD
 import com.alibaba.fastjson.JSON;
 import com.google.inject.Inject;
 import org.testng.annotations.Guice;
@@ -26,65 +25,25 @@ public class BatchServiceImplTest {
     @Test
     public void testBatchPaymentB() throws Exception {
 
-=======
-import org.testng.annotations.Test;
-
-
-public class BatchServiceImplTest {
-
-    @Test
-    public void testBatchPaymentB() throws Exception {
-<<<<<<< HEAD
- 
->>>>>>> 730f059... 补充测试类
-=======
-
->>>>>>> e30d57b... 补充提交
     }
 
     @Test
     public void testAsyncBatchPaymentB() throws Exception {
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
- 
->>>>>>> 730f059... 补充测试类
-=======
-
->>>>>>> e30d57b... 补充提交
     }
 
     @Test
     public void testBatchRepaymentB() throws Exception {
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
- 
->>>>>>> 730f059... 补充测试类
-=======
-
->>>>>>> e30d57b... 补充提交
     }
 
     @Test
     public void testAsyncBatchRepaymentB() throws Exception {
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
- 
->>>>>>> 730f059... 补充测试类
-=======
-
->>>>>>> e30d57b... 补充提交
     }
 
     @Test
     public void testBatchBuyCreditB() throws Exception {
-<<<<<<< HEAD
-<<<<<<< HEAD
         BatchBuyCreditBReq req = new BatchBuyCreditBReq();
         req.setNotify_url("www.baidu.com");
         req.setBatch_no("300001");
@@ -114,112 +73,42 @@ public class BatchServiceImplTest {
         assertNotNull(resp);
         System.out.println(JSON.toJSONString(resp));
 
-=======
- 
->>>>>>> 730f059... 补充测试类
-=======
-
->>>>>>> e30d57b... 补充提交
     }
 
     @Test
     public void testAsyncBatchBuyCreditB() throws Exception {
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
- 
->>>>>>> 730f059... 补充测试类
-=======
-
->>>>>>> e30d57b... 补充提交
     }
 
     @Test
     public void testBatchRevokePaymentB() throws Exception {
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
- 
->>>>>>> 730f059... 补充测试类
-=======
-
->>>>>>> e30d57b... 补充提交
     }
 
     @Test
     public void testBatchRevokeRepaymentB() throws Exception {
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
- 
->>>>>>> 730f059... 补充测试类
-=======
-
->>>>>>> e30d57b... 补充提交
     }
 
     @Test
     public void testBatchRevokeBuyCreditB() throws Exception {
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
- 
->>>>>>> 730f059... 补充测试类
-=======
-
->>>>>>> e30d57b... 补充提交
     }
 
     @Test
     public void testBatchEndCreditB() throws Exception {
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
- 
->>>>>>> 730f059... 补充测试类
-=======
-
->>>>>>> e30d57b... 补充提交
     }
 
     @Test
     public void testBatchCouponB() throws Exception {
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
- 
->>>>>>> 730f059... 补充测试类
-=======
-
->>>>>>> e30d57b... 补充提交
     }
 
     @Test
     public void testAsyncBatchCouponB() throws Exception {
-<<<<<<< HEAD
-<<<<<<< HEAD
 
     }
 
 
 }
-=======
- 
-    }
-
-
-} 
->>>>>>> 730f059... 补充测试类
-=======
-
-    }
-
-
-}
->>>>>>> e30d57b... 补充提交

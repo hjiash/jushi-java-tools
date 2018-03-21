@@ -19,21 +19,6 @@ public class MarketingServiceImplTest {
 
     @Test
     public void testMoneyDispatch() throws Exception {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        MoneyDispatchReq req = new MoneyDispatchReq();
-        req.setCard_no("111111111111111111");
-        req.setCard_no_in("222222222222222222");
-        req.setCurrency("153");
-        req.setAmount("0.01");
-        req.setDescription_flag("0");
-
-
-        assertNotNull(jushiService.getMarketingService().moneyDispatch(req));
->>>>>>> 2ddada4... 增加MarketingServiceImplTest
-=======
->>>>>>> e30d57b... 补充提交
     }
 
     /**
@@ -41,23 +26,7 @@ public class MarketingServiceImplTest {
      */
     @Test
     public void testMoneyRevoke() throws Exception {
-<<<<<<< HEAD
-<<<<<<< HEAD
     }
 
 
 }
-=======
-        MoneyRevokeReq req = new MoneyRevokeReq();
-        assertNotNull(jushiService.getMarketingService().moneyRevoke(req));
-    }
-
-
-} 
->>>>>>> 2ddada4... 增加MarketingServiceImplTest
-=======
-    }
-
-
-}
->>>>>>> e30d57b... 补充提交
